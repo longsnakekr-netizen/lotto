@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="로또라운지 - 로그인">
+    <title>로또라운지 - 로그인</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Config (공통) -->
+    <script src="assets/js/tailwind-config.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/custom.css">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- GSAP + ScrollTrigger -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12/dist/ScrollTrigger.min.js"></script>
+</head>
+<body class="font-kr bg-white">
+
+<!-- 헤더 -->
+<div id="header"></div>
+
+<!-- 네비게이션 -->
+<div id="navigation"></div>
+
+<!-- 메인 컨텐츠 -->
+<main class="relative py-24">
+    <div class="flex items-center justify-center p-4">
+        <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-lg">
+            <!-- 로고 -->
+            <div class="mb-16 mt-8 text-center">
+                <div class="inline-flex items-center justify-center h-14 px-10 rounded-full bg-gray-700 text-white text-lg font-bold">
+                    로고
+                </div>
+            </div>
+
+            <form id="login-form">
+                <!-- 아이디(이메일) 입력 필드 -->
+                <div class="mb-6">
+                    <label for="email" class="block text-gray-700 text-base mb-2">아이디(이메일)</label>
+                    <input type="email" id="email" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 text-gray-700 placeholder-gray-400" placeholder="이메일을 입력해주세요.">
+                    <div id="email-error" class="text-red-500 text-sm mt-1 hidden"></div>
+                </div>
+
+                <!-- 패스워드 입력 필드 -->
+                <div class="mb-8">
+                    <label for="password" class="block text-gray-700 text-base mb-2">패스워드</label>
+                    <input type="password" id="password" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 text-gray-700 placeholder-gray-400" placeholder="패스워드를 입력해주세요.">
+                    <div id="password-error" class="text-red-500 text-sm mt-1 hidden"></div>
+                </div>
+
+                <!-- 로그인하기 버튼 -->
+                <div class="mb-5">
+                    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-colors text-lg">
+                        로그인하기
+                    </button>
+                </div>
+
+                <!-- 아이디 기억하기 / 아이디 찾기 | 패스워드 찾기 -->
+                <div class="flex justify-between items-center mb-8">
+                    <div class="flex items-center">
+                        <input type="checkbox" id="remember-id" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                        <label for="remember-id" class="ml-2 text-gray-700 text-sm">아이디 기억하기</label>
+                    </div>
+                    <div class="text-sm">
+                        <a href="#" class="text-gray-700 hover:text-blue-600">아이디 찾기</a>
+                        <span class="mx-2 text-gray-400">|</span>
+                        <a href="#" class="text-gray-700 hover:text-blue-600">패스워드 찾기</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-- 하단 회원가입 링크 -->
+        <div class="absolute bottom-8 text-gray-700 text-base">
+            아직 회원이 아니세요?
+            <a href="register.html" class="text-gray-700 font-bold hover:text-blue-600">회원가입</a>
+        </div>
+    </div>
+</main>
+
+<!-- 푸터 -->
+<div id="footer"></div>
+
+<!-- Scripts -->
+<script src="assets/js/components.js"></script>
+<script src="assets/js/animations.js"></script>
+
+<script>
+$(document).ready(function() {
+    // 저장된 아이디 불러오기
+    const savedEmail = localStorage.getItem('rememberedEmail');
+    if (savedEmail) {
+        $('#email').val(savedEmail);
+        $('#remember-id').prop('checked', true);
+    }
+
+    // Validation 함수들
+    function validateEmail(email) {
+        if (!email) {
+            return '이메일을 입력해주세요.';
+        }
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) {
+            return '올바른 이메일 형식이 아닙니다.';
+        }
+        return null;
+    }
+
+    function validatePassword(password) {
+        if (!password) {
+            return '패스워드를 입력해주세요.';
+        }
+        if (password.length < 4) {
+            return '패스워드는 최소 4자 이상이어야 합니다.';
+        }
+        return null;
+    }
+
+    // 에러 메시지 표시 함수
+    function showError(elementId, message) {
+        const errorElement = $('#' + elementId);
+        if (message) {
+            errorElement.text(message).removeClass('hidden');
+            return false;
+        } else {
+            errorElement.addClass('hidden');
+            return true;
+        }
+    }
+
+    // 실시간 validation
+    $('#email').on('blur', function() {
+        const error = validateEmail(this.value);
+        showError('email-error', error);
+    });
+
+    $('#password').on('blur', function() {
+        const error = validatePassword(this.value);
+        showError('password-error', error);
+    });
+
+    // 폼 제출
+    $('#login-form').on('submit', function(e) {
+        e.preventDefault();
+
+        const email = $('#email').val();
+        const password = $('#password').val();
+        const rememberMe = $('#remember-id').is(':checked');
+
+        // 모든 필드 검증
+        const emailError = validateEmail(email);
+        const passwordError = validatePassword(password);
+
+        const isEmailValid = showError('email-error', emailError);
+        const isPasswordValid = showError('password-error', passwordError);
+
+        // 모든 필드가 유효한 경우
+        if (isEmailValid && isPasswordValid) {
+            // 아이디 기억하기 처리
+            if (rememberMe) {
+                localStorage.setItem('rememberedEmail', email);
+            } else {
+                localStorage.removeItem('rememberedEmail');
+            }
+
+            // 로그인 처리 (실제로는 서버로 전송)
+            // 서버에서 인증 성공 시 로그인 상태로 변경
+            localStorage.setItem('isLoggedIn', 'true');
+
+            // 메인 페이지로 이동
+            window.location.href = 'index.html';
+        } else {
+            // 첫 번째 에러 필드로 포커스 이동
+            if (!isEmailValid) {
+                $('#email').focus();
+            } else if (!isPasswordValid) {
+                $('#password').focus();
+            }
+        }
+    });
+});
+</script>
+</body>
+</html>

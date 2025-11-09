@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="로또라운지 - 상품안내">
+  <title>로또라운지 - 상품안내</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind Config (공통) -->
+  <script src="assets/js/tailwind-config.js"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/custom.css">
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12/dist/ScrollTrigger.min.js"></script>
+</head>
+<body class="font-kr bg-white">
+
+  <!-- 헤더 -->
+  <div id="header"></div>
+
+  <!-- 네비게이션 -->
+  <div id="navigation"></div>
+
+  <!-- 메인 컨텐츠 -->
+  <main class="py-12">
+    <div class="container mx-auto px-4 max-w-6xl">
+      <!-- 페이지 타이틀 -->
+      <h1 class="text-4xl font-bold mb-8 text-center">상품안내</h1>
+
+      <!-- 탭 네비게이션 -->
+      <div class="mb-8">
+        <div class="flex border border-gray-300">
+          <button class="product-tab-button active flex-1 px-6 py-3 bg-primary-blue text-white font-semibold border-r border-gray-300 hover:bg-primary-blue-dark transition-all" data-tab="vip-products">
+            VIP 상품안내
+          </button>
+          <button class="product-tab-button flex-1 px-6 py-3 bg-white text-gray-600 font-semibold hover:bg-gray-50 transition-all" data-tab="special-products">
+            1-2등 SPECIAL 상품안내
+          </button>
+        </div>
+      </div>
+
+      <!-- 탭 컨텐츠 -->
+      <div id="product-tab-contents">
+        <!-- VIP 상품안내 탭 -->
+        <div id="vip-products" class="product-tab-content">
+          <div class="space-y-8">
+            <!-- 상품 이미지 1 -->
+            <div class="bg-gray-300 rounded-lg overflow-hidden" style="height: 400px;">
+              <img src="https://placehold.co/1200x400"
+                   alt="VIP 상품 안내 1"
+                   class="w-full h-full object-cover">
+            </div>
+
+            <!-- 상품 이미지 2 -->
+            <div class="bg-gray-300 rounded-lg overflow-hidden" style="height: 400px;">
+              <img src="https://placehold.co/1200x400"
+                   alt="VIP 상품 안내 2"
+                   class="w-full h-full object-cover">
+            </div>
+          </div>
+        </div>
+
+        <!-- 1-2등 SPECIAL 상품안내 탭 -->
+        <div id="special-products" class="product-tab-content hidden">
+          <div class="space-y-8">
+            <!-- 상품 이미지 1 -->
+            <div class="bg-gray-300 rounded-lg overflow-hidden" style="height: 400px;">
+              <img src="https://placehold.co/1200x400"
+                   alt="SPECIAL 상품 안내 1"
+                   class="w-full h-full object-cover">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- 푸터 -->
+  <div id="footer"></div>
+
+  <!-- Scripts -->
+  <script src="assets/js/components.js"></script>
+  <script src="assets/js/animations.js"></script>
+
+  <script>
+    $(document).ready(function() {
+      // 탭 전환 기능
+      $('.product-tab-button').on('click', function() {
+        const targetTab = $(this).data('tab');
+
+        // 모든 탭 버튼 비활성화
+        $('.product-tab-button').removeClass('active bg-primary-blue text-white')
+                                .addClass('bg-white text-gray-600');
+
+        // 선택된 탭 활성화
+        $(this).removeClass('bg-white text-gray-600')
+               .addClass('active bg-primary-blue text-white');
+
+        // 모든 탭 컨텐츠 숨김
+        $('.product-tab-content').addClass('hidden');
+
+        // 선택된 탭 컨텐츠 표시
+        $('#' + targetTab).removeClass('hidden');
+      });
+
+      // 스크롤 애니메이션 초기화
+      if (typeof ScrollAnimations !== 'undefined') {
+        ScrollAnimations.init();
+      }
+    });
+  </script>
+</body>
+</html>

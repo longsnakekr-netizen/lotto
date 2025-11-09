@@ -1,0 +1,70 @@
+<!-- 네비게이션 컴포넌트 -->
+<nav class="nav-main bg-white sticky top-0 z-50 border-b border-gray-200">
+  <div class="container mx-auto px-4">
+    <ul class="flex items-center gap-2 py-3">
+      <li>
+        <a href="index.html" class="nav-link" data-page="home">
+          홈
+        </a>
+      </li>
+      <li>
+        <a href="products.html" class="nav-link" data-page="products">
+          상품안내
+        </a>
+      </li>
+      <li>
+        <a href="analysis.html" class="nav-link" data-page="analysis">
+          분석연구실
+        </a>
+      </li>
+      <li>
+        <a href="community.html" class="nav-link" data-page="community">
+          커뮤니티
+        </a>
+      </li>
+      <li>
+        <a href="mypage.html" class="nav-link" data-page="mypage">
+          마이페이지
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<script>
+// 현재 페이지에 따라 활성 메뉴 하이라이팅
+(function() {
+  const currentPage = window.location.pathname.split('/').pop().replace('.html', '') || 'index';
+  const pageMap = {
+    'index': 'home',
+    'products': 'products',
+    'analysis': 'analysis',
+    'community': 'community',
+    'mypage': 'mypage'
+  };
+
+  const activePage = pageMap[currentPage] || 'home';
+  const links = document.querySelectorAll('.nav-link');
+
+  links.forEach(link => {
+    if (link.dataset.page === activePage) {
+      link.classList.add('active');
+    }
+  });
+
+  // 스크롤 시 네비게이션 스타일 변경
+  let lastScroll = 0;
+  window.addEventListener('scroll', function() {
+    const nav = document.querySelector('.nav-main');
+    const currentScroll = window.pageYOffset;
+
+    if (currentScroll > 50) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+
+    lastScroll = currentScroll;
+  });
+})();
+</script>

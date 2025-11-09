@@ -1,0 +1,92 @@
+<!-- 오른쪽 스티키 메뉴 -->
+<div class="floating-right bg-primary-blue text-white rounded-lg p-6 shadow-lg">
+  <!-- 헤더 -->
+  <div class="text-center mb-4">
+    <div class="w-12 h-12 bg-accent-green rounded-full flex items-center justify-center mx-auto mb-2">
+      <span class="text-white font-bold text-lg">전</span>
+    </div>
+  </div>
+
+  <!-- 제목 -->
+  <h3 class="text-center font-bold text-lg mb-4">
+    다이아 무료상담 문의
+  </h3>
+
+  <p class="text-center text-sm mb-4 opacity-90">
+    무엇이든 자리드면 원하던 일이 일어납니다.
+  </p>
+
+  <!-- 회차 입력 폼 -->
+  <form id="draw-inquiry-form" class="space-y-4">
+    <div class="grid grid-cols-3 gap-2">
+      <input
+        type="text"
+        class="input-text text-center text-sm"
+        placeholder="010"
+        maxlength="3"
+        id="draw-round"
+      >
+      <input
+        type="text"
+        class="input-text text-center text-sm"
+        placeholder=""
+        disabled
+      >
+      <input
+        type="text"
+        class="input-text text-center text-sm"
+        placeholder=""
+        disabled
+      >
+    </div>
+
+    <!-- 1등 번호찾기 버튼 -->
+    <button type="submit" class="w-full bg-gray-800 hover:bg-gray-900 text-white font-semibold py-3 px-4 rounded-lg transition-colors">
+      1등 번호찾기
+    </button>
+
+    <!-- 개인정보 수집 이용 동의 -->
+    <label class="flex items-start gap-2 cursor-pointer">
+      <input
+        type="checkbox"
+        id="draw-privacy-agree"
+        class="mt-1 w-4 h-4 rounded border-white"
+      >
+      <span class="text-xs opacity-90">
+        (필수) 개인정보 수집 이용 동의
+      </span>
+      <svg class="w-4 h-4 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+      </svg>
+    </label>
+  </form>
+</div>
+
+<script>
+// 회차 조회 폼 제출 처리
+(function() {
+  const form = document.getElementById('draw-inquiry-form');
+
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const drawRound = document.getElementById('draw-round');
+      const privacyAgree = document.getElementById('draw-privacy-agree');
+
+      if (!privacyAgree.checked) {
+        alert('개인정보 수집 이용에 동의해주세요.');
+        return;
+      }
+
+      if (!drawRound.value) {
+        alert('회차를 입력해주세요.');
+        return;
+      }
+
+      // 여기서 실제 서버로 데이터를 전송
+      alert('조회하신 회차: ' + drawRound.value + '회\n1등 번호를 찾고 있습니다...');
+    });
+  }
+})();
+</script>

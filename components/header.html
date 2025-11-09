@@ -1,0 +1,90 @@
+<!-- 헤더 컴포넌트 -->
+<header class="bg-white py-4">
+  <div class="container mx-auto px-4 flex items-center justify-between">
+    <!-- 로고 -->
+    <div class="flex items-center">
+      <a href="index.html" class="flex items-center gap-2">
+        <div class="w-10 h-10 bg-gradient-button rounded-full flex items-center justify-center">
+          <span class="text-white font-bold text-xl">L</span>
+        </div>
+        <span class="text-xl font-bold text-text-primary">로또라운지</span>
+      </a>
+    </div>
+
+    <!-- 우측 메뉴 -->
+    <div class="flex items-center gap-8">
+      <!-- 로그인 상태: 마이페이지 + 로그아웃 -->
+      <div id="logged-in-menu" class="flex items-center gap-8" style="display: none;">
+        <!-- 마이페이지 -->
+        <a href="mypage.html" class="header-icon-btn group">
+          <div class="header-icon-wrapper">
+            <img src="assets/svg/mypage.svg" alt="마이페이지" class="header-icon">
+          </div>
+          <span class="header-icon-text">마이페이지</span>
+        </a>
+
+        <!-- 로그아웃 버튼 -->
+        <button id="logout-button" class="header-icon-btn group">
+          <div class="header-icon-wrapper">
+            <img src="assets/svg/logout.svg" alt="로그아웃" class="header-icon">
+          </div>
+          <span class="header-icon-text">로그아웃</span>
+        </button>
+      </div>
+
+      <!-- 비로그인 상태: 로그인 + 회원가입 -->
+      <div id="logged-out-menu" class="flex items-center gap-8">
+        <!-- 로그인 -->
+        <a href="login.html" id="login-button" class="header-icon-btn group">
+          <div class="header-icon-wrapper">
+            <img src="assets/svg/login.svg" alt="로그인" class="header-icon">
+          </div>
+          <span class="header-icon-text">로그인</span>
+        </a>
+
+        <!-- 회원가입 -->
+        <a href="register.html" id="register-button" class="header-icon-btn group">
+          <div class="header-icon-wrapper">
+            <img src="assets/svg/register.svg" alt="회원가입" class="header-icon">
+          </div>
+          <span class="header-icon-text">회원가입</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+// 로그인 상태 관리 (실제로는 서버에서 관리해야 함)
+(function() {
+  const loggedInMenu = document.getElementById('logged-in-menu');
+  const loggedOutMenu = document.getElementById('logged-out-menu');
+  const logoutButton = document.getElementById('logout-button');
+
+  const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+
+  // 로그인 상태에 따라 메뉴 표시/숨김
+  function updateMenu() {
+    if (isLoggedIn) {
+      loggedInMenu.style.display = 'flex';
+      loggedOutMenu.style.display = 'none';
+    } else {
+      loggedInMenu.style.display = 'none';
+      loggedOutMenu.style.display = 'flex';
+    }
+  }
+
+  // 로그아웃 버튼 클릭
+  if (logoutButton) {
+    logoutButton.addEventListener('click', function() {
+      localStorage.setItem('isLoggedIn', 'false');
+      window.location.reload();
+    });
+  }
+
+  // 로그인 버튼은 login.html로 직접 링크됨
+  // 회원가입 버튼은 register.html로 직접 링크됨
+
+  updateMenu();
+})();
+</script>

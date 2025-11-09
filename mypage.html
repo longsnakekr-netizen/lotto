@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="로또라운지 - 마이페이지">
+    <title>로또라운지 - 마이페이지</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Config (공통) -->
+    <script src="assets/js/tailwind-config.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/custom.css">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- GSAP + ScrollTrigger -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12/dist/ScrollTrigger.min.js"></script>
+</head>
+<body class="font-kr bg-white">
+
+<!-- 헤더 -->
+<div id="header"></div>
+
+<!-- 네비게이션 -->
+<div id="navigation"></div>
+
+<!-- 메인 컨텐츠 -->
+<main class="py-12">
+    <div class="container mx-auto px-4 max-w-6xl">
+        <!-- 페이지 타이틀 -->
+        <h1 class="text-4xl font-bold mb-8 text-center">마이페이지</h1>
+
+        <!-- 탭 네비게이션 -->
+        <div class="mb-16">
+            <div class="flex border border-gray-300">
+                <button class="tab-button active flex-1 px-6 py-3 bg-primary-blue text-white font-semibold border-r border-gray-300 hover:bg-primary-blue-dark transition-all"
+                        data-tab="tab-mypage">
+                    마이페이지
+                </button>
+                <button class="tab-button flex-1 px-6 py-3 bg-white text-gray-600 font-semibold border-r border-gray-300 hover:bg-gray-50 transition-all"
+                        data-tab="tab-winnings">
+                    나의 당첨 페이지
+                </button>
+                <button class="tab-button flex-1 px-6 py-3 bg-white text-gray-600 font-semibold border-r border-gray-300 hover:bg-gray-50 transition-all"
+                        data-tab="tab-lotto">
+                    나의 로또 페이지
+                </button>
+                <button class="tab-button flex-1 px-6 py-3 bg-white text-gray-600 font-semibold border-r border-gray-300 hover:bg-gray-50 transition-all"
+                        data-tab="tab-settings">
+                    회원정보 변경
+                </button>
+                <button class="tab-button flex-1 px-6 py-3 bg-white text-gray-600 font-semibold hover:bg-gray-50 transition-all"
+                        data-tab="tab-withdraw">
+                    회원탈퇴
+                </button>
+            </div>
+        </div>
+
+        <!-- 탭 컨텐츠 -->
+        <div id="tab-contents">
+            <!-- 마이페이지 탭 -->
+            <div id="tab-mypage" class="tab-content">
+                <div class="bg-white overflow-hidden max-w-5xl mx-auto">
+                    <!-- 회원 정보 테이블 -->
+                    <table class="w-full">
+                        <tbody>
+                        <tr class="border-t-2 border-b border-gray-300">
+                            <td class="bg-primary-blue text-white text-base font-semibold w-48 px-6 py-4 whitespace-nowrap text-center">
+                                회원등급
+                            </td>
+                            <td class="text-base font-bold text-primary-blue px-6 py-4 whitespace-nowrap text-center">
+                                Royal special <span class="text-base font-medium text-gray-800">회원</span></td>
+                        </tr>
+                        <tr class="border-b border-gray-200">
+                            <td class="bg-primary-blue text-white text-base font-semibold px-6 py-4 whitespace-nowrap text-center">
+                                이름
+                            </td>
+                            <td class="text-base font-medium text-gray-800 px-6 py-4 whitespace-nowrap text-center">
+                                운영자
+                            </td>
+                        </tr>
+                        <tr class="border-b border-gray-200">
+                            <td class="bg-primary-blue text-white text-base font-semibold px-6 py-4 whitespace-nowrap text-center">
+                                닉네임
+                            </td>
+                            <td class="text-base font-medium text-gray-800 px-6 py-4 whitespace-nowrap text-center">
+                                운영자
+                            </td>
+                        </tr>
+                        <tr class="border-b border-gray-200">
+                            <td class="bg-primary-blue text-white text-base font-semibold px-6 py-4 whitespace-nowrap text-center">
+                                휴대폰 번호
+                            </td>
+                            <td class="text-base font-medium text-gray-800 font-number px-6 py-4 whitespace-nowrap text-center">
+                                01088968175
+                            </td>
+                        </tr>
+                        <tr class="border-b border-gray-200">
+                            <td class="bg-primary-blue text-white text-base font-semibold px-6 py-4 whitespace-nowrap text-center">
+                                회원가입일자
+                            </td>
+                            <td class="text-base font-medium text-gray-800 px-6 py-4 whitespace-nowrap text-center">
+                                2019-07-31 15:33:55
+                            </td>
+                        </tr>
+                        <tr class="border-b border-gray-200">
+                            <td class="bg-primary-blue text-white text-base font-semibold px-6 py-4 whitespace-nowrap text-center">
+                                서비스 종료일
+                            </td>
+                            <td class="text-base font-medium text-gray-800 px-6 py-4 whitespace-nowrap text-center">
+                                2026-09-20
+                            </td>
+                        </tr>
+                        <tr class="border-b border-gray-200">
+                            <td class="bg-primary-blue text-white text-base font-semibold px-6 py-4 whitespace-nowrap text-center">
+                                SMS 서비스 잔여 횟수
+                            </td>
+                            <td class="text-base font-bold px-6 py-4 whitespace-nowrap text-center"><span
+                                    class="text-accent-red font-number">2,000</span><span
+                                    class="text-base font-medium text-gray-800">회</span></td>
+                        </tr>
+                        <tr class="border-b border-gray-200">
+                            <td class="bg-primary-blue text-white text-base font-semibold px-6 py-4 whitespace-nowrap text-center">
+                                대박설정기 잔여 횟수
+                            </td>
+                            <td class="text-base font-bold px-6 py-4 whitespace-nowrap text-center"><span
+                                    class="text-accent-red font-number">9,999</span><span
+                                    class="text-base font-medium text-gray-800">회</span></td>
+                        </tr>
+                        <tr class="border-b border-gray-200">
+                            <td class="bg-primary-blue text-white text-base font-semibold px-6 py-4 whitespace-nowrap text-center">
+                                SNS 초화 발송요일
+                            </td>
+                            <td class="text-base font-medium text-gray-800 px-6 py-4 whitespace-nowrap text-center">
+                                목요일
+                            </td>
+                        </tr>
+                        <tr class="border-b border-gray-200">
+                            <td class="bg-primary-blue text-white text-base font-semibold px-6 py-4 whitespace-nowrap text-center">
+                                조합개수
+                            </td>
+                            <td class="text-base font-bold px-6 py-4 whitespace-nowrap text-center"><span
+                                    class="text-accent-red font-number">10</span><span
+                                    class="text-base font-medium text-gray-800">조합</span></td>
+                        </tr>
+                        <tr class="border-b-2 border-gray-300">
+                            <td class="bg-primary-blue text-white text-base font-semibold px-6 py-4 whitespace-nowrap text-center">
+                                SMS 수신거부
+                            </td>
+                            <td class="text-base font-medium text-gray-800 px-6 py-4 whitespace-nowrap text-center">
+                                수신허용
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 나의 당첨 페이지 탭 -->
+            <div id="tab-winnings" class="tab-content hidden">
+                <div class="p-8">
+                    <!-- 회차 선택 드롭다운 -->
+                    <div class="p-6 mb-6 flex items-center justify-center">
+                        <div class="relative w-full md:w-[500px]">
+                            <select id="winnings-round-select"
+                                    class="block w-full px-4 py-2 text-base text-gray-800 bg-white border border-blue-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300 appearance-none pr-10 cursor-pointer">
+                                <option value="all" selected>전체</option>
+                                <option value="1127">1127회</option>
+                                <option value="1126">1126회</option>
+                                <option value="1125">1125회</option>
+                                <option value="1124">1124회</option>
+                                <option value="1123">1123회</option>
+                            </select>
+
+                            <!-- 커스텀 화살표 아이콘 -->
+                            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-blue-600">
+                                <svg class="fill-current h-5 w-5" xmlns="http://www.w3.org/2000/svg"
+                                     viewBox="0 0 20 20">
+                                    <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 당첨 순위 뱃지 -->
+                    <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
+                        <!-- 1등 (왕관 포함) -->
+                        <div class="text-center">
+                            <div class="relative inline-block">
+                                <img src="assets/images/crown.png" alt="왕관"
+                                     class="absolute -top-10 left-[-40px] w-24 h-24 transform -rotate-12 z-0">
+                                <div class="w-24 h-24 rounded-full bg-accent-red flex items-center justify-center mx-auto shadow-lg relative z-10">
+                                    <div class="text-center">
+                                        <div class="text-white font-bold text-lg mb-1">1등</div>
+                                        <div class="text-white font-number text-xl font-bold">0회</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 2등 -->
+                        <div class="text-center">
+                            <div class="w-24 h-24 rounded-full bg-primary-blue flex items-center justify-center mx-auto shadow-lg">
+                                <div class="text-center">
+                                    <div class="text-white font-bold text-lg mb-1">2등</div>
+                                    <div class="text-white font-number text-xl font-bold">0회</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 3등 -->
+                        <div class="text-center">
+                            <div class="w-24 h-24 rounded-full bg-accent-green flex items-center justify-center mx-auto shadow-lg">
+                                <div class="text-center">
+                                    <div class="text-white font-bold text-lg mb-1">3등</div>
+                                    <div class="text-white font-number text-xl font-bold">0회</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 4등 -->
+                        <div class="text-center">
+                            <div class="w-24 h-24 rounded-full bg-gray-400 flex items-center justify-center mx-auto shadow-lg">
+                                <div class="text-center">
+                                    <div class="text-white font-bold text-lg mb-1">4등</div>
+                                    <div class="text-white font-number text-xl font-bold">0회</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 5등 -->
+                        <div class="text-center">
+                            <div class="w-24 h-24 rounded-full bg-gray-300 flex items-center justify-center mx-auto shadow-lg">
+                                <div class="text-center">
+                                    <div class="text-gray-700 font-bold text-lg mb-1">5등</div>
+                                    <div class="text-gray-700 font-number text-xl font-bold">0회</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 전체 게임수 -->
+                    <div class="mb-4 text-right">
+                        <span class="text-sm font-semibold text-gray-700">전체 게임수: <span id="winnings-count"
+                                                                                        class="text-primary-blue font-number">0</span>건</span>
+                    </div>
+
+                    <!-- 당첨 내역 테이블 -->
+                    <div class="table-container">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th class="text-center px-4 py-3 font-semibold">회차</th>
+                                <th class="text-center px-4 py-3 font-semibold">구매일</th>
+                                <th class="text-center px-4 py-3 font-semibold">등급</th>
+                                <th class="text-center px-4 py-3 font-semibold">구매번호</th>
+                                <th class="text-center px-4 py-3 font-semibold">필터링</th>
+                                <th class="text-center px-4 py-3 font-semibold">SMS 전송여부</th>
+                                <th class="text-center px-4 py-3 font-semibold">확률분석</th>
+                                <th class="text-center px-4 py-3 font-semibold">결과</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="hover:bg-gray-50">
+                                <td class="text-center py-3 font-number">1127</td>
+                                <td class="text-center py-3">2024-01-15</td>
+                                <td class="text-center py-3"><span
+                                        class="px-3 py-1 bg-accent-green text-white rounded-full text-sm font-semibold">3등</span>
+                                </td>
+                                <td class="text-center py-3">
+                                    <div class="flex justify-center gap-1">
+                                        <span class="inline-block w-8 h-8 rounded-full bg-yellow-400 text-white text-sm font-bold flex items-center justify-center">7</span>
+                                        <span class="inline-block w-8 h-8 rounded-full bg-blue-500 text-white text-sm font-bold flex items-center justify-center">12</span>
+                                        <span class="inline-block w-8 h-8 rounded-full bg-red-500 text-white text-sm font-bold flex items-center justify-center">23</span>
+                                        <span class="inline-block w-8 h-8 rounded-full bg-gray-400 text-white text-sm font-bold flex items-center justify-center">28</span>
+                                        <span class="inline-block w-8 h-8 rounded-full bg-green-500 text-white text-sm font-bold flex items-center justify-center">35</span>
+                                        <span class="inline-block w-8 h-8 rounded-full bg-gray-400 text-white text-sm font-bold flex items-center justify-center">42</span>
+                                    </div>
+                                </td>
+                                <td class="text-center py-3 text-sm">고저 조합</td>
+                                <td class="text-center py-3"><span class="text-blue-600 font-semibold">발송완료</span></td>
+                                <td class="text-center py-3 text-sm">상위 15%</td>
+                                <td class="text-center py-3"><span class="text-accent-green font-bold">당첨</span></td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="text-center py-3 font-number">1126</td>
+                                <td class="text-center py-3">2024-01-08</td>
+                                <td class="text-center py-3"><span
+                                        class="px-3 py-1 bg-gray-400 text-white rounded-full text-sm font-semibold">4등</span>
+                                </td>
+                                <td class="text-center py-3">
+                                    <div class="flex justify-center gap-1">
+                                        <span class="inline-block w-8 h-8 rounded-full bg-yellow-400 text-white text-sm font-bold flex items-center justify-center">3</span>
+                                        <span class="inline-block w-8 h-8 rounded-full bg-yellow-400 text-white text-sm font-bold flex items-center justify-center">9</span>
+                                        <span class="inline-block w-8 h-8 rounded-full bg-blue-500 text-white text-sm font-bold flex items-center justify-center">15</span>
+                                        <span class="inline-block w-8 h-8 rounded-full bg-red-500 text-white text-sm font-bold flex items-center justify-center">21</span>
+                                        <span class="inline-block w-8 h-8 rounded-full bg-gray-400 text-white text-sm font-bold flex items-center justify-center">33</span>
+                                        <span class="inline-block w-8 h-8 rounded-full bg-green-500 text-white text-sm font-bold flex items-center justify-center">44</span>
+                                    </div>
+                                </td>
+                                <td class="text-center py-3 text-sm">연번 제외</td>
+                                <td class="text-center py-3"><span class="text-blue-600 font-semibold">발송완료</span></td>
+                                <td class="text-center py-3 text-sm">중위 45%</td>
+                                <td class="text-center py-3"><span class="text-accent-green font-bold">당첨</span></td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="text-center py-3 font-number">1125</td>
+                                <td class="text-center py-3">2024-01-01</td>
+                                <td class="text-center py-3"><span
+                                        class="px-3 py-1 bg-gray-300 text-gray-700 rounded-full text-sm font-semibold">5등</span>
+                                </td>
+                                <td class="text-center py-3">
+                                    <div class="flex justify-center gap-1">
+                                        <span class="inline-block w-8 h-8 rounded-full bg-yellow-400 text-white text-sm font-bold flex items-center justify-center">5</span>
+                                        <span class="inline-block w-8 h-8 rounded-full bg-blue-500 text-white text-sm font-bold flex items-center justify-center">11</span>
+                                        <span class="inline-block w-8 h-8 rounded-full bg-blue-500 text-white text-sm font-bold flex items-center justify-center">18</span>
+                                        <span class="inline-block w-8 h-8 rounded-full bg-red-500 text-white text-sm font-bold flex items-center justify-center">27</span>
+                                        <span class="inline-block w-8 h-8 rounded-full bg-gray-400 text-white text-sm font-bold flex items-center justify-center">36</span>
+                                        <span class="inline-block w-8 h-8 rounded-full bg-green-500 text-white text-sm font-bold flex items-center justify-center">41</span>
+                                    </div>
+                                </td>
+                                <td class="text-center py-3 text-sm">대박설정기</td>
+                                <td class="text-center py-3"><span class="text-gray-500 font-semibold">미발송</span></td>
+                                <td class="text-center py-3 text-sm">상위 22%</td>
+                                <td class="text-center py-3"><span class="text-accent-green font-bold">당첨</span></td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="text-center py-3 font-number">1124</td>
+                                <td class="text-center py-3">2023-12-25</td>
+                                <td class="text-center py-3"><span
+                                        class="px-3 py-1 bg-gray-200 text-gray-600 rounded-full text-sm font-semibold">미당첨</span>
+                                </td>
+                                <td class="text-center py-3">
+                                    <div class="flex justify-center gap-1">
+                                        <span class="inline-block w-8 h-8 rounded-full bg-yellow-400 text-white text-sm font-bold flex items-center justify-center">2</span>
+                                        <span class="inline-block w-8 h-8 rounded-full bg-yellow-400 text-white text-sm font-bold flex items-center justify-center">8</span>
+                                        <span class="inline-block w-8 h-8 rounded-full bg-blue-500 text-white text-sm font-bold flex items-center justify-center">16</span>
+                                        <span class="inline-block w-8 h-8 rounded-full bg-red-500 text-white text-sm font-bold flex items-center justify-center">24</span>
+                                        <span class="inline-block w-8 h-8 rounded-full bg-gray-400 text-white text-sm font-bold flex items-center justify-center">31</span>
+                                        <span class="inline-block w-8 h-8 rounded-full bg-green-500 text-white text-sm font-bold flex items-center justify-center">39</span>
+                                    </div>
+                                </td>
+                                <td class="text-center py-3 text-sm">고저 조합</td>
+                                <td class="text-center py-3"><span class="text-blue-600 font-semibold">발송완료</span></td>
+                                <td class="text-center py-3 text-sm">하위 68%</td>
+                                <td class="text-center py-3"><span class="text-gray-500 font-bold">미당첨</span></td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="text-center py-3 font-number">1123</td>
+                                <td class="text-center py-3">2023-12-18</td>
+                                <td class="text-center py-3"><span
+                                        class="px-3 py-1 bg-gray-200 text-gray-600 rounded-full text-sm font-semibold">미당첨</span>
+                                </td>
+                                <td class="text-center py-3">
+                                    <div class="flex justify-center gap-1">
+                                        <span class="inline-block w-8 h-8 rounded-full bg-yellow-400 text-white text-sm font-bold flex items-center justify-center">4</span>
+                                        <span class="inline-block w-8 h-8 rounded-full bg-blue-500 text-white text-sm font-bold flex items-center justify-center">13</span>
+                                        <span class="inline-block w-8 h-8 rounded-full bg-blue-500 text-white text-sm font-bold flex items-center justify-center">19</span>
+                                        <span class="inline-block w-8 h-8 rounded-full bg-red-500 text-white text-sm font-bold flex items-center justify-center">26</span>
+                                        <span class="inline-block w-8 h-8 rounded-full bg-gray-400 text-white text-sm font-bold flex items-center justify-center">34</span>
+                                        <span class="inline-block w-8 h-8 rounded-full bg-green-500 text-white text-sm font-bold flex items-center justify-center">43</span>
+                                    </div>
+                                </td>
+                                <td class="text-center py-3 text-sm">연번 제외</td>
+                                <td class="text-center py-3"><span class="text-gray-500 font-semibold">미발송</span></td>
+                                <td class="text-center py-3 text-sm">중위 52%</td>
+                                <td class="text-center py-3"><span class="text-gray-500 font-bold">미당첨</span></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 나의 로또 페이지 탭 -->
+            <div id="tab-lotto" class="tab-content hidden p-8">
+                <div class="bg-white overflow-hidden">
+
+                    <!-- Top Filter Section -->
+                    <div class="py-6 px-6">
+                        <!-- Row 1: Filter Controls -->
+                        <div class="flex items-center justify-center space-x-4">
+                            <!-- Dropdown -->
+                            <div class="relative min-w-[240px]">
+                                <select id="lotto-round-select"
+                                        class="block w-full px-4 py-2 text-base text-gray-800 bg-white border border-blue-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300 appearance-none pr-10 cursor-pointer">
+                                    <option value="all" selected>전체</option>
+                                    <option value="1127">1127회</option>
+                                    <option value="1126">1126회</option>
+                                    <option value="1125">1125회</option>
+                                    <option value="1124">1124회</option>
+                                    <option value="1123">1123회</option>
+                                </select>
+                                <div class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+                                    <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor"
+                                         viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                              d="M19 9l-7 7-7-7"></path>
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <!-- Radio Button Group -->
+                            <div class="flex items-center space-x-4 ml-4">
+                                <label class="flex items-center">
+                                    <input type="radio" name="lotto-status" value="all" checked class="accent-black">
+                                    <span class="ml-2 text-gray-900 font-semibold">전체</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="lotto-status" value="winning" class="accent-black">
+                                    <span class="ml-2 text-gray-700">당첨</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="lotto-status" value="losing" class="accent-black">
+                                    <span class="ml-2 text-gray-700">낙첨</span>
+                                </label>
+                            </div>
+
+                            <!-- Search Button -->
+                            <button class="bg-blue-600 text-white px-4 py-2 rounded font-semibold hover:bg-blue-700">
+                                검색
+                            </button>
+                        </div>
+
+                        <!-- Row 2: Right-Aligned Information -->
+                        <div class="flex justify-end mt-4">
+                            <div class="flex items-baseline space-x-1">
+                                <span class="text-gray-600 text-sm">전체 게임수</span>
+                                <span class="font-bold text-red-600 text-base">1건</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Separator Line -->
+                    <div class="border-b border-gray-300 pb-4 mb-4 mt-6"></div>
+
+                    <!-- Table Section -->
+                    <div class="table-container">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th class="text-center px-4 py-3 font-semibold">회차</th>
+                                <th class="text-center px-4 py-3 font-semibold">구매일</th>
+                                <th class="text-center px-4 py-3 font-semibold">등급</th>
+                                <th class="text-center px-4 py-3 font-semibold">구매번호</th>
+                                <th class="text-center px-4 py-3 font-semibold">필터링</th>
+                                <th class="text-center px-4 py-3 font-semibold">SMS 전송여부</th>
+                                <th class="text-center px-4 py-3 font-semibold">확률분석</th>
+                                <th class="text-center px-4 py-3 font-semibold">결과</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="hover:bg-gray-50">
+                                <td class="text-center py-3 font-number">1127회</td>
+                                <td class="text-center py-3">25-09-21 17:05:15</td>
+                                <td class="text-center py-3 text-blue-600 font-medium">대박추천</td>
+                                <td class="text-center py-3">
+                                    <div class="flex items-center justify-center gap-1">
+                                        <div class="w-8 h-8 bg-yellow-400 text-white rounded-full flex items-center justify-center text-sm font-bold">
+                                            7
+                                        </div>
+                                        <div class="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm font-bold">
+                                            12
+                                        </div>
+                                        <div class="w-8 h-8 bg-red-500 text-white rounded-full flex items-center justify-center text-sm font-bold">
+                                            23
+                                        </div>
+                                        <div class="w-8 h-8 bg-gray-400 text-white rounded-full flex items-center justify-center text-sm font-bold">
+                                            28
+                                        </div>
+                                        <div class="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center text-sm font-bold">
+                                            35
+                                        </div>
+                                        <div class="w-8 h-8 bg-orange-500 text-white rounded-full flex items-center justify-center text-sm font-bold">
+                                            42
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="text-center py-3">
+                                    <div class="flex items-center justify-center gap-1">
+                                        <span>필터링</span>
+                                        <img src="assets/svg/filtering.svg" alt="필터링" class="w-4 h-4">
+                                    </div>
+                                </td>
+                                <td class="text-center py-3">
+                                    <div class="flex items-center justify-center gap-1">
+                                        <span>사이트</span>
+                                        <img src="assets/images/sms.png" alt="SMS 전송여부" class="w-4 h-4">
+                                    </div>
+                                </td>
+                                <td class="text-center py-3">
+                                    <div class="flex items-center justify-center">
+                                        <button class="flex items-center gap-1 px-3 py-1.5 rounded-md transition-all duration-200 hover:shadow-md"
+                                                style="background-color: #DDE1FF;"
+                                                onmouseover="this.style.backgroundColor='#C5CAFF'"
+                                                onmouseout="this.style.backgroundColor='#DDE1FF'">
+                                            <img src="assets/images/graph.png" alt="그래프" class="w-[17px] h-[17px]">
+                                            <span class="text-sm">확률분석</span>
+                                        </button>
+                                    </div>
+                                </td>
+                                <td class="text-center py-3 font-medium">예정</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 회원정보 변경 탭 -->
+            <div id="tab-settings" class="tab-content hidden">
+                <div class="bg-white max-w-xl mx-auto py-10">
+                    <!-- Duplicate Title (Subtitle) -->
+                    <h2 class="text-2xl font-bold text-gray-900 text-center mb-4">회원정보 변경</h2>
+
+                    <!-- Alert Message -->
+                    <p class="text-accent-red text-sm text-center mb-6">
+                        수신 요일, 조합 개수 변경 시 이번 주 추천 조합 받으신 이후에 변경해 주시기 바랍니다. <br>
+                        변경된 내용은 차주에 적용됩니다.
+                    </p>
+
+                    <!-- Separator Line -->
+                    <div class="border-b-2 mb-10  border-black">
+                    </div>
+
+                    <!-- Form Section -->
+                    <form id="settings-form" class="flex flex-col space-y-6">
+                        <!-- 아이디 Input Group -->
+                        <div>
+                            <label for="user-id" class="block text-gray-800 font-medium mb-2">아이디</label>
+                            <input
+                                    type="text"
+                                    id="user-id"
+                                    value="01088888175"
+                                    readonly
+                                    class="w-full bg-gray-100 text-gray-700 border border-gray-300 rounded px-4 py-3 cursor-not-allowed"
+                            >
+                        </div>
+
+                        <!-- 비밀번호 Input Group -->
+                        <div>
+                            <label for="password" class="block text-gray-800 font-medium mb-2">비밀번호</label>
+                            <input
+                                    type="password"
+                                    id="password"
+                                    placeholder="영문 또는 숫자, 4자~12자"
+                                    class="w-full bg-white text-gray-800 border border-gray-300 rounded px-4 py-3 placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                            >
+                        </div>
+
+                        <!-- Confirmation Button -->
+                        <div class="flex justify-center mt-10">
+                            <button
+                                    type="submit"
+                                    id="settings-submit-btn"
+                                    class="w-40 bg-blue-600 text-white px-6 py-3 rounded-md font-semibold text-lg hover:bg-blue-700"
+                            >
+                                확인
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- 회원탈퇴 탭 -->
+            <div id="tab-withdraw" class="tab-content hidden">
+                <div class="bg-white max-w-xl mx-auto py-10">
+                    <!-- Title -->
+                    <h2 class="text-2xl font-bold text-gray-900 text-center mb-6">회원 탈퇴</h2>
+
+                    <!-- Alert Message -->
+                    <p class="text-red-600 text-center mb-6 px-4">
+                        가입 기간이 일주일이 안된 신규 회원의 경우 1주일 뒤에 탈퇴가 가능합니다.<br>
+                        재가입을 원하시면 고객센터로 문의바랍니다. <a href="index.html" class="font-semibold text-black hover:text-blue-600 underline">[고객센터문의]</a>
+                    </p>
+
+                    <!-- Separator Line -->
+                    <div class="border-b-2 border-black mb-10"></div>
+
+                    <!-- Withdraw Form -->
+                    <form id="withdraw-form-simple" class="flex flex-col space-y-6 px-8">
+                        <!-- 아이디 -->
+                        <div>
+                            <label for="withdraw-user-id" class="block text-gray-800 font-medium mb-2">아이디</label>
+                            <input type="text" id="withdraw-user-id" value="01088888175" readonly
+                                   class="w-full bg-gray-100 text-gray-700 border border-gray-300 rounded px-4 py-3 cursor-not-allowed">
+                        </div>
+
+                        <!-- 비밀번호 -->
+                        <div>
+                            <label for="withdraw-password" class="block text-gray-800 font-medium mb-2">비밀번호</label>
+                            <input type="password" id="withdraw-password" placeholder="회원 비밀번호를 입력해주세요."
+                                   class="w-full bg-white text-gray-800 border border-gray-300 rounded px-4 py-3 placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            <p id="withdraw-password-error" class="text-red-600 text-sm mt-1 hidden"></p>
+                        </div>
+
+                        <!-- 비밀번호 확인 -->
+                        <div>
+                            <label for="withdraw-password-confirm" class="block text-gray-800 font-medium mb-2">비밀번호 확인</label>
+                            <input type="password" id="withdraw-password-confirm" placeholder="위의 비밀번호를 다시 한번 입력하세요."
+                                   class="w-full bg-white text-gray-800 border border-gray-300 rounded px-4 py-3 placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            <p id="withdraw-password-confirm-error" class="text-red-600 text-sm mt-1 hidden"></p>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="flex justify-center mt-10">
+                            <button type="submit"
+                                    class="w-64 bg-blue-600 text-white px-6 py-3 rounded-md font-semibold text-lg hover:bg-blue-700">
+                                회원 탈퇴하기
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- 푸터 -->
+<div id="footer"></div>
+
+<!-- Scripts -->
+<script src="assets/js/components.js"></script>
+<script src="assets/js/animations.js"></script>
+
+<script>
+    $(document).ready(function () {
+        // 회차별 당첨 데이터 (더미 데이터)
+        const winningsData = {
+            "1127": [
+                {
+                    round: "1127",
+                    date: "2024-01-15",
+                    grade: "3등",
+                    gradeClass: "bg-accent-green",
+                    numbers: [7, 12, 23, 28, 35, 42],
+                    filter: "고저 조합",
+                    sms: "발송완료",
+                    smsClass: "text-blue-600",
+                    analysis: "상위 15%",
+                    result: "당첨",
+                    resultClass: "text-accent-green"
+                }
+            ],
+            "1126": [
+                {
+                    round: "1126",
+                    date: "2024-01-08",
+                    grade: "4등",
+                    gradeClass: "bg-gray-400",
+                    numbers: [3, 9, 15, 21, 33, 44],
+                    filter: "연번 제외",
+                    sms: "발송완료",
+                    smsClass: "text-blue-600",
+                    analysis: "중위 45%",
+                    result: "당첨",
+                    resultClass: "text-accent-green"
+                }
+            ],
+            "1123": [
+                {
+                    round: "1123",
+                    date: "2023-12-18",
+                    grade: "미당첨",
+                    gradeClass: "bg-gray-200 text-gray-600",
+                    numbers: [4, 13, 19, 26, 34, 43],
+                    filter: "연번 제외",
+                    sms: "미발송",
+                    smsClass: "text-gray-500",
+                    analysis: "중위 52%",
+                    result: "미당첨",
+                    resultClass: "text-gray-500"
+                }
+            ]
+        };
+
+        // 로또 번호 색상 결정 함수
+        function getNumberColor(num) {
+            if (num <= 10) return 'bg-yellow-400';
+            if (num <= 20) return 'bg-blue-500';
+            if (num <= 30) return 'bg-red-500';
+            if (num <= 40) return 'bg-gray-400';
+            return 'bg-green-500';
+        }
+
+        // 당첨 내역 테이블 렌더링 함수
+        function renderWinningsTable(data) {
+            const tbody = $('#tab-winnings tbody');
+            tbody.empty();
+
+            if (!data || data.length === 0) {
+                tbody.html(`
+            <tr>
+              <td colspan="8" class="text-center py-12 text-gray-500">
+                구매한 로또가 없습니다.
+              </td>
+            </tr>
+          `);
+                $('#winnings-count').text('0');
+                return;
+            }
+
+            $('#winnings-count').text(data.length);
+
+            data.forEach(item => {
+                const numbersHtml = item.numbers.map(num =>
+                    `<span class="inline-block w-8 h-8 rounded-full ${getNumberColor(num)} text-white text-sm font-bold flex items-center justify-center">${num}</span>`
+                ).join('');
+
+                const row = `
+            <tr class="hover:bg-gray-50">
+              <td class="text-center py-3 font-number">${item.round}</td>
+              <td class="text-center py-3">${item.date}</td>
+              <td class="text-center py-3"><span class="px-3 py-1 ${item.gradeClass} text-white rounded-full text-sm font-semibold">${item.grade}</span></td>
+              <td class="text-center py-3">
+                <div class="flex justify-center gap-1">
+                  ${numbersHtml}
+                </div>
+              </td>
+              <td class="text-center py-3 text-sm">${item.filter}</td>
+              <td class="text-center py-3"><span class="${item.smsClass} font-semibold">${item.sms}</span></td>
+              <td class="text-center py-3 text-sm">${item.analysis}</td>
+              <td class="text-center py-3"><span class="${item.resultClass} font-bold">${item.result}</span></td>
+            </tr>
+          `;
+                tbody.append(row);
+            });
+        }
+
+        // 회차 선택 드롭다운 이벤트
+        $('#winnings-round-select').on('change', function () {
+            const selectedRound = $(this).val();
+
+            if (selectedRound === '' || selectedRound === 'all') {
+                // 전체 보기
+                const allData = Object.values(winningsData).flat();
+                renderWinningsTable(allData);
+            } else {
+                // 특정 회차 선택
+                const roundData = winningsData[selectedRound];
+                if (roundData) {
+                    renderWinningsTable(roundData);
+                } else {
+                    renderWinningsTable([]);
+                }
+            }
+        });
+
+        // 초기 로드 시 전체 데이터 표시
+        const allData = Object.values(winningsData).flat();
+        renderWinningsTable(allData);
+
+        // 탭 전환 기능
+        $('.tab-button').on('click', function () {
+            const targetTab = $(this).data('tab');
+
+            // 모든 탭 버튼 비활성화
+            $('.tab-button').removeClass('active bg-primary-blue text-white')
+                .addClass('bg-white text-gray-600');
+
+            // 선택된 탭 활성화
+            $(this).removeClass('bg-white text-gray-600')
+                .addClass('active bg-primary-blue text-white');
+
+            // 모든 탭 컨텐츠 숨김
+            $('.tab-content').addClass('hidden');
+
+            // 선택된 탭 컨텐츠 표시
+            $('#' + targetTab).removeClass('hidden').addClass('fade-in');
+
+            // 회원탈퇴 탭으로 전환 시 폼 초기화
+            if (targetTab === 'tab-withdraw') {
+                $('#withdraw-password').val('').removeClass('border-red-500').addClass('border-gray-300');
+                $('#withdraw-password-confirm').val('').removeClass('border-red-500').addClass('border-gray-300');
+                $('#withdraw-password-error').addClass('hidden');
+                $('#withdraw-password-confirm-error').addClass('hidden');
+            }
+        });
+
+        // 회원탈퇴 폼 validation 함수
+        function showWithdrawError(fieldId, message) {
+            const errorEl = $('#' + fieldId + '-error');
+            const inputEl = $('#' + fieldId);
+            errorEl.text(message).removeClass('hidden');
+            inputEl.addClass('border-red-500').removeClass('border-gray-300');
+        }
+
+        function hideWithdrawError(fieldId) {
+            const errorEl = $('#' + fieldId + '-error');
+            const inputEl = $('#' + fieldId);
+            errorEl.addClass('hidden');
+            inputEl.removeClass('border-red-500').addClass('border-gray-300');
+        }
+
+        // 회원탈퇴 비밀번호 실시간 validation
+        $('#withdraw-password').on('blur', function() {
+            const value = $(this).val();
+            if (!value) {
+                showWithdrawError('withdraw-password', '비밀번호를 입력해주세요.');
+            } else if (value.length < 4 || value.length > 12) {
+                showWithdrawError('withdraw-password', '비밀번호는 4자~12자 사이여야 합니다.');
+            } else if (!/^[a-zA-Z0-9]+$/.test(value)) {
+                showWithdrawError('withdraw-password', '비밀번호는 영문 또는 숫자만 사용 가능합니다.');
+            } else {
+                hideWithdrawError('withdraw-password');
+            }
+        });
+
+        // 회원탈퇴 비밀번호 확인 실시간 validation
+        $('#withdraw-password-confirm').on('blur', function() {
+            const password = $('#withdraw-password').val();
+            const confirm = $(this).val();
+
+            if (!confirm) {
+                showWithdrawError('withdraw-password-confirm', '비밀번호 확인을 입력해주세요.');
+            } else if (password !== confirm) {
+                showWithdrawError('withdraw-password-confirm', '비밀번호가 일치하지 않습니다.');
+            } else {
+                hideWithdrawError('withdraw-password-confirm');
+            }
+        });
+
+        // 회원탈퇴 폼 제출
+        $('#withdraw-form-simple').on('submit', function(e) {
+            e.preventDefault();
+
+            let hasError = false;
+
+            // 비밀번호 검증
+            const password = $('#withdraw-password').val();
+            if (!password) {
+                showWithdrawError('withdraw-password', '비밀번호를 입력해주세요.');
+                hasError = true;
+            } else if (password.length < 4 || password.length > 12) {
+                showWithdrawError('withdraw-password', '비밀번호는 4자~12자 사이여야 합니다.');
+                hasError = true;
+            } else if (!/^[a-zA-Z0-9]+$/.test(password)) {
+                showWithdrawError('withdraw-password', '비밀번호는 영문 또는 숫자만 사용 가능합니다.');
+                hasError = true;
+            } else {
+                hideWithdrawError('withdraw-password');
+            }
+
+            // 비밀번호 확인 검증
+            const passwordConfirm = $('#withdraw-password-confirm').val();
+            if (!passwordConfirm) {
+                showWithdrawError('withdraw-password-confirm', '비밀번호 확인을 입력해주세요.');
+                hasError = true;
+            } else if (password !== passwordConfirm) {
+                showWithdrawError('withdraw-password-confirm', '비밀번호가 일치하지 않습니다.');
+                hasError = true;
+            } else {
+                hideWithdrawError('withdraw-password-confirm');
+            }
+
+            if (hasError) {
+                return;
+            }
+
+            if (confirm('정말로 회원 탈퇴하시겠습니까?\n이 작업은 되돌릴 수 없습니다.')) {
+                alert('회원 탈퇴가 완료되었습니다.');
+                // 실제로는 서버에 요청을 보내야 합니다.
+            }
+        });
+
+        // 회원정보 변경 폼 제출
+        $('#tab-settings form').on('submit', function (e) {
+            e.preventDefault();
+            const password = $('#password').val();
+
+            if (!password) {
+                alert('비밀번호를 입력해주세요.');
+                return;
+            }
+
+            if (password.length < 4 || password.length > 12) {
+                alert('비밀번호는 4자~12자 사이여야 합니다.');
+                return;
+            }
+
+            // 성공 시 폼을 새로운 디자인으로 교체
+            const newFormHtml = `
+                <form id="settings-form-full" class="flex flex-col space-y-6">
+                    <!-- 아이디 -->
+                    <div>
+                        <label for="user-id-full" class="block text-gray-800 font-medium mb-2">아이디</label>
+                        <input type="text" id="user-id-full" value="01088888175" readonly
+                               class="w-full bg-gray-100 text-gray-700 border border-gray-300 rounded px-4 py-3 cursor-not-allowed">
+                    </div>
+
+                    <!-- 이름 -->
+                    <div>
+                        <label for="user-name" class="block text-gray-800 font-medium mb-2">이름</label>
+                        <input type="text" id="user-name" value="운영자" readonly
+                               class="w-full bg-gray-100 text-gray-700 border border-gray-300 rounded px-4 py-3 cursor-not-allowed">
+                    </div>
+
+                    <!-- 닉네임 -->
+                    <div>
+                        <label for="nickname" class="block text-gray-800 font-medium mb-2">닉네임</label>
+                        <input type="text" id="nickname" placeholder="3자 ~ 8자"
+                               class="w-full bg-white text-gray-800 border border-gray-300 rounded px-4 py-3 placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        <p id="nickname-error" class="text-red-600 text-sm mt-1 hidden"></p>
+                    </div>
+
+                    <!-- 현재 비밀번호 -->
+                    <div>
+                        <label for="current-password" class="block text-gray-800 font-medium mb-2">현재 비밀번호</label>
+                        <input type="password" id="current-password"
+                               class="w-full bg-white text-gray-800 border border-gray-300 rounded px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        <p id="current-password-error" class="text-red-600 text-sm mt-1 hidden"></p>
+                    </div>
+
+                    <!-- 변경할 비밀번호 -->
+                    <div>
+                        <label for="new-password" class="block text-gray-800 font-medium mb-2">변경할 비밀번호</label>
+                        <input type="password" id="new-password" placeholder="영문 또는 숫자, 4자~12자"
+                               class="w-full bg-white text-gray-800 border border-gray-300 rounded px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        <p id="new-password-error" class="text-red-600 text-sm mt-1 hidden"></p>
+                    </div>
+
+                    <!-- 변경할 비밀번호 확인 -->
+                    <div>
+                        <label for="new-password-confirm" class="block text-gray-800 font-medium mb-2">변경할 비밀번호 확인</label>
+                        <input type="password" id="new-password-confirm"
+                               class="w-full bg-white text-gray-800 border border-gray-300 rounded px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        <p id="new-password-confirm-error" class="text-red-600 text-sm mt-1 hidden"></p>
+                    </div>
+
+                    <!-- 조합개수 -->
+                    <div>
+                        <label for="combination-count" class="block text-gray-800 font-medium mb-2">조합개수</label>
+                        <div class="relative">
+                            <select id="combination-count"
+                                    class="w-full bg-white text-gray-800 border border-gray-300 rounded px-4 py-3 appearance-none cursor-pointer focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                <option value="5">5 조합</option>
+                                <option value="10" selected>10 조합</option>
+                                <option value="15">15 조합</option>
+                                <option value="20">20 조합</option>
+                            </select>
+                            <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                                <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 문자 발송 희망요일 -->
+                    <div>
+                        <label for="sms-day" class="block text-gray-800 font-medium mb-2">문자 발송 희망요일</label>
+                        <div class="relative">
+                            <select id="sms-day"
+                                    class="w-full bg-white text-gray-800 border border-gray-300 rounded px-4 py-3 appearance-none cursor-pointer focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                <option value="monday">월요일</option>
+                                <option value="tuesday">화요일</option>
+                                <option value="wednesday">수요일</option>
+                                <option value="thursday" selected>목요일</option>
+                                <option value="friday">금요일</option>
+                            </select>
+                            <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                                <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 기타 SMS 수신여부 -->
+                    <div>
+                        <label for="sms-receive" class="block text-gray-800 font-medium mb-2">기타 SMS 수신여부</label>
+                        <div class="relative">
+                            <select id="sms-receive"
+                                    class="w-full bg-white text-gray-800 border border-gray-300 rounded px-4 py-3 appearance-none cursor-pointer focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                <option value="allow" selected>수신 허용</option>
+                                <option value="deny">수신 거부</option>
+                            </select>
+                            <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                                <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 버튼 그룹 -->
+                    <div class="flex justify-center gap-4 mt-10">
+                        <button type="button" id="cancel-settings-btn"
+                                class="w-40 bg-white text-blue-600 border-2 border-blue-600 px-6 py-3 rounded-md font-semibold text-lg hover:bg-gray-50">
+                            취소
+                        </button>
+                        <button type="submit"
+                                class="w-40 bg-blue-600 text-white px-6 py-3 rounded-md font-semibold text-lg hover:bg-blue-700">
+                            확인
+                        </button>
+                    </div>
+                </form>
+            `;
+
+            $('#settings-form').replaceWith(newFormHtml);
+
+            // Validation 함수들
+            function showError(fieldId, message) {
+                const errorEl = $('#' + fieldId + '-error');
+                const inputEl = $('#' + fieldId);
+                errorEl.text(message).removeClass('hidden');
+                inputEl.addClass('border-red-500').removeClass('border-gray-300');
+            }
+
+            function hideError(fieldId) {
+                const errorEl = $('#' + fieldId + '-error');
+                const inputEl = $('#' + fieldId);
+                errorEl.addClass('hidden');
+                inputEl.removeClass('border-red-500').addClass('border-gray-300');
+            }
+
+            function validateNickname(value) {
+                if (!value || value.length < 3 || value.length > 8) {
+                    return '닉네임은 3자 ~ 8자 사이여야 합니다.';
+                }
+                return null;
+            }
+
+            function validatePassword(value) {
+                if (!value) {
+                    return '비밀번호를 입력해주세요.';
+                }
+                if (value.length < 4 || value.length > 12) {
+                    return '비밀번호는 4자~12자 사이여야 합니다.';
+                }
+                if (!/^[a-zA-Z0-9]+$/.test(value)) {
+                    return '비밀번호는 영문 또는 숫자만 사용 가능합니다.';
+                }
+                return null;
+            }
+
+            function validatePasswordConfirm(password, confirm) {
+                if (!confirm) {
+                    return '비밀번호 확인을 입력해주세요.';
+                }
+                if (password !== confirm) {
+                    return '비밀번호가 일치하지 않습니다.';
+                }
+                return null;
+            }
+
+            // 실시간 validation
+            $('#nickname').on('blur', function () {
+                const error = validateNickname($(this).val());
+                if (error) {
+                    showError('nickname', error);
+                } else {
+                    hideError('nickname');
+                }
+            });
+
+            $('#current-password').on('blur', function () {
+                const error = validatePassword($(this).val());
+                if (error) {
+                    showError('current-password', error);
+                } else {
+                    hideError('current-password');
+                }
+            });
+
+            $('#new-password').on('blur', function () {
+                const error = validatePassword($(this).val());
+                if (error) {
+                    showError('new-password', error);
+                } else {
+                    hideError('new-password');
+                }
+            });
+
+            $('#new-password-confirm').on('blur', function () {
+                const newPassword = $('#new-password').val();
+                const error = validatePasswordConfirm(newPassword, $(this).val());
+                if (error) {
+                    showError('new-password-confirm', error);
+                } else {
+                    hideError('new-password-confirm');
+                }
+            });
+
+            // 새 폼의 취소 버튼 이벤트 핸들러 등록
+            $('#cancel-settings-btn').on('click', function () {
+                // 원래 폼으로 되돌리기 (선택사항)
+                alert('취소되었습니다.');
+            });
+
+            // 새 폼의 제출 핸들러 등록
+            $('#settings-form-full').on('submit', function (e) {
+                e.preventDefault();
+
+                // 모든 필드 validation
+                let hasError = false;
+
+                // 닉네임 검증
+                const nicknameValue = $('#nickname').val();
+                const nicknameError = validateNickname(nicknameValue);
+                if (nicknameError) {
+                    showError('nickname', nicknameError);
+                    hasError = true;
+                } else {
+                    hideError('nickname');
+                }
+
+                // 현재 비밀번호 검증
+                const currentPasswordValue = $('#current-password').val();
+                const currentPasswordError = validatePassword(currentPasswordValue);
+                if (currentPasswordError) {
+                    showError('current-password', currentPasswordError);
+                    hasError = true;
+                } else {
+                    hideError('current-password');
+                }
+
+                // 새 비밀번호 검증
+                const newPasswordValue = $('#new-password').val();
+                const newPasswordError = validatePassword(newPasswordValue);
+                if (newPasswordError) {
+                    showError('new-password', newPasswordError);
+                    hasError = true;
+                } else {
+                    hideError('new-password');
+                }
+
+                // 새 비밀번호 확인 검증
+                const newPasswordConfirmValue = $('#new-password-confirm').val();
+                const confirmError = validatePasswordConfirm(newPasswordValue, newPasswordConfirmValue);
+                if (confirmError) {
+                    showError('new-password-confirm', confirmError);
+                    hasError = true;
+                } else {
+                    hideError('new-password-confirm');
+                }
+
+                if (hasError) {
+                    return;
+                }
+
+                alert('회원정보가 변경되었습니다.');
+                // 실제로는 서버에 요청을 보내야 합니다.
+            });
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="로또라운지 - 회원가입">
+    <title>로또라운지 - 회원가입</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Config (공통) -->
+    <script src="assets/js/tailwind-config.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/custom.css">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- GSAP + ScrollTrigger -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12/dist/ScrollTrigger.min.js"></script>
+</head>
+<body class="font-kr bg-white">
+
+<!-- 헤더 -->
+<div id="header"></div>
+
+<!-- 네비게이션 -->
+<div id="navigation"></div>
+
+<!-- 메인 컨텐츠 -->
+<main class="py-12 min-h-screen">
+    <!-- 회원가입 폼 -->
+    <div id="register-form-container" class="max-w-xl mx-auto p-6 bg-white">
+        <h2 class="text-3xl font-bold text-center text-gray-800 mb-10">회원가입</h2>
+
+        <div class="flex justify-end mb-6">
+            <span class="text-red-500 text-sm font-bold">*</span>
+            <span class="text-sm font-bold">필수입력사항</span>
+        </div>
+
+        <!-- 구분선 -->
+        <div class="mb-8 flex justify-center">
+            <img src="assets/svg/vertical_line_long.svg" alt="구분선" class="w-full">
+        </div>
+
+        <form id="register-form">
+            <div class="mb-8">
+
+                <label for="phone-number" class="block text-gray-700 text-base font-bold mb-2">
+                    휴대폰 번호<span class="text-red-500">*</span>
+                </label>
+                <input type="text" id="phone-number"
+                       class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 text-gray-700 placeholder-gray-400"
+                       placeholder="'-'를 빼고 입력해 주세요." maxlength="11">
+                <div id="phone-error" class="text-red-500 text-sm mt-1 hidden"></div>
+
+                <div class="mt-3 text-sm text-red-500">
+                    <p class="mb-1 font-bold">&gt 당첨 확인 등의 문자전송에 사용되므로 정확히 입력하셔야 합니다.</p>
+                    <p class="font-bold">&gt 회원님의 휴대폰 번호가 로또라운지의 아이디입니다.</p>
+                </div>
+            </div>
+
+            <div class="mb-8">
+                <label for="password" class="block text-gray-700 text-base font-bold mb-2">
+                    비밀번호<span class="text-red-500">*</span>
+                </label>
+                <input type="password" id="password"
+                       class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 text-gray-700 placeholder-gray-400"
+                       placeholder="영문 또는 숫자, 4자~12자" maxlength="12">
+                <div id="password-error" class="text-red-500 text-sm mt-1 hidden"></div>
+            </div>
+
+            <div class="mb-8">
+                <label for="confirm-password" class="block text-gray-700 text-base font-bold mb-2">
+                    비밀번호 확인<span class="text-red-500">*</span>
+                </label>
+                <input type="password" id="confirm-password"
+                       class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 text-gray-700 placeholder-gray-400"
+                       placeholder="비밀번호 확인" maxlength="12">
+                <div id="confirm-password-error" class="text-red-500 text-sm mt-1 hidden"></div>
+            </div>
+
+            <div class="mb-10">
+                <label for="nickname" class="block text-gray-700 text-base font-bold mb-2">
+                    닉네임<span class="text-red-500">*</span>
+                </label>
+                <input type="text" id="nickname"
+                       class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 text-gray-700 placeholder-gray-400"
+                       placeholder="3자 ~ 8자" maxlength="8">
+                <div id="nickname-error" class="text-red-500 text-sm mt-1 hidden"></div>
+            </div>
+
+            <div class="flex justify-center space-x-4">
+                <button type="submit" id="submit-btn"
+                        class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-10 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-colors">
+                    확인
+                </button>
+                <button type="button" id="cancel-btn"
+                        class="bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold py-3 px-10 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-opacity-50 transition-colors">
+                    취소
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <!-- 회원가입 완료 화면 -->
+    <div id="register-complete-container" class="flex items-center justify-center min-h-[600px]" style="display: none;">
+        <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-lg text-center">
+            <!-- 로고 -->
+            <div class="mb-16 mt-8">
+                <div class="inline-flex items-center justify-center h-14 px-10 rounded-full bg-gray-700 text-white text-lg font-bold">
+                    로고
+                </div>
+            </div>
+
+            <!-- 완료 메시지 -->
+            <p class="text-xl text-gray-800 mb-16">
+                <span id="complete-nickname" class="font-bold">회원</span>님의 회원가입이 완료되었습니다.
+            </p>
+
+            <!-- 버튼 섹션 -->
+            <div class="flex justify-center space-x-4 mb-8">
+                <button id="complete-home-btn" class="bg-white hover:bg-gray-50 text-blue-600 font-bold py-3 px-10 rounded-md border border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-colors">
+                    홈으로 가기
+                </button>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- 푸터 -->
+<div id="footer"></div>
+
+<!-- Scripts -->
+<script src="assets/js/components.js"></script>
+<script src="assets/js/animations.js"></script>
+
+<script>
+    $(document).ready(function () {
+        // 휴대폰 번호 입력 시 숫자만 허용
+        $('#phone-number').on('input', function () {
+            this.value = this.value.replace(/[^0-9]/g, '');
+        });
+
+        // 비밀번호 입력 시 영문 또는 숫자만 허용
+        $('#password, #confirm-password').on('input', function () {
+            this.value = this.value.replace(/[^a-zA-Z0-9]/g, '');
+        });
+
+        // Validation 함수들
+        function validatePhoneNumber(phone) {
+            if (!phone) {
+                return '휴대폰 번호를 입력해주세요.';
+            }
+            if (phone.length < 10 || phone.length > 11) {
+                return '올바른 휴대폰 번호를 입력해주세요.';
+            }
+            if (!phone.startsWith('010') && !phone.startsWith('011') && !phone.startsWith('016') && !phone.startsWith('017') && !phone.startsWith('018') && !phone.startsWith('019')) {
+                return '올바른 휴대폰 번호를 입력해주세요.';
+            }
+            return null;
+        }
+
+        function validatePassword(password) {
+            if (!password) {
+                return '비밀번호를 입력해주세요.';
+            }
+            if (password.length < 4 || password.length > 12) {
+                return '비밀번호는 4자~12자로 입력해주세요.';
+            }
+            if (!/^[a-zA-Z0-9]+$/.test(password)) {
+                return '비밀번호는 영문 또는 숫자만 사용 가능합니다.';
+            }
+            return null;
+        }
+
+        function validateConfirmPassword(password, confirmPassword) {
+            if (!confirmPassword) {
+                return '비밀번호 확인을 입력해주세요.';
+            }
+            if (password !== confirmPassword) {
+                return '비밀번호가 일치하지 않습니다.';
+            }
+            return null;
+        }
+
+        function validateNickname(nickname) {
+            if (!nickname) {
+                return '닉네임을 입력해주세요.';
+            }
+            if (nickname.length < 3 || nickname.length > 8) {
+                return '닉네임은 3자~8자로 입력해주세요.';
+            }
+            return null;
+        }
+
+        // 에러 메시지 표시 함수
+        function showError(elementId, message) {
+            const errorElement = $('#' + elementId);
+            if (message) {
+                errorElement.text(message).removeClass('hidden');
+                return false;
+            } else {
+                errorElement.addClass('hidden');
+                return true;
+            }
+        }
+
+        // 실시간 validation
+        $('#phone-number').on('blur', function () {
+            const error = validatePhoneNumber(this.value);
+            showError('phone-error', error);
+        });
+
+        $('#password').on('blur', function () {
+            const error = validatePassword(this.value);
+            showError('password-error', error);
+
+            // 비밀번호 확인란이 채워져 있다면 다시 검증
+            const confirmPassword = $('#confirm-password').val();
+            if (confirmPassword) {
+                const confirmError = validateConfirmPassword(this.value, confirmPassword);
+                showError('confirm-password-error', confirmError);
+            }
+        });
+
+        $('#confirm-password').on('blur', function () {
+            const password = $('#password').val();
+            const error = validateConfirmPassword(password, this.value);
+            showError('confirm-password-error', error);
+        });
+
+        $('#nickname').on('blur', function () {
+            const error = validateNickname(this.value);
+            showError('nickname-error', error);
+        });
+
+        // 폼 제출
+        $('#register-form').on('submit', function (e) {
+            e.preventDefault();
+
+            const phone = $('#phone-number').val();
+            const password = $('#password').val();
+            const confirmPassword = $('#confirm-password').val();
+            const nickname = $('#nickname').val();
+
+            // 모든 필드 검증
+            const phoneError = validatePhoneNumber(phone);
+            const passwordError = validatePassword(password);
+            const confirmPasswordError = validateConfirmPassword(password, confirmPassword);
+            const nicknameError = validateNickname(nickname);
+
+            const isPhoneValid = showError('phone-error', phoneError);
+            const isPasswordValid = showError('password-error', passwordError);
+            const isConfirmPasswordValid = showError('confirm-password-error', confirmPasswordError);
+            const isNicknameValid = showError('nickname-error', nicknameError);
+
+            // 모든 필드가 유효한 경우
+            if (isPhoneValid && isPasswordValid && isConfirmPasswordValid && isNicknameValid) {
+                // 회원가입 처리 (실제로는 서버로 전송)
+                // 서버에 회원가입 요청을 보내고 성공 시 완료 화면 표시
+
+                // 폼 숨기고 완료 화면 보여주기
+                $('#register-form-container').hide();
+                $('#register-complete-container').show();
+                $('#complete-nickname').text(nickname);
+
+                // 스크롤을 맨 위로 이동
+                window.scrollTo(0, 0);
+            } else {
+                // 첫 번째 에러 필드로 포커스 이동
+                if (!isPhoneValid) {
+                    $('#phone-number').focus();
+                } else if (!isPasswordValid) {
+                    $('#password').focus();
+                } else if (!isConfirmPasswordValid) {
+                    $('#confirm-password').focus();
+                } else if (!isNicknameValid) {
+                    $('#nickname').focus();
+                }
+            }
+        });
+
+        // 취소 버튼
+        $('#cancel-btn').on('click', function () {
+            if (confirm('회원가입을 취소하시겠습니까?')) {
+                window.location.href = 'index.html';
+            }
+        });
+
+        // 완료 화면 - 로그인 하기 버튼
+        $('#complete-login-btn').on('click', function () {
+            // 로그인 페이지로 이동 (현재는 테스트용으로 localStorage 설정)
+            localStorage.setItem('isLoggedIn', 'true');
+            window.location.href = 'index.html';
+        });
+
+        // 완료 화면 - 홈으로 가기 버튼
+        $('#complete-home-btn').on('click', function () {
+            window.location.href = 'index.html';
+        });
+    });
+</script>
+</body>
+</html>
