@@ -809,23 +809,710 @@
 
                 <!-- 당첨 횟수 분석 탭 -->
                 <div id="tab-win-count" class="tab-content hidden">
-                    <div class="bg-white rounded-lg shadow-sm p-8 text-center">
-                        <h3 class="text-2xl font-bold mb-4">당첨 횟수 분석</h3>
-                        <p class="text-gray-600">번호별 당첨 횟수와 패턴을 분석합니다.</p>
-                        <div class="mt-8">
-                            <p class="text-sm text-gray-500">이 기능은 준비 중입니다.</p>
+                    <!-- 검색 영역 -->
+                    <div class="bg-gray-100 rounded-lg p-8 mb-8">
+                        <p class="text-center text-gray-700 mb-4">검색하실 회를 입력해주세요.</p>
+                        <div class="flex items-center justify-center gap-2">
+                            <input type="number" id="win-count-start" class="w-48 px-4 py-2 border-2 border-primary-blue rounded focus:outline-none focus:ring-2 focus:ring-blue-300" placeholder="">
+                            <span class="text-gray-700 font-medium">회</span>
+                            <span class="text-gray-700 mx-2">~</span>
+                            <input type="number" id="win-count-end" class="w-48 px-4 py-2 border-2 border-primary-blue rounded focus:outline-none focus:ring-2 focus:ring-blue-300" placeholder="">
+                            <span class="text-gray-700 font-medium">회</span>
+                            <button id="win-count-search" class="ml-4 px-8 py-2 bg-primary-blue text-white font-semibold rounded hover:bg-primary-blue-dark transition-colors">
+                                검색
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 당첨 횟수 분류 테이블 -->
+                    <div class="mb-12">
+                        <h3 class="text-2xl font-bold text-center mb-6">당첨 횟수 분류</h3>
+                        <div class="overflow-x-auto rounded-lg shadow-sm">
+                            <table class="w-full border-collapse bg-white">
+                                <thead>
+                                    <tr>
+                                        <th class="bg-primary-blue text-white py-3 px-4 text-center font-semibold border-r border-blue-500 w-32">나온횟수</th>
+                                        <th class="bg-primary-blue text-white py-3 px-4 text-center font-semibold border-r border-blue-500" id="win-count-range-header">1~1126</th>
+                                        <th class="bg-primary-blue text-white py-3 px-4 text-center font-semibold w-32">갯수</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="win-count-table-body">
+                                    <tr class="border-b border-gray-200">
+                                        <td class="py-4 px-4 text-center font-medium border-r border-gray-200">172</td>
+                                        <td class="py-4 px-4 border-r border-gray-200">
+                                            <span class="font-medium">34</span>
+                                        </td>
+                                        <td class="py-4 px-4 text-center">1</td>
+                                    </tr>
+                                    <tr class="border-b border-gray-200">
+                                        <td class="py-4 px-4 text-center font-medium border-r border-gray-200">165</td>
+                                        <td class="py-4 px-4 border-r border-gray-200">
+                                            <span class="font-medium">12</span>&nbsp;&nbsp;<span>18</span>
+                                        </td>
+                                        <td class="py-4 px-4 text-center">2</td>
+                                    </tr>
+                                    <tr class="border-b border-gray-200">
+                                        <td class="py-4 px-4 text-center font-medium border-r border-gray-200">163</td>
+                                        <td class="py-4 px-4 border-r border-gray-200">
+                                            <span>45</span>
+                                        </td>
+                                        <td class="py-4 px-4 text-center">2</td>
+                                    </tr>
+                                    <tr class="border-b border-gray-200">
+                                        <td class="py-4 px-4 text-center font-medium border-r border-gray-200">161</td>
+                                        <td class="py-4 px-4 border-r border-gray-200">
+                                            <span class="text-red-500 font-bold">40</span>
+                                        </td>
+                                        <td class="py-4 px-4 text-center">1</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- 당첨 횟수 분포도 -->
+                    <div>
+                        <h3 class="text-2xl font-bold text-center mb-6">당첨 횟수 분포도</h3>
+
+                        <!-- 범례 -->
+                        <div id="win-count-legend" class="flex justify-end mb-4 gap-6">
+                            <div class="flex items-center gap-2">
+                                <span class="text-sm font-medium">1126회차</span>
+                                <div class="w-4 h-4 bg-red-500"></div>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="text-sm font-medium">1125회차</span>
+                                <div class="w-4 h-4 bg-green-500"></div>
+                            </div>
+                        </div>
+
+                        <!-- 분포도 차트 -->
+                        <div class="overflow-x-auto rounded-lg shadow-sm">
+                            <table class="w-full border-collapse text-sm bg-white">
+                                <thead>
+                                    <tr class="bg-primary-blue text-white">
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500 w-16">회</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">1</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">2</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">3</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">4</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">5</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">6</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">7</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">8</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">9</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">10</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">11</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">12</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">13</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">14</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">15</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">16</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">17</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">18</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">19</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">20</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">21</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">22</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">23</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">24</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">25</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">26</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">27</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">28</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">29</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">30</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">31</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">32</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">33</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">34</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">35</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">36</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">37</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">38</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">39</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">40</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">41</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">42</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">43</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">44</th>
+                                        <th class="py-2 px-1 text-center font-semibold">45</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="win-count-distribution-body">
+                                    <tr class="border-b border-gray-200">
+                                        <td class="py-2 px-1 text-center font-medium bg-gray-50 border-r border-gray-200">172</td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200 bg-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1"></td>
+                                    </tr>
+                                    <tr class="border-b border-gray-200">
+                                        <td class="py-2 px-1 text-center font-medium bg-gray-50 border-r border-gray-200">171</td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200 bg-red-500"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1"></td>
+                                    </tr>
+                                    <tr class="border-b border-gray-200">
+                                        <td class="py-2 px-1 text-center font-medium bg-gray-50 border-r border-gray-200">170</td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200 bg-red-500"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200 bg-green-500"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200 bg-green-500"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1"></td>
+                                    </tr>
+                                    <tr class="border-b border-gray-200">
+                                        <td class="py-2 px-1 text-center font-medium bg-gray-50 border-r border-gray-200">169</td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1"></td>
+                                    </tr>
+                                    <tr class="border-b border-gray-200">
+                                        <td class="py-2 px-1 text-center font-medium bg-gray-50 border-r border-gray-200">168</td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1"></td>
+                                    </tr>
+                                    <tr class="border-b border-gray-200">
+                                        <td class="py-2 px-1 text-center font-medium bg-gray-50 border-r border-gray-200">167</td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200 bg-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200 bg-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1"></td>
+                                    </tr>
+                                    <tr class="border-b border-gray-200">
+                                        <td class="py-2 px-1 text-center font-medium bg-gray-50 border-r border-gray-200">166</td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1 border-r border-gray-200"></td>
+                                        <td class="py-2 px-1"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
 
                 <!-- 당첨 공색 분석 탭 -->
                 <div id="tab-colors" class="tab-content hidden">
-                    <div class="bg-white rounded-lg shadow-sm p-8 text-center">
-                        <h3 class="text-2xl font-bold mb-4">당첨 공색 분석</h3>
-                        <p class="text-gray-600">색상별 당첨 번호의 분포를 분석합니다.</p>
-                        <div class="mt-8">
-                            <p class="text-sm text-gray-500">이 기능은 준비 중입니다.</p>
+                    <div class="bg-gray-100 rounded-lg shadow-sm p-6 mb-6 flex items-center justify-center">
+                        <div class="text-gray-700 leading-relaxed text-center">
+                            <p class="text-sm">
+                                지난 회차의 당첨된 공 색을 비교함으로써 다음 회차에 나올 공의 색을 예측합니다.
+                            </p>
+                            <div class="flex justify-center items-center space-x-4 mt-3">
+                                <div class="flex items-center space-x-1">
+                                    <span class="w-4 h-4 rounded-full bg-yellow-400"></span>
+                                    <span class="text-xs">1~10번대</span>
+                                </div>
+                                <div class="flex items-center space-x-1">
+                                    <span class="w-4 h-4 rounded-full bg-cyan-400"></span>
+                                    <span class="text-xs">11~20번대</span>
+                                </div>
+                                <div class="flex items-center space-x-1">
+                                    <span class="w-4 h-4 rounded-full bg-red-500"></span>
+                                    <span class="text-xs">21~30번대</span>
+                                </div>
+                                <div class="flex items-center space-x-1">
+                                    <span class="w-4 h-4 rounded-full bg-gray-400"></span>
+                                    <span class="text-xs">31~40번대</span>
+                                </div>
+                                <div class="flex items-center space-x-1">
+                                    <span class="w-4 h-4 rounded-full bg-green-400"></span>
+                                    <span class="text-xs">41~45번대</span>
+                                </div>
+                            </div>
                         </div>
+                    </div>
+
+                    <div class="p-6 mb-6 flex items-center justify-center">
+                        <div class="relative w-full md:w-[500px]">
+                            <select id="color-analysis-select"
+                                    class="block w-full px-4 py-2 text-base text-gray-800 bg-white border border-blue-600 rounded-lg
+                                    focus:outline-none focus:ring-2 focus:ring-blue-300 appearance-none pr-10 cursor-pointer">
+                                <option value="round">회귀별 보기</option>
+                            </select>
+                            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-blue-600">
+                                <svg class="fill-current h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                    <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 공색 분석 테이블 -->
+                    <div class="overflow-x-auto rounded-lg shadow-sm">
+                        <table class="min-w-full bg-white border-collapse">
+                            <thead>
+                            <tr>
+                                <th class="py-3 px-4 text-center bg-blue-600 text-white font-semibold text-sm border-r border-blue-500">
+                                    회차
+                                </th>
+                                <th class="py-3 px-4 text-center bg-blue-600 text-white font-semibold text-sm border-r border-blue-500">
+                                    1
+                                </th>
+                                <th class="py-3 px-4 text-center bg-blue-600 text-white font-semibold text-sm border-r border-blue-500">
+                                    2
+                                </th>
+                                <th class="py-3 px-4 text-center bg-blue-600 text-white font-semibold text-sm border-r border-blue-500">
+                                    3
+                                </th>
+                                <th class="py-3 px-4 text-center bg-blue-600 text-white font-semibold text-sm border-r border-blue-500">
+                                    4
+                                </th>
+                                <th class="py-3 px-4 text-center bg-blue-600 text-white font-semibold text-sm border-r border-blue-500">
+                                    5
+                                </th>
+                                <th class="py-3 px-4 text-center bg-blue-600 text-white font-semibold text-sm border-r border-blue-500">
+                                    6
+                                </th>
+                                <th class="py-3 px-4 text-center bg-blue-600 text-white font-semibold text-sm border-r border-blue-500">
+                                    보너스볼
+                                </th>
+                                <th class="py-3 px-4 text-center bg-blue-600 text-white font-semibold text-sm border-r border-blue-500">
+                                    나온공색
+                                </th>
+                                <th class="py-3 px-4 text-center bg-blue-600 text-white font-semibold text-sm border-r border-blue-500">
+                                    홀짝
+                                </th>
+                                <th class="py-3 px-4 text-center bg-blue-600 text-white font-semibold text-sm">
+                                    나온끝수
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody id="color-analysis-tbody">
+                            <!-- 1127회 데이터 -->
+                            <tr class="border-b border-gray-200 hover:bg-gray-50">
+                                <td class="py-3 px-4 text-center font-semibold text-gray-800 text-sm border-r border-gray-200">
+                                    1127회
+                                </td>
+                                <td class="py-3 px-4 text-center border-r border-gray-200">
+                                    <span class="w-8 h-8 rounded-full bg-yellow-400 flex items-center justify-center text-white text-xs font-bold mx-auto">10</span>
+                                </td>
+                                <td class="py-3 px-4 text-center border-r border-gray-200">
+                                    <span class="w-8 h-8 rounded-full bg-red-500 flex items-center justify-center text-white text-xs font-bold mx-auto">21</span>
+                                </td>
+                                <td class="py-3 px-4 text-center border-r border-gray-200">
+                                    <span class="w-8 h-8 rounded-full bg-red-500 flex items-center justify-center text-white text-xs font-bold mx-auto">30</span>
+                                </td>
+                                <td class="py-3 px-4 text-center border-r border-gray-200">
+                                    <span class="w-8 h-8 rounded-full bg-gray-400 flex items-center justify-center text-white text-xs font-bold mx-auto">32</span>
+                                </td>
+                                <td class="py-3 px-4 text-center border-r border-gray-200">
+                                    <span class="w-8 h-8 rounded-full bg-gray-400 flex items-center justify-center text-white text-xs font-bold mx-auto">37</span>
+                                </td>
+                                <td class="py-3 px-4 text-center border-r border-gray-200">
+                                    <span class="w-8 h-8 rounded-full bg-green-400 flex items-center justify-center text-white text-xs font-bold mx-auto">44</span>
+                                </td>
+                                <td class="py-3 px-4 text-center border-r border-gray-200">
+                                    <span class="w-8 h-8 rounded-full bg-cyan-400 flex items-center justify-center text-white text-xs font-bold mx-auto">11</span>
+                                </td>
+                                <td class="py-3 px-4 text-center text-gray-600 text-sm border-r border-gray-200">
+                                    3-1-0-1-1
+                                </td>
+                                <td class="py-3 px-4 text-center text-gray-600 text-sm border-r border-gray-200">
+                                    4 : 2
+                                </td>
+                                <td class="py-3 px-4 text-center text-gray-600 text-sm">
+                                    0-1-4-5-7-9
+                                </td>
+                            </tr>
+                            <!-- 빈 행들 추가 -->
+                            <tr class="border-b border-gray-200 hover:bg-gray-50">
+                                <td class="py-3 px-4 text-center font-semibold text-gray-800 text-sm border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center text-gray-600 text-sm border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center text-gray-600 text-sm border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center text-gray-600 text-sm">&nbsp;</td>
+                            </tr>
+                            <tr class="border-b border-gray-200 hover:bg-gray-50">
+                                <td class="py-3 px-4 text-center font-semibold text-gray-800 text-sm border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center text-gray-600 text-sm border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center text-gray-600 text-sm border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center text-gray-600 text-sm">&nbsp;</td>
+                            </tr>
+                            <tr class="border-b border-gray-200 hover:bg-gray-50">
+                                <td class="py-3 px-4 text-center font-semibold text-gray-800 text-sm border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center text-gray-600 text-sm border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center text-gray-600 text-sm border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center text-gray-600 text-sm">&nbsp;</td>
+                            </tr>
+                            <tr class="border-b border-gray-200 hover:bg-gray-50">
+                                <td class="py-3 px-4 text-center font-semibold text-gray-800 text-sm border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center text-gray-600 text-sm border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center text-gray-600 text-sm border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center text-gray-600 text-sm">&nbsp;</td>
+                            </tr>
+                            <tr class="border-b border-gray-200 hover:bg-gray-50">
+                                <td class="py-3 px-4 text-center font-semibold text-gray-800 text-sm border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center text-gray-600 text-sm border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center text-gray-600 text-sm border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center text-gray-600 text-sm">&nbsp;</td>
+                            </tr>
+                            <tr class="border-b border-gray-200 hover:bg-gray-50">
+                                <td class="py-3 px-4 text-center font-semibold text-gray-800 text-sm border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center text-gray-600 text-sm border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center text-gray-600 text-sm border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center text-gray-600 text-sm">&nbsp;</td>
+                            </tr>
+                            <tr class="border-b border-gray-200 hover:bg-gray-50">
+                                <td class="py-3 px-4 text-center font-semibold text-gray-800 text-sm border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center text-gray-600 text-sm border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center text-gray-600 text-sm border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center text-gray-600 text-sm">&nbsp;</td>
+                            </tr>
+                            <tr class="border-b border-gray-200 hover:bg-gray-50">
+                                <td class="py-3 px-4 text-center font-semibold text-gray-800 text-sm border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center text-gray-600 text-sm border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center text-gray-600 text-sm border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center text-gray-600 text-sm">&nbsp;</td>
+                            </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -839,6 +1526,7 @@
 <!-- Scripts -->
 <script src="assets/js/components.js"></script>
 <script src="assets/js/animations.js"></script>
+<script src="assets/js/lotto-frequency.js"></script>
 
 <script>
     $(document).ready(function () {
@@ -866,6 +1554,152 @@
 
             // 선택된 탭 컨텐츠 표시
             $('#' + targetTab).removeClass('hidden').addClass('fade-in');
+
+            // 당첨 횟수 분석 탭 활성화 시 초기화
+            if (targetTab === 'tab-win-count' && !lottoFrequencyController) {
+                initLottoFrequency();
+            }
+        });
+
+        // 페이지 로드 시 당첨 횟수 분석 모듈 초기화 (lazy loading)
+        // 탭 클릭 시 초기화되도록 위에서 처리
+
+        // 당첨 공색 분석 데이터 저장소
+        let colorAnalysisData = {};
+
+        // 공 색상 결정 함수
+        function getBallColor(num) {
+            if (num <= 10) return 'bg-yellow-400';
+            if (num <= 20) return 'bg-cyan-400';
+            if (num <= 30) return 'bg-red-500';
+            if (num <= 40) return 'bg-gray-400';
+            return 'bg-green-400';
+        }
+
+        // 나온공색 계산 함수
+        function calculateColorDist(numbers) {
+            const counts = [0, 0, 0, 0, 0]; // 1-10, 11-20, 21-30, 31-40, 41-45
+            numbers.forEach(num => {
+                if (num <= 10) counts[0]++;
+                else if (num <= 20) counts[1]++;
+                else if (num <= 30) counts[2]++;
+                else if (num <= 40) counts[3]++;
+                else counts[4]++;
+            });
+            return counts.join('-');
+        }
+
+        // 홀짝 계산 함수
+        function calculateOddEven(numbers) {
+            let odd = 0, even = 0;
+            numbers.forEach(num => {
+                if (num % 2 === 1) odd++;
+                else even++;
+            });
+            return `${odd} : ${even}`;
+        }
+
+        // 나온끝수 계산 함수
+        function calculateEndNumbers(numbers) {
+            return numbers.map(num => num % 10).join('-');
+        }
+
+        // 테이블 행 생성 함수
+        function createColorAnalysisRow(round, data) {
+            const colorDist = calculateColorDist(data.numbers);
+            const oddEven = calculateOddEven(data.numbers);
+            const endNumbers = calculateEndNumbers(data.numbers);
+
+            let row = `<tr class="border-b border-gray-200 hover:bg-gray-50">
+                <td class="py-3 px-4 text-center font-semibold text-gray-800 text-sm border-r border-gray-200">${round}회</td>`;
+
+            // 6개 번호
+            data.numbers.forEach(num => {
+                row += `<td class="py-3 px-4 text-center border-r border-gray-200">
+                    <span class="w-8 h-8 rounded-full ${getBallColor(num)} flex items-center justify-center text-white text-xs font-bold mx-auto">${num}</span>
+                </td>`;
+            });
+
+            // 보너스볼
+            row += `<td class="py-3 px-4 text-center border-r border-gray-200">
+                <span class="w-8 h-8 rounded-full ${getBallColor(data.bonus)} flex items-center justify-center text-white text-xs font-bold mx-auto">${data.bonus}</span>
+            </td>`;
+
+            // 나온공색, 홀짝, 나온끝수
+            row += `<td class="py-3 px-4 text-center text-gray-600 text-sm border-r border-gray-200">${colorDist}</td>
+                <td class="py-3 px-4 text-center text-gray-600 text-sm border-r border-gray-200">${oddEven}</td>
+                <td class="py-3 px-4 text-center text-gray-600 text-sm">${endNumbers}</td>
+            </tr>`;
+
+            return row;
+        }
+
+        // 빈 행 생성 함수
+        function createEmptyRow() {
+            return `<tr class="border-b border-gray-200 hover:bg-gray-50">
+                <td class="py-3 px-4 text-center font-semibold text-gray-800 text-sm border-r border-gray-200">&nbsp;</td>
+                <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
+                <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
+                <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
+                <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
+                <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
+                <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
+                <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
+                <td class="py-3 px-4 text-center text-gray-600 text-sm border-r border-gray-200">&nbsp;</td>
+                <td class="py-3 px-4 text-center text-gray-600 text-sm border-r border-gray-200">&nbsp;</td>
+                <td class="py-3 px-4 text-center text-gray-600 text-sm">&nbsp;</td>
+            </tr>`;
+        }
+
+        // 테이블 업데이트 함수
+        function updateColorAnalysisTable(selected) {
+            const tbody = $('#color-analysis-tbody');
+            let html = '';
+
+            if (selected === 'round') {
+                // 전체 보기 - 모든 회차 표시
+                const rounds = Object.keys(colorAnalysisData).sort((a, b) => b - a);
+                rounds.forEach(round => {
+                    html += createColorAnalysisRow(round, colorAnalysisData[round]);
+                });
+                // 나머지 빈 행 추가
+                const emptyRows = Math.max(0, 9 - rounds.length);
+                for (let i = 0; i < emptyRows; i++) {
+                    html += createEmptyRow();
+                }
+            } else {
+                // 특정 회차만 표시
+                if (colorAnalysisData[selected]) {
+                    html += createColorAnalysisRow(selected, colorAnalysisData[selected]);
+                }
+                // 나머지 빈 행 추가
+                for (let i = 0; i < 8; i++) {
+                    html += createEmptyRow();
+                }
+            }
+
+            tbody.html(html);
+        }
+
+        // JSON 데이터 로드 및 초기화
+        $.getJSON('assets/data/color-analysis.json', function(data) {
+            colorAnalysisData = data.results;
+
+            // 드롭다운 옵션 동적 생성
+            const select = $('#color-analysis-select');
+            const rounds = Object.keys(colorAnalysisData).sort((a, b) => b - a);
+            rounds.forEach(round => {
+                select.append(`<option value="${round}">${round}회</option>`);
+            });
+
+            // 초기 테이블 로드 (회귀별 보기)
+            updateColorAnalysisTable('round');
+        });
+
+        // 드롭다운 변경 이벤트
+        $('#color-analysis-select').on('change', function() {
+            const selected = $(this).val();
+            updateColorAnalysisTable(selected);
         });
     });
 </script>
