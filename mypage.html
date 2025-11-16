@@ -34,11 +34,11 @@
 <main class="py-12">
     <div class="container mx-auto px-4 max-w-6xl">
         <!-- 페이지 타이틀 -->
-        <h1 class="text-4xl font-bold mb-8 text-center">마이페이지</h1>
+        <h1 class="text-2xl md:text-4xl font-bold mb-6 md:mb-8 text-center">마이페이지</h1>
 
         <!-- 탭 네비게이션 -->
-        <div class="mb-16">
-            <div class="flex border border-gray-300">
+        <div class="mb-8 md:mb-16">
+            <div class="hidden md:flex border border-gray-300">
                 <button class="tab-button active flex-1 px-6 py-3 bg-primary-blue text-white font-semibold border-r border-gray-300 hover:bg-primary-blue-dark transition-all"
                         data-tab="tab-mypage">
                     마이페이지
@@ -60,6 +60,29 @@
                     회원탈퇴
                 </button>
             </div>
+            <!-- 모바일 탭 -->
+            <div class="md:hidden mobile-tabs">
+                <button class="tab-button active bg-primary-blue text-white font-semibold rounded-lg border border-primary-blue hover:bg-primary-blue-dark transition-all"
+                        data-tab="tab-mypage">
+                    마이페이지
+                </button>
+                <button class="tab-button bg-white text-gray-600 font-semibold border border-gray-300 rounded-lg hover:bg-gray-50 transition-all"
+                        data-tab="tab-winnings">
+                    나의 당첨 페이지
+                </button>
+                <button class="tab-button bg-white text-gray-600 font-semibold border border-gray-300 rounded-lg hover:bg-gray-50 transition-all"
+                        data-tab="tab-lotto">
+                    나의 로또 페이지
+                </button>
+                <button class="tab-button bg-white text-gray-600 font-semibold border border-gray-300 rounded-lg hover:bg-gray-50 transition-all"
+                        data-tab="tab-settings">
+                    회원정보 변경
+                </button>
+                <button class="tab-button bg-white text-gray-600 font-semibold border border-gray-300 rounded-lg hover:bg-gray-50 transition-all col-span-2"
+                        data-tab="tab-withdraw">
+                    회원탈퇴
+                </button>
+            </div>
         </div>
 
         <!-- 탭 컨텐츠 -->
@@ -68,92 +91,92 @@
             <div id="tab-mypage" class="tab-content">
                 <div class="bg-white overflow-hidden max-w-5xl mx-auto">
                     <!-- 회원 정보 테이블 -->
-                    <table class="w-full">
+                    <table class="w-full mobile-info-table">
                         <tbody>
                         <tr class="border-t-2 border-b border-gray-300">
-                            <td class="bg-primary-blue text-white text-base font-semibold w-48 px-6 py-4 whitespace-nowrap text-center">
+                            <td class="bg-primary-blue text-white text-sm md:text-base font-semibold w-auto md:w-48 px-4 md:px-6 py-3 md:py-4 text-center">
                                 회원등급
                             </td>
-                            <td class="text-base font-bold text-primary-blue px-6 py-4 whitespace-nowrap text-center">
-                                Royal special <span class="text-base font-medium text-gray-800">회원</span></td>
+                            <td class="text-sm md:text-base font-bold text-primary-blue px-4 md:px-6 py-3 md:py-4 text-center">
+                                Royal special <span class="text-sm md:text-base font-medium text-gray-800">회원</span></td>
                         </tr>
                         <tr class="border-b border-gray-200">
-                            <td class="bg-primary-blue text-white text-base font-semibold px-6 py-4 whitespace-nowrap text-center">
+                            <td class="bg-primary-blue text-white text-sm md:text-base font-semibold px-4 md:px-6 py-3 md:py-4 text-center">
                                 이름
                             </td>
-                            <td class="text-base font-medium text-gray-800 px-6 py-4 whitespace-nowrap text-center">
+                            <td class="text-sm md:text-base font-medium text-gray-800 px-4 md:px-6 py-3 md:py-4 text-center">
                                 운영자
                             </td>
                         </tr>
                         <tr class="border-b border-gray-200">
-                            <td class="bg-primary-blue text-white text-base font-semibold px-6 py-4 whitespace-nowrap text-center">
+                            <td class="bg-primary-blue text-white text-sm md:text-base font-semibold px-4 md:px-6 py-3 md:py-4 text-center">
                                 닉네임
                             </td>
-                            <td class="text-base font-medium text-gray-800 px-6 py-4 whitespace-nowrap text-center">
+                            <td class="text-sm md:text-base font-medium text-gray-800 px-4 md:px-6 py-3 md:py-4 text-center">
                                 운영자
                             </td>
                         </tr>
                         <tr class="border-b border-gray-200">
-                            <td class="bg-primary-blue text-white text-base font-semibold px-6 py-4 whitespace-nowrap text-center">
+                            <td class="bg-primary-blue text-white text-sm md:text-base font-semibold px-4 md:px-6 py-3 md:py-4 text-center">
                                 휴대폰 번호
                             </td>
-                            <td class="text-base font-medium text-gray-800 font-number px-6 py-4 whitespace-nowrap text-center">
+                            <td class="text-sm md:text-base font-medium text-gray-800 font-number px-4 md:px-6 py-3 md:py-4 text-center">
                                 01088968175
                             </td>
                         </tr>
                         <tr class="border-b border-gray-200">
-                            <td class="bg-primary-blue text-white text-base font-semibold px-6 py-4 whitespace-nowrap text-center">
+                            <td class="bg-primary-blue text-white text-sm md:text-base font-semibold px-4 md:px-6 py-3 md:py-4 text-center">
                                 회원가입일자
                             </td>
-                            <td class="text-base font-medium text-gray-800 px-6 py-4 whitespace-nowrap text-center">
+                            <td class="text-sm md:text-base font-medium text-gray-800 px-4 md:px-6 py-3 md:py-4 text-center">
                                 2019-07-31 15:33:55
                             </td>
                         </tr>
                         <tr class="border-b border-gray-200">
-                            <td class="bg-primary-blue text-white text-base font-semibold px-6 py-4 whitespace-nowrap text-center">
+                            <td class="bg-primary-blue text-white text-sm md:text-base font-semibold px-4 md:px-6 py-3 md:py-4 text-center">
                                 서비스 종료일
                             </td>
-                            <td class="text-base font-medium text-gray-800 px-6 py-4 whitespace-nowrap text-center">
+                            <td class="text-sm md:text-base font-medium text-gray-800 px-4 md:px-6 py-3 md:py-4 text-center">
                                 2026-09-20
                             </td>
                         </tr>
                         <tr class="border-b border-gray-200">
-                            <td class="bg-primary-blue text-white text-base font-semibold px-6 py-4 whitespace-nowrap text-center">
+                            <td class="bg-primary-blue text-white text-sm md:text-base font-semibold px-4 md:px-6 py-3 md:py-4 text-center">
                                 SMS 서비스 잔여 횟수
                             </td>
-                            <td class="text-base font-bold px-6 py-4 whitespace-nowrap text-center"><span
+                            <td class="text-sm md:text-base font-bold px-4 md:px-6 py-3 md:py-4 text-center"><span
                                     class="text-accent-red font-number">2,000</span><span
-                                    class="text-base font-medium text-gray-800">회</span></td>
+                                    class="text-sm md:text-base font-medium text-gray-800">회</span></td>
                         </tr>
                         <tr class="border-b border-gray-200">
-                            <td class="bg-primary-blue text-white text-base font-semibold px-6 py-4 whitespace-nowrap text-center">
+                            <td class="bg-primary-blue text-white text-sm md:text-base font-semibold px-4 md:px-6 py-3 md:py-4 text-center">
                                 대박설정기 잔여 횟수
                             </td>
-                            <td class="text-base font-bold px-6 py-4 whitespace-nowrap text-center"><span
+                            <td class="text-sm md:text-base font-bold px-4 md:px-6 py-3 md:py-4 text-center"><span
                                     class="text-accent-red font-number">9,999</span><span
-                                    class="text-base font-medium text-gray-800">회</span></td>
+                                    class="text-sm md:text-base font-medium text-gray-800">회</span></td>
                         </tr>
                         <tr class="border-b border-gray-200">
-                            <td class="bg-primary-blue text-white text-base font-semibold px-6 py-4 whitespace-nowrap text-center">
+                            <td class="bg-primary-blue text-white text-sm md:text-base font-semibold px-4 md:px-6 py-3 md:py-4 text-center">
                                 SNS 초화 발송요일
                             </td>
-                            <td class="text-base font-medium text-gray-800 px-6 py-4 whitespace-nowrap text-center">
+                            <td class="text-sm md:text-base font-medium text-gray-800 px-4 md:px-6 py-3 md:py-4 text-center">
                                 목요일
                             </td>
                         </tr>
                         <tr class="border-b border-gray-200">
-                            <td class="bg-primary-blue text-white text-base font-semibold px-6 py-4 whitespace-nowrap text-center">
+                            <td class="bg-primary-blue text-white text-sm md:text-base font-semibold px-4 md:px-6 py-3 md:py-4 text-center">
                                 조합개수
                             </td>
-                            <td class="text-base font-bold px-6 py-4 whitespace-nowrap text-center"><span
+                            <td class="text-sm md:text-base font-bold px-4 md:px-6 py-3 md:py-4 text-center"><span
                                     class="text-accent-red font-number">10</span><span
-                                    class="text-base font-medium text-gray-800">조합</span></td>
+                                    class="text-sm md:text-base font-medium text-gray-800">조합</span></td>
                         </tr>
                         <tr class="border-b-2 border-gray-300">
-                            <td class="bg-primary-blue text-white text-base font-semibold px-6 py-4 whitespace-nowrap text-center">
+                            <td class="bg-primary-blue text-white text-sm md:text-base font-semibold px-4 md:px-6 py-3 md:py-4 text-center">
                                 SMS 수신거부
                             </td>
-                            <td class="text-base font-medium text-gray-800 px-6 py-4 whitespace-nowrap text-center">
+                            <td class="text-sm md:text-base font-medium text-gray-800 px-4 md:px-6 py-3 md:py-4 text-center">
                                 수신허용
                             </td>
                         </tr>
@@ -189,16 +212,16 @@
                     </div>
 
                     <!-- 당첨 순위 뱃지 -->
-                    <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
+                    <div class="grid grid-cols-3 md:grid-cols-5 gap-2 md:gap-4 mb-8">
                         <!-- 1등 (왕관 포함) -->
                         <div class="text-center">
                             <div class="relative inline-block">
                                 <img src="assets/images/crown.png" alt="왕관"
-                                     class="absolute -top-10 left-[-40px] w-24 h-24 transform -rotate-12 z-0">
-                                <div class="w-24 h-24 rounded-full bg-accent-red flex items-center justify-center mx-auto shadow-lg relative z-10">
+                                     class="absolute -top-6 md:-top-10 left-[-24px] md:left-[-40px] w-16 h-16 md:w-24 md:h-24 transform -rotate-12 z-0">
+                                <div class="w-16 h-16 md:w-24 md:h-24 rounded-full bg-accent-red flex items-center justify-center mx-auto shadow-lg relative z-10">
                                     <div class="text-center">
-                                        <div class="text-white font-bold text-lg mb-1">1등</div>
-                                        <div class="text-white font-number text-xl font-bold">0회</div>
+                                        <div class="text-white font-bold text-xs md:text-lg mb-0 md:mb-1">1등</div>
+                                        <div class="text-white font-number text-sm md:text-xl font-bold">0회</div>
                                     </div>
                                 </div>
                             </div>
@@ -206,40 +229,40 @@
 
                         <!-- 2등 -->
                         <div class="text-center">
-                            <div class="w-24 h-24 rounded-full bg-primary-blue flex items-center justify-center mx-auto shadow-lg">
+                            <div class="w-16 h-16 md:w-24 md:h-24 rounded-full bg-primary-blue flex items-center justify-center mx-auto shadow-lg">
                                 <div class="text-center">
-                                    <div class="text-white font-bold text-lg mb-1">2등</div>
-                                    <div class="text-white font-number text-xl font-bold">0회</div>
+                                    <div class="text-white font-bold text-xs md:text-lg mb-0 md:mb-1">2등</div>
+                                    <div class="text-white font-number text-sm md:text-xl font-bold">0회</div>
                                 </div>
                             </div>
                         </div>
 
                         <!-- 3등 -->
                         <div class="text-center">
-                            <div class="w-24 h-24 rounded-full bg-accent-green flex items-center justify-center mx-auto shadow-lg">
+                            <div class="w-16 h-16 md:w-24 md:h-24 rounded-full bg-accent-green flex items-center justify-center mx-auto shadow-lg">
                                 <div class="text-center">
-                                    <div class="text-white font-bold text-lg mb-1">3등</div>
-                                    <div class="text-white font-number text-xl font-bold">0회</div>
+                                    <div class="text-white font-bold text-xs md:text-lg mb-0 md:mb-1">3등</div>
+                                    <div class="text-white font-number text-sm md:text-xl font-bold">0회</div>
                                 </div>
                             </div>
                         </div>
 
                         <!-- 4등 -->
                         <div class="text-center">
-                            <div class="w-24 h-24 rounded-full bg-gray-400 flex items-center justify-center mx-auto shadow-lg">
+                            <div class="w-16 h-16 md:w-24 md:h-24 rounded-full bg-gray-400 flex items-center justify-center mx-auto shadow-lg">
                                 <div class="text-center">
-                                    <div class="text-white font-bold text-lg mb-1">4등</div>
-                                    <div class="text-white font-number text-xl font-bold">0회</div>
+                                    <div class="text-white font-bold text-xs md:text-lg mb-0 md:mb-1">4등</div>
+                                    <div class="text-white font-number text-sm md:text-xl font-bold">0회</div>
                                 </div>
                             </div>
                         </div>
 
                         <!-- 5등 -->
                         <div class="text-center">
-                            <div class="w-24 h-24 rounded-full bg-gray-300 flex items-center justify-center mx-auto shadow-lg">
+                            <div class="w-16 h-16 md:w-24 md:h-24 rounded-full bg-gray-300 flex items-center justify-center mx-auto shadow-lg">
                                 <div class="text-center">
-                                    <div class="text-gray-700 font-bold text-lg mb-1">5등</div>
-                                    <div class="text-gray-700 font-number text-xl font-bold">0회</div>
+                                    <div class="text-gray-700 font-bold text-xs md:text-lg mb-0 md:mb-1">5등</div>
+                                    <div class="text-gray-700 font-number text-sm md:text-xl font-bold">0회</div>
                                 </div>
                             </div>
                         </div>
@@ -379,17 +402,17 @@
             </div>
 
             <!-- 나의 로또 페이지 탭 -->
-            <div id="tab-lotto" class="tab-content hidden p-8">
+            <div id="tab-lotto" class="tab-content hidden p-4 md:p-8">
                 <div class="bg-white overflow-hidden">
 
                     <!-- Top Filter Section -->
-                    <div class="py-6 px-6">
+                    <div class="py-3 md:py-6 px-0 md:px-6">
                         <!-- Row 1: Filter Controls -->
-                        <div class="flex items-center justify-center space-x-4">
+                        <div class="flex flex-col md:flex-row items-stretch md:items-center justify-center space-y-2 md:space-y-0 md:space-x-4">
                             <!-- Dropdown -->
-                            <div class="relative min-w-[240px]">
+                            <div class="relative w-full md:min-w-[240px] md:w-auto">
                                 <select id="lotto-round-select"
-                                        class="block w-full px-4 py-2 text-base text-gray-800 bg-white border border-blue-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300 appearance-none pr-10 cursor-pointer">
+                                        class="block w-full px-3 md:px-4 py-2 text-sm md:text-base text-gray-800 bg-white border border-blue-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300 appearance-none pr-10 cursor-pointer">
                                     <option value="all" selected>전체</option>
                                     <option value="1127">1127회</option>
                                     <option value="1126">1126회</option>
@@ -407,32 +430,32 @@
                             </div>
 
                             <!-- Radio Button Group -->
-                            <div class="flex items-center space-x-4 ml-4">
+                            <div class="flex items-center justify-center space-x-3 md:space-x-4 md:ml-4">
                                 <label class="flex items-center">
-                                    <input type="radio" name="lotto-status" value="all" checked class="accent-black">
-                                    <span class="ml-2 text-gray-900 font-semibold">전체</span>
+                                    <input type="radio" name="lotto-status" value="all" checked class="accent-black w-3.5 h-3.5 md:w-4 md:h-4">
+                                    <span class="ml-1.5 md:ml-2 text-gray-900 font-semibold text-xs md:text-base">전체</span>
                                 </label>
                                 <label class="flex items-center">
-                                    <input type="radio" name="lotto-status" value="winning" class="accent-black">
-                                    <span class="ml-2 text-gray-700">당첨</span>
+                                    <input type="radio" name="lotto-status" value="winning" class="accent-black w-3.5 h-3.5 md:w-4 md:h-4">
+                                    <span class="ml-1.5 md:ml-2 text-gray-700 text-xs md:text-base">당첨</span>
                                 </label>
                                 <label class="flex items-center">
-                                    <input type="radio" name="lotto-status" value="losing" class="accent-black">
-                                    <span class="ml-2 text-gray-700">낙첨</span>
+                                    <input type="radio" name="lotto-status" value="losing" class="accent-black w-3.5 h-3.5 md:w-4 md:h-4">
+                                    <span class="ml-1.5 md:ml-2 text-gray-700 text-xs md:text-base">낙첨</span>
                                 </label>
                             </div>
 
                             <!-- Search Button -->
-                            <button class="bg-blue-600 text-white px-4 py-2 rounded font-semibold hover:bg-blue-700">
+                            <button class="bg-blue-600 text-white px-4 py-2 rounded font-semibold hover:bg-blue-700 w-full md:w-auto text-sm md:text-base">
                                 검색
                             </button>
                         </div>
 
                         <!-- Row 2: Right-Aligned Information -->
-                        <div class="flex justify-end mt-4">
+                        <div class="flex justify-end mt-3 md:mt-4">
                             <div class="flex items-baseline space-x-1">
-                                <span class="text-gray-600 text-sm">전체 게임수</span>
-                                <span class="font-bold text-red-600 text-base">1건</span>
+                                <span class="text-gray-600 text-xs md:text-sm">전체 게임수</span>
+                                <span class="font-bold text-red-600 text-sm md:text-base">1건</span>
                             </div>
                         </div>
                     </div>
@@ -441,54 +464,88 @@
                     <div class="border-b border-gray-300 pb-4 mb-4 mt-6"></div>
 
                     <!-- Table Section -->
-                    <div class="table-container">
-                        <table class="table">
-                            <thead>
+                    <div class="table-container overflow-x-auto">
+                        <table class="table min-w-full md:min-w-0">
+                            <thead class="hidden md:table-header-group">
                             <tr>
-                                <th class="text-center px-4 py-3 font-semibold">회차</th>
-                                <th class="text-center px-4 py-3 font-semibold">구매일</th>
-                                <th class="text-center px-4 py-3 font-semibold">등급</th>
-                                <th class="text-center px-4 py-3 font-semibold">구매번호</th>
-                                <th class="text-center px-4 py-3 font-semibold">필터링</th>
-                                <th class="text-center px-4 py-3 font-semibold">SMS 전송여부</th>
-                                <th class="text-center px-4 py-3 font-semibold">확률분석</th>
-                                <th class="text-center px-4 py-3 font-semibold">결과</th>
+                                <th class="text-center px-2 md:px-4 py-3 font-semibold text-xs md:text-base">회차</th>
+                                <th class="text-center px-2 md:px-4 py-3 font-semibold text-xs md:text-base">구매일</th>
+                                <th class="text-center px-2 md:px-4 py-3 font-semibold text-xs md:text-base">등급</th>
+                                <th class="text-center px-2 md:px-4 py-3 font-semibold text-xs md:text-base">구매번호</th>
+                                <th class="text-center px-2 md:px-4 py-3 font-semibold text-xs md:text-base">필터링</th>
+                                <th class="text-center px-2 md:px-4 py-3 font-semibold text-xs md:text-base">SMS</th>
+                                <th class="text-center px-2 md:px-4 py-3 font-semibold text-xs md:text-base">확률분석</th>
+                                <th class="text-center px-2 md:px-4 py-3 font-semibold text-xs md:text-base">결과</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr class="hover:bg-gray-50">
-                                <td class="text-center py-3 font-number">1127회</td>
-                                <td class="text-center py-3">25-09-21 17:05:15</td>
-                                <td class="text-center py-3 text-blue-600 font-medium">대박추천</td>
-                                <td class="text-center py-3">
-                                    <div class="flex items-center justify-center gap-1">
-                                        <div class="w-8 h-8 bg-yellow-400 text-white rounded-full flex items-center justify-center text-sm font-bold">
-                                            7
-                                        </div>
-                                        <div class="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm font-bold">
-                                            12
-                                        </div>
-                                        <div class="w-8 h-8 bg-red-500 text-white rounded-full flex items-center justify-center text-sm font-bold">
-                                            23
-                                        </div>
-                                        <div class="w-8 h-8 bg-gray-400 text-white rounded-full flex items-center justify-center text-sm font-bold">
-                                            28
-                                        </div>
-                                        <div class="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center text-sm font-bold">
-                                            35
-                                        </div>
-                                        <div class="w-8 h-8 bg-orange-500 text-white rounded-full flex items-center justify-center text-sm font-bold">
-                                            42
-                                        </div>
+                            <!-- 모바일 카드 뷰 -->
+                            <tr class="md:hidden block bg-white border border-gray-200 rounded-lg mb-4 p-4">
+                                <td class="block py-2 border-b border-gray-100" data-label="회차">
+                                    <span class="font-semibold text-gray-600 mr-2">회차:</span>
+                                    <span class="font-number font-bold">1127회</span>
+                                </td>
+                                <td class="block py-2 border-b border-gray-100" data-label="구매일">
+                                    <span class="font-semibold text-gray-600 mr-2">구매일:</span>
+                                    <span class="text-sm">25-09-21 17:05:15</span>
+                                </td>
+                                <td class="block py-2 border-b border-gray-100" data-label="등급">
+                                    <span class="font-semibold text-gray-600 mr-2">등급:</span>
+                                    <span class="text-blue-600 font-medium">대박추천</span>
+                                </td>
+                                <td class="block py-2 border-b border-gray-100" data-label="구매번호">
+                                    <span class="font-semibold text-gray-600 block mb-2">구매번호:</span>
+                                    <div class="flex items-center gap-1 flex-wrap">
+                                        <div class="w-7 h-7 bg-yellow-400 text-white rounded-full flex items-center justify-center text-xs font-bold">7</div>
+                                        <div class="w-7 h-7 bg-blue-500 text-white rounded-full flex items-center justify-center text-xs font-bold">12</div>
+                                        <div class="w-7 h-7 bg-red-500 text-white rounded-full flex items-center justify-center text-xs font-bold">23</div>
+                                        <div class="w-7 h-7 bg-gray-400 text-white rounded-full flex items-center justify-center text-xs font-bold">28</div>
+                                        <div class="w-7 h-7 bg-green-500 text-white rounded-full flex items-center justify-center text-xs font-bold">35</div>
+                                        <div class="w-7 h-7 bg-orange-500 text-white rounded-full flex items-center justify-center text-xs font-bold">42</div>
                                     </div>
                                 </td>
+                                <td class="block py-2 border-b border-gray-100" data-label="필터링">
+                                    <span class="font-semibold text-gray-600 mr-2">필터링:</span>
+                                    <span>필터링 <img src="assets/svg/filtering.svg" alt="필터링" class="w-4 h-4 inline"></span>
+                                </td>
+                                <td class="block py-2 border-b border-gray-100" data-label="SMS">
+                                    <span class="font-semibold text-gray-600 mr-2">SMS:</span>
+                                    <span>사이트 <img src="assets/images/sms.png" alt="SMS 전송여부" class="w-4 h-4 inline"></span>
+                                </td>
+                                <td class="block py-2 border-b border-gray-100" data-label="확률분석">
+                                    <span class="font-semibold text-gray-600 mr-2">확률분석:</span>
+                                    <button class="inline-flex items-center gap-1 px-3 py-1.5 rounded-md text-sm" style="background-color: #DDE1FF;">
+                                        <img src="assets/images/graph.png" alt="그래프" class="w-4 h-4">
+                                        <span>확률분석</span>
+                                    </button>
+                                </td>
+                                <td class="block py-2" data-label="결과">
+                                    <span class="font-semibold text-gray-600 mr-2">결과:</span>
+                                    <span class="font-medium">예정</span>
+                                </td>
+                            </tr>
+                            <!-- 데스크톱 테이블 뷰 -->
+                            <tr class="hover:bg-gray-50 hidden md:table-row">
+                                <td class="text-center py-3 font-number text-sm">1127회</td>
+                                <td class="text-center py-3 text-sm">25-09-21 17:05:15</td>
+                                <td class="text-center py-3 text-blue-600 font-medium text-sm">대박추천</td>
                                 <td class="text-center py-3">
+                                    <div class="flex items-center justify-center gap-1">
+                                        <div class="w-7 h-7 bg-yellow-400 text-white rounded-full flex items-center justify-center text-xs font-bold">7</div>
+                                        <div class="w-7 h-7 bg-blue-500 text-white rounded-full flex items-center justify-center text-xs font-bold">12</div>
+                                        <div class="w-7 h-7 bg-red-500 text-white rounded-full flex items-center justify-center text-xs font-bold">23</div>
+                                        <div class="w-7 h-7 bg-gray-400 text-white rounded-full flex items-center justify-center text-xs font-bold">28</div>
+                                        <div class="w-7 h-7 bg-green-500 text-white rounded-full flex items-center justify-center text-xs font-bold">35</div>
+                                        <div class="w-7 h-7 bg-orange-500 text-white rounded-full flex items-center justify-center text-xs font-bold">42</div>
+                                    </div>
+                                </td>
+                                <td class="text-center py-3 text-sm">
                                     <div class="flex items-center justify-center gap-1">
                                         <span>필터링</span>
                                         <img src="assets/svg/filtering.svg" alt="필터링" class="w-4 h-4">
                                     </div>
                                 </td>
-                                <td class="text-center py-3">
+                                <td class="text-center py-3 text-sm">
                                     <div class="flex items-center justify-center gap-1">
                                         <span>사이트</span>
                                         <img src="assets/images/sms.png" alt="SMS 전송여부" class="w-4 h-4">
@@ -496,16 +553,16 @@
                                 </td>
                                 <td class="text-center py-3">
                                     <div class="flex items-center justify-center">
-                                        <button class="flex items-center gap-1 px-3 py-1.5 rounded-md transition-all duration-200 hover:shadow-md"
+                                        <button class="flex items-center gap-1 px-2 py-1 rounded-md transition-all duration-200 hover:shadow-md text-xs"
                                                 style="background-color: #DDE1FF;"
                                                 onmouseover="this.style.backgroundColor='#C5CAFF'"
                                                 onmouseout="this.style.backgroundColor='#DDE1FF'">
-                                            <img src="assets/images/graph.png" alt="그래프" class="w-[17px] h-[17px]">
-                                            <span class="text-sm">확률분석</span>
+                                            <img src="assets/images/graph.png" alt="그래프" class="w-4 h-4">
+                                            <span>확률분석</span>
                                         </button>
                                     </div>
                                 </td>
-                                <td class="text-center py-3 font-medium">예정</td>
+                                <td class="text-center py-3 font-medium text-sm">예정</td>
                             </tr>
                             </tbody>
                         </table>
@@ -515,51 +572,51 @@
 
             <!-- 회원정보 변경 탭 -->
             <div id="tab-settings" class="tab-content hidden">
-                <div class="bg-white max-w-xl mx-auto py-10">
+                <div class="bg-white max-w-xl mx-auto py-6 md:py-10 px-4 md:px-0">
                     <!-- Duplicate Title (Subtitle) -->
-                    <h2 class="text-2xl font-bold text-gray-900 text-center mb-4">회원정보 변경</h2>
+                    <h2 class="text-xl md:text-2xl font-bold text-gray-900 text-center mb-3 md:mb-4">회원정보 변경</h2>
 
                     <!-- Alert Message -->
-                    <p class="text-accent-red text-sm text-center mb-6">
+                    <p class="text-accent-red text-xs md:text-sm text-center mb-4 md:mb-6 leading-relaxed">
                         수신 요일, 조합 개수 변경 시 이번 주 추천 조합 받으신 이후에 변경해 주시기 바랍니다. <br>
                         변경된 내용은 차주에 적용됩니다.
                     </p>
 
                     <!-- Separator Line -->
-                    <div class="border-b-2 mb-10  border-black">
+                    <div class="border-b-2 mb-6 md:mb-10 border-black">
                     </div>
 
                     <!-- Form Section -->
-                    <form id="settings-form" class="flex flex-col space-y-6">
+                    <form id="settings-form" class="flex flex-col space-y-4 md:space-y-6">
                         <!-- 아이디 Input Group -->
                         <div>
-                            <label for="user-id" class="block text-gray-800 font-medium mb-2">아이디</label>
+                            <label for="user-id" class="block text-gray-800 font-medium mb-1 md:mb-2 text-sm md:text-base">아이디</label>
                             <input
                                     type="text"
                                     id="user-id"
                                     value="01088888175"
                                     readonly
-                                    class="w-full bg-gray-100 text-gray-700 border border-gray-300 rounded px-4 py-3 cursor-not-allowed"
+                                    class="w-full bg-gray-100 text-gray-700 border border-gray-300 rounded px-3 md:px-4 py-2 md:py-3 text-sm md:text-base cursor-not-allowed"
                             >
                         </div>
 
                         <!-- 비밀번호 Input Group -->
                         <div>
-                            <label for="password" class="block text-gray-800 font-medium mb-2">비밀번호</label>
+                            <label for="password" class="block text-gray-800 font-medium mb-1 md:mb-2 text-sm md:text-base">비밀번호</label>
                             <input
                                     type="password"
                                     id="password"
                                     placeholder="영문 또는 숫자, 4자~12자"
-                                    class="w-full bg-white text-gray-800 border border-gray-300 rounded px-4 py-3 placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                    class="w-full bg-white text-gray-800 border border-gray-300 rounded px-3 md:px-4 py-2 md:py-3 text-sm md:text-base placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                             >
                         </div>
 
                         <!-- Confirmation Button -->
-                        <div class="flex justify-center mt-10">
+                        <div class="flex justify-center mt-6 md:mt-10">
                             <button
                                     type="submit"
                                     id="settings-submit-btn"
-                                    class="w-40 bg-blue-600 text-white px-6 py-3 rounded-md font-semibold text-lg hover:bg-blue-700"
+                                    class="w-full md:w-40 bg-blue-600 text-white px-4 md:px-6 py-2 md:py-3 rounded-md font-semibold text-sm md:text-lg hover:bg-blue-700"
                             >
                                 확인
                             </button>
@@ -570,48 +627,48 @@
 
             <!-- 회원탈퇴 탭 -->
             <div id="tab-withdraw" class="tab-content hidden">
-                <div class="bg-white max-w-xl mx-auto py-10">
+                <div class="bg-white max-w-xl mx-auto py-6 md:py-10 px-4 md:px-0">
                     <!-- Title -->
-                    <h2 class="text-2xl font-bold text-gray-900 text-center mb-6">회원 탈퇴</h2>
+                    <h2 class="text-xl md:text-2xl font-bold text-gray-900 text-center mb-4 md:mb-6">회원 탈퇴</h2>
 
                     <!-- Alert Message -->
-                    <p class="text-red-600 text-center mb-6 px-4">
+                    <p class="text-red-600 text-center mb-4 md:mb-6 text-xs md:text-base leading-relaxed">
                         가입 기간이 일주일이 안된 신규 회원의 경우 1주일 뒤에 탈퇴가 가능합니다.<br>
                         재가입을 원하시면 고객센터로 문의바랍니다. <a href="index.html" class="font-semibold text-black hover:text-blue-600 underline">[고객센터문의]</a>
                     </p>
 
                     <!-- Separator Line -->
-                    <div class="border-b-2 border-black mb-10"></div>
+                    <div class="border-b-2 border-black mb-6 md:mb-10"></div>
 
                     <!-- Withdraw Form -->
-                    <form id="withdraw-form-simple" class="flex flex-col space-y-6 px-8">
+                    <form id="withdraw-form-simple" class="flex flex-col space-y-4 md:space-y-6">
                         <!-- 아이디 -->
                         <div>
-                            <label for="withdraw-user-id" class="block text-gray-800 font-medium mb-2">아이디</label>
+                            <label for="withdraw-user-id" class="block text-gray-800 font-medium mb-1 md:mb-2 text-sm md:text-base">아이디</label>
                             <input type="text" id="withdraw-user-id" value="01088888175" readonly
-                                   class="w-full bg-gray-100 text-gray-700 border border-gray-300 rounded px-4 py-3 cursor-not-allowed">
+                                   class="w-full bg-gray-100 text-gray-700 border border-gray-300 rounded px-3 md:px-4 py-2 md:py-3 text-sm md:text-base cursor-not-allowed">
                         </div>
 
                         <!-- 비밀번호 -->
                         <div>
-                            <label for="withdraw-password" class="block text-gray-800 font-medium mb-2">비밀번호</label>
+                            <label for="withdraw-password" class="block text-gray-800 font-medium mb-1 md:mb-2 text-sm md:text-base">비밀번호</label>
                             <input type="password" id="withdraw-password" placeholder="회원 비밀번호를 입력해주세요."
-                                   class="w-full bg-white text-gray-800 border border-gray-300 rounded px-4 py-3 placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                            <p id="withdraw-password-error" class="text-red-600 text-sm mt-1 hidden"></p>
+                                   class="w-full bg-white text-gray-800 border border-gray-300 rounded px-3 md:px-4 py-2 md:py-3 text-sm md:text-base placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            <p id="withdraw-password-error" class="text-red-600 text-xs md:text-sm mt-1 hidden"></p>
                         </div>
 
                         <!-- 비밀번호 확인 -->
                         <div>
-                            <label for="withdraw-password-confirm" class="block text-gray-800 font-medium mb-2">비밀번호 확인</label>
+                            <label for="withdraw-password-confirm" class="block text-gray-800 font-medium mb-1 md:mb-2 text-sm md:text-base">비밀번호 확인</label>
                             <input type="password" id="withdraw-password-confirm" placeholder="위의 비밀번호를 다시 한번 입력하세요."
-                                   class="w-full bg-white text-gray-800 border border-gray-300 rounded px-4 py-3 placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                            <p id="withdraw-password-confirm-error" class="text-red-600 text-sm mt-1 hidden"></p>
+                                   class="w-full bg-white text-gray-800 border border-gray-300 rounded px-3 md:px-4 py-2 md:py-3 text-sm md:text-base placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            <p id="withdraw-password-confirm-error" class="text-red-600 text-xs md:text-sm mt-1 hidden"></p>
                         </div>
 
                         <!-- Submit Button -->
-                        <div class="flex justify-center mt-10">
+                        <div class="flex justify-center mt-6 md:mt-10">
                             <button type="submit"
-                                    class="w-64 bg-blue-600 text-white px-6 py-3 rounded-md font-semibold text-lg hover:bg-blue-700">
+                                    class="w-full md:w-64 bg-blue-600 text-white px-4 md:px-6 py-2 md:py-3 rounded-md font-semibold text-sm md:text-lg hover:bg-blue-700">
                                 회원 탈퇴하기
                             </button>
                         </div>
@@ -761,12 +818,12 @@
             const targetTab = $(this).data('tab');
 
             // 모든 탭 버튼 비활성화
-            $('.tab-button').removeClass('active bg-primary-blue text-white')
-                .addClass('bg-white text-gray-600');
+            $('.tab-button').removeClass('active bg-primary-blue text-white border-primary-blue')
+                .addClass('bg-white text-gray-600 border-gray-300');
 
             // 선택된 탭 활성화
-            $(this).removeClass('bg-white text-gray-600')
-                .addClass('active bg-primary-blue text-white');
+            $(this).removeClass('bg-white text-gray-600 border-gray-300')
+                .addClass('active bg-primary-blue text-white border-primary-blue');
 
             // 모든 탭 컨텐츠 숨김
             $('.tab-content').addClass('hidden');
@@ -886,66 +943,66 @@
 
             // 성공 시 폼을 새로운 디자인으로 교체
             const newFormHtml = `
-                <form id="settings-form-full" class="flex flex-col space-y-6">
+                <form id="settings-form-full" class="flex flex-col space-y-4 md:space-y-6">
                     <!-- 아이디 -->
                     <div>
-                        <label for="user-id-full" class="block text-gray-800 font-medium mb-2">아이디</label>
+                        <label for="user-id-full" class="block text-gray-800 font-medium mb-1 md:mb-2 text-sm md:text-base">아이디</label>
                         <input type="text" id="user-id-full" value="01088888175" readonly
-                               class="w-full bg-gray-100 text-gray-700 border border-gray-300 rounded px-4 py-3 cursor-not-allowed">
+                               class="w-full bg-gray-100 text-gray-700 border border-gray-300 rounded px-3 md:px-4 py-2 md:py-3 text-sm md:text-base cursor-not-allowed">
                     </div>
 
                     <!-- 이름 -->
                     <div>
-                        <label for="user-name" class="block text-gray-800 font-medium mb-2">이름</label>
+                        <label for="user-name" class="block text-gray-800 font-medium mb-1 md:mb-2 text-sm md:text-base">이름</label>
                         <input type="text" id="user-name" value="운영자" readonly
-                               class="w-full bg-gray-100 text-gray-700 border border-gray-300 rounded px-4 py-3 cursor-not-allowed">
+                               class="w-full bg-gray-100 text-gray-700 border border-gray-300 rounded px-3 md:px-4 py-2 md:py-3 text-sm md:text-base cursor-not-allowed">
                     </div>
 
                     <!-- 닉네임 -->
                     <div>
-                        <label for="nickname" class="block text-gray-800 font-medium mb-2">닉네임</label>
+                        <label for="nickname" class="block text-gray-800 font-medium mb-1 md:mb-2 text-sm md:text-base">닉네임</label>
                         <input type="text" id="nickname" placeholder="3자 ~ 8자"
-                               class="w-full bg-white text-gray-800 border border-gray-300 rounded px-4 py-3 placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                        <p id="nickname-error" class="text-red-600 text-sm mt-1 hidden"></p>
+                               class="w-full bg-white text-gray-800 border border-gray-300 rounded px-3 md:px-4 py-2 md:py-3 text-sm md:text-base placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        <p id="nickname-error" class="text-red-600 text-xs md:text-sm mt-1 hidden"></p>
                     </div>
 
                     <!-- 현재 비밀번호 -->
                     <div>
-                        <label for="current-password" class="block text-gray-800 font-medium mb-2">현재 비밀번호</label>
+                        <label for="current-password" class="block text-gray-800 font-medium mb-1 md:mb-2 text-sm md:text-base">현재 비밀번호</label>
                         <input type="password" id="current-password"
-                               class="w-full bg-white text-gray-800 border border-gray-300 rounded px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                        <p id="current-password-error" class="text-red-600 text-sm mt-1 hidden"></p>
+                               class="w-full bg-white text-gray-800 border border-gray-300 rounded px-3 md:px-4 py-2 md:py-3 text-sm md:text-base focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        <p id="current-password-error" class="text-red-600 text-xs md:text-sm mt-1 hidden"></p>
                     </div>
 
                     <!-- 변경할 비밀번호 -->
                     <div>
-                        <label for="new-password" class="block text-gray-800 font-medium mb-2">변경할 비밀번호</label>
+                        <label for="new-password" class="block text-gray-800 font-medium mb-1 md:mb-2 text-sm md:text-base">변경할 비밀번호</label>
                         <input type="password" id="new-password" placeholder="영문 또는 숫자, 4자~12자"
-                               class="w-full bg-white text-gray-800 border border-gray-300 rounded px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                        <p id="new-password-error" class="text-red-600 text-sm mt-1 hidden"></p>
+                               class="w-full bg-white text-gray-800 border border-gray-300 rounded px-3 md:px-4 py-2 md:py-3 text-sm md:text-base focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        <p id="new-password-error" class="text-red-600 text-xs md:text-sm mt-1 hidden"></p>
                     </div>
 
                     <!-- 변경할 비밀번호 확인 -->
                     <div>
-                        <label for="new-password-confirm" class="block text-gray-800 font-medium mb-2">변경할 비밀번호 확인</label>
+                        <label for="new-password-confirm" class="block text-gray-800 font-medium mb-1 md:mb-2 text-sm md:text-base">변경할 비밀번호 확인</label>
                         <input type="password" id="new-password-confirm"
-                               class="w-full bg-white text-gray-800 border border-gray-300 rounded px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                        <p id="new-password-confirm-error" class="text-red-600 text-sm mt-1 hidden"></p>
+                               class="w-full bg-white text-gray-800 border border-gray-300 rounded px-3 md:px-4 py-2 md:py-3 text-sm md:text-base focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        <p id="new-password-confirm-error" class="text-red-600 text-xs md:text-sm mt-1 hidden"></p>
                     </div>
 
                     <!-- 조합개수 -->
                     <div>
-                        <label for="combination-count" class="block text-gray-800 font-medium mb-2">조합개수</label>
+                        <label for="combination-count" class="block text-gray-800 font-medium mb-1 md:mb-2 text-sm md:text-base">조합개수</label>
                         <div class="relative">
                             <select id="combination-count"
-                                    class="w-full bg-white text-gray-800 border border-gray-300 rounded px-4 py-3 appearance-none cursor-pointer focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                    class="w-full bg-white text-gray-800 border border-gray-300 rounded px-3 md:px-4 py-2 md:py-3 text-sm md:text-base appearance-none cursor-pointer focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                                 <option value="5">5 조합</option>
                                 <option value="10" selected>10 조합</option>
                                 <option value="15">15 조합</option>
                                 <option value="20">20 조합</option>
                             </select>
                             <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                                <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-4 h-4 md:w-5 md:h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                                 </svg>
                             </div>
@@ -954,10 +1011,10 @@
 
                     <!-- 문자 발송 희망요일 -->
                     <div>
-                        <label for="sms-day" class="block text-gray-800 font-medium mb-2">문자 발송 희망요일</label>
+                        <label for="sms-day" class="block text-gray-800 font-medium mb-1 md:mb-2 text-sm md:text-base">문자 발송 희망요일</label>
                         <div class="relative">
                             <select id="sms-day"
-                                    class="w-full bg-white text-gray-800 border border-gray-300 rounded px-4 py-3 appearance-none cursor-pointer focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                    class="w-full bg-white text-gray-800 border border-gray-300 rounded px-3 md:px-4 py-2 md:py-3 text-sm md:text-base appearance-none cursor-pointer focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                                 <option value="monday">월요일</option>
                                 <option value="tuesday">화요일</option>
                                 <option value="wednesday">수요일</option>
@@ -965,7 +1022,7 @@
                                 <option value="friday">금요일</option>
                             </select>
                             <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                                <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-4 h-4 md:w-5 md:h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                                 </svg>
                             </div>
@@ -974,15 +1031,15 @@
 
                     <!-- 기타 SMS 수신여부 -->
                     <div>
-                        <label for="sms-receive" class="block text-gray-800 font-medium mb-2">기타 SMS 수신여부</label>
+                        <label for="sms-receive" class="block text-gray-800 font-medium mb-1 md:mb-2 text-sm md:text-base">기타 SMS 수신여부</label>
                         <div class="relative">
                             <select id="sms-receive"
-                                    class="w-full bg-white text-gray-800 border border-gray-300 rounded px-4 py-3 appearance-none cursor-pointer focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                    class="w-full bg-white text-gray-800 border border-gray-300 rounded px-3 md:px-4 py-2 md:py-3 text-sm md:text-base appearance-none cursor-pointer focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                                 <option value="allow" selected>수신 허용</option>
                                 <option value="deny">수신 거부</option>
                             </select>
                             <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                                <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-4 h-4 md:w-5 md:h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                                 </svg>
                             </div>
@@ -990,13 +1047,13 @@
                     </div>
 
                     <!-- 버튼 그룹 -->
-                    <div class="flex justify-center gap-4 mt-10">
+                    <div class="flex flex-col md:flex-row justify-center gap-3 md:gap-4 mt-6 md:mt-10">
                         <button type="button" id="cancel-settings-btn"
-                                class="w-40 bg-white text-blue-600 border-2 border-blue-600 px-6 py-3 rounded-md font-semibold text-lg hover:bg-gray-50">
+                                class="w-full md:w-40 bg-white text-blue-600 border-2 border-blue-600 px-4 md:px-6 py-2 md:py-3 rounded-md font-semibold text-sm md:text-lg hover:bg-gray-50 order-2 md:order-1">
                             취소
                         </button>
                         <button type="submit"
-                                class="w-40 bg-blue-600 text-white px-6 py-3 rounded-md font-semibold text-lg hover:bg-blue-700">
+                                class="w-full md:w-40 bg-blue-600 text-white px-4 md:px-6 py-2 md:py-3 rounded-md font-semibold text-sm md:text-lg hover:bg-blue-700 order-1 md:order-2">
                             확인
                         </button>
                     </div>

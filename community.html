@@ -34,11 +34,11 @@
   <main class="py-12">
     <div class="container mx-auto px-4 max-w-6xl">
       <!-- 페이지 타이틀 -->
-      <h1 class="text-4xl font-bold mb-8 text-center">커뮤니티</h1>
+      <h1 class="text-2xl md:text-4xl font-bold mb-6 md:mb-8 text-center">커뮤니티</h1>
 
       <!-- 탭 네비게이션 -->
       <div class="mb-8">
-        <div class="flex border border-gray-300 rounded-lg overflow-hidden">
+        <div class="hidden md:flex border border-gray-300 rounded-lg overflow-hidden">
           <button class="tab-button active flex-1 px-6 py-3 bg-primary-blue text-white font-semibold border-r border-gray-300 hover:bg-primary-blue-dark transition-all" data-tab="tab-board">
             당첨 게시판
           </button>
@@ -49,6 +49,18 @@
             자주하는 질문
           </button>
         </div>
+        <!-- 모바일 탭 -->
+        <div class="md:hidden mobile-tabs grid-cols-3">
+          <button class="tab-button active bg-primary-blue text-white font-semibold rounded-lg border border-primary-blue hover:bg-primary-blue-dark transition-all" data-tab="tab-board">
+            당첨 게시판
+          </button>
+          <button class="tab-button bg-white text-gray-600 font-semibold border border-gray-300 rounded-lg hover:bg-gray-50 transition-all" data-tab="tab-inquiry">
+            1:1 문의
+          </button>
+          <button class="tab-button bg-white text-gray-600 font-semibold border border-gray-300 rounded-lg hover:bg-gray-50 transition-all" data-tab="tab-faq">
+            자주하는 질문
+          </button>
+        </div>
       </div>
 
       <!-- 탭 컨텐츠 -->
@@ -56,62 +68,129 @@
         <!-- 당첨 게시판 탭 -->
         <div id="tab-board" class="tab-content">
           <!-- 게시판 테이블 -->
-          <div class="table-container mb-6">
-            <table class="table">
-              <thead>
+          <div class="table-container mb-6 overflow-x-auto">
+            <table class="table min-w-full">
+              <thead class="hidden md:table-header-group">
                 <tr>
-                  <th class="text-center bg-primary-blue text-white w-20">번호</th>
-                  <th class="text-left bg-primary-blue text-white">제목</th>
-                  <th class="text-center bg-primary-blue text-white w-32">작성자</th>
-                  <th class="text-center bg-primary-blue text-white w-32">등록일</th>
-                  <th class="text-center bg-primary-blue text-white w-24">조회수</th>
+                  <th class="text-center bg-primary-blue text-white w-16 md:w-20 text-xs md:text-base py-2 md:py-3">번호</th>
+                  <th class="text-left bg-primary-blue text-white text-xs md:text-base py-2 md:py-3">제목</th>
+                  <th class="text-center bg-primary-blue text-white w-24 md:w-32 text-xs md:text-base py-2 md:py-3">작성자</th>
+                  <th class="text-center bg-primary-blue text-white w-24 md:w-32 text-xs md:text-base py-2 md:py-3">등록일</th>
+                  <th class="text-center bg-primary-blue text-white w-20 md:w-24 text-xs md:text-base py-2 md:py-3">조회수</th>
                 </tr>
               </thead>
               <tbody>
-                <tr class="cursor-pointer hover:bg-gray-50">
-                  <td class="text-center font-semibold">5</td>
-                  <td class="text-left">
+                <!-- 모바일 카드 뷰 -->
+                <tr class="md:hidden block bg-white border border-gray-200 rounded-lg mb-3 p-4 cursor-pointer hover:bg-gray-50">
+                  <td class="block py-1">
+                    <div class="flex justify-between items-start mb-2">
+                      <span class="font-semibold text-primary-blue">#5</span>
+                      <span class="text-xs text-gray-500">2025.11.25</span>
+                    </div>
+                    <a href="#" class="text-gray-800 hover:text-primary-blue font-medium block mb-2">당첨 배송 가능한가요?<br><span class="text-xs text-gray-500">두 줄 케이스</span></a>
+                    <div class="flex justify-between text-xs text-gray-600">
+                      <span>작성자: Song**</span>
+                      <span>조회수: 25</span>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="md:hidden block bg-white border border-gray-200 rounded-lg mb-3 p-4 cursor-pointer hover:bg-gray-50">
+                  <td class="block py-1">
+                    <div class="flex justify-between items-start mb-2">
+                      <span class="font-semibold text-primary-blue">#4</span>
+                      <span class="text-xs text-gray-500">2025.11.25</span>
+                    </div>
+                    <a href="#" class="text-gray-800 hover:text-primary-blue font-medium block mb-2">당첨 배송 가능한가요?</a>
+                    <div class="flex justify-between text-xs text-gray-600">
+                      <span>작성자: Song**</span>
+                      <span>조회수: 125</span>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="md:hidden block bg-white border border-gray-200 rounded-lg mb-3 p-4 cursor-pointer hover:bg-gray-50">
+                  <td class="block py-1">
+                    <div class="flex justify-between items-start mb-2">
+                      <span class="font-semibold text-primary-blue">#3</span>
+                      <span class="text-xs text-gray-500">2025.11.25</span>
+                    </div>
+                    <a href="#" class="text-gray-800 hover:text-primary-blue font-medium block mb-2">당첨 배송 가능한가요?</a>
+                    <div class="flex justify-between text-xs text-gray-600">
+                      <span>작성자: Song**</span>
+                      <span>조회수: 5</span>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="md:hidden block bg-white border border-gray-200 rounded-lg mb-3 p-4 cursor-pointer hover:bg-gray-50">
+                  <td class="block py-1">
+                    <div class="flex justify-between items-start mb-2">
+                      <span class="font-semibold text-primary-blue">#2</span>
+                      <span class="text-xs text-gray-500">2025.11.25</span>
+                    </div>
+                    <a href="#" class="text-gray-800 hover:text-primary-blue font-medium block mb-2">당첨 배송 가능한가요?</a>
+                    <div class="flex justify-between text-xs text-gray-600">
+                      <span>작성자: Song**</span>
+                      <span>조회수: 25</span>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="md:hidden block bg-white border border-gray-200 rounded-lg mb-3 p-4 cursor-pointer hover:bg-gray-50">
+                  <td class="block py-1">
+                    <div class="flex justify-between items-start mb-2">
+                      <span class="font-semibold text-primary-blue">#1</span>
+                      <span class="text-xs text-gray-500">2025.11.25</span>
+                    </div>
+                    <a href="#" class="text-gray-800 hover:text-primary-blue font-medium block mb-2">당첨 배송 가능한가요?</a>
+                    <div class="flex justify-between text-xs text-gray-600">
+                      <span>작성자: Song**</span>
+                      <span>조회수: 25</span>
+                    </div>
+                  </td>
+                </tr>
+                <!-- 데스크톱 테이블 뷰 -->
+                <tr class="cursor-pointer hover:bg-gray-50 hidden md:table-row">
+                  <td class="text-center font-semibold text-sm">5</td>
+                  <td class="text-left text-sm">
                     <a href="#" class="text-gray-800 hover:text-primary-blue">당첨 배송 가능한가요?<br><span class="text-xs text-gray-500">두 줄 케이스</span></a>
                   </td>
-                  <td class="text-center text-sm">Song**</td>
-                  <td class="text-center text-sm">2025.11.25</td>
-                  <td class="text-center font-number">25</td>
+                  <td class="text-center text-xs">Song**</td>
+                  <td class="text-center text-xs">2025.11.25</td>
+                  <td class="text-center font-number text-sm">25</td>
                 </tr>
-                <tr class="cursor-pointer hover:bg-gray-50">
-                  <td class="text-center font-semibold">4</td>
-                  <td class="text-left">
+                <tr class="cursor-pointer hover:bg-gray-50 hidden md:table-row">
+                  <td class="text-center font-semibold text-sm">4</td>
+                  <td class="text-left text-sm">
                     <a href="#" class="text-gray-800 hover:text-primary-blue">당첨 배송 가능한가요?</a>
                   </td>
-                  <td class="text-center text-sm">Song**</td>
-                  <td class="text-center text-sm">2025.11.25</td>
-                  <td class="text-center font-number">125</td>
+                  <td class="text-center text-xs">Song**</td>
+                  <td class="text-center text-xs">2025.11.25</td>
+                  <td class="text-center font-number text-sm">125</td>
                 </tr>
-                <tr class="cursor-pointer hover:bg-gray-50">
-                  <td class="text-center font-semibold">3</td>
-                  <td class="text-left">
+                <tr class="cursor-pointer hover:bg-gray-50 hidden md:table-row">
+                  <td class="text-center font-semibold text-sm">3</td>
+                  <td class="text-left text-sm">
                     <a href="#" class="text-gray-800 hover:text-primary-blue">당첨 배송 가능한가요?</a>
                   </td>
-                  <td class="text-center text-sm">Song**</td>
-                  <td class="text-center text-sm">2025.11.25</td>
-                  <td class="text-center font-number">5</td>
+                  <td class="text-center text-xs">Song**</td>
+                  <td class="text-center text-xs">2025.11.25</td>
+                  <td class="text-center font-number text-sm">5</td>
                 </tr>
-                <tr class="cursor-pointer hover:bg-gray-50">
-                  <td class="text-center font-semibold">2</td>
-                  <td class="text-left">
+                <tr class="cursor-pointer hover:bg-gray-50 hidden md:table-row">
+                  <td class="text-center font-semibold text-sm">2</td>
+                  <td class="text-left text-sm">
                     <a href="#" class="text-gray-800 hover:text-primary-blue">당첨 배송 가능한가요?</a>
                   </td>
-                  <td class="text-center text-sm">Song**</td>
-                  <td class="text-center text-sm">2025.11.25</td>
-                  <td class="text-center font-number">25</td>
+                  <td class="text-center text-xs">Song**</td>
+                  <td class="text-center text-xs">2025.11.25</td>
+                  <td class="text-center font-number text-sm">25</td>
                 </tr>
-                <tr class="cursor-pointer hover:bg-gray-50">
-                  <td class="text-center font-semibold">1</td>
-                  <td class="text-left">
+                <tr class="cursor-pointer hover:bg-gray-50 hidden md:table-row">
+                  <td class="text-center font-semibold text-sm">1</td>
+                  <td class="text-left text-sm">
                     <a href="#" class="text-gray-800 hover:text-primary-blue">당첨 배송 가능한가요?</a>
                   </td>
-                  <td class="text-center text-sm">Song**</td>
-                  <td class="text-center text-sm">2025.11.25</td>
-                  <td class="text-center font-number">25</td>
+                  <td class="text-center text-xs">Song**</td>
+                  <td class="text-center text-xs">2025.11.25</td>
+                  <td class="text-center font-number text-sm">25</td>
                 </tr>
               </tbody>
             </table>
@@ -119,7 +198,7 @@
 
           <!-- 글쓰기 버튼 -->
           <div class="text-center">
-            <button class="btn btn-primary px-8 py-3">닫기</button>
+            <button class="btn btn-primary px-4 md:px-8 py-2 md:py-3 text-xs md:text-base">닫기</button>
           </div>
 
           <!-- 페이지네이션 (예시) -->
@@ -146,24 +225,29 @@
         <div id="tab-inquiry" class="tab-content hidden">
           <!-- 문의 목록 보기 (기본 화면) -->
           <div id="inquiry-list-view">
-            <div class="p-8 mb-6">
-              <div class="flex justify-between items-center mb-6">
-                <h3 class="text-2xl font-bold">나의 1:1 문의 내역</h3>
-                <button id="show-inquiry-form-btn" class="btn btn-primary px-6 py-2">1:1문의하기</button>
+            <div class="p-4 md:p-8 mb-6">
+              <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+                <h3 class="text-xl md:text-2xl font-bold">나의 1:1 문의 내역</h3>
+                <button id="show-inquiry-form-btn" class="btn btn-primary px-4 md:px-6 py-2 text-sm md:text-base w-full sm:w-auto">1:1문의하기</button>
               </div>
 
               <!-- 문의 내역 아코디언 -->
               <div class="space-y-3">
                 <!-- 문의 항목 5 -->
                 <div class="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-200">
-                  <button class="inquiry-item w-full text-left px-6 py-4 flex items-center justify-between hover:bg-gray-50 transition-colors">
-                    <div class="flex items-center gap-4 flex-1">
-                      <span class="font-semibold text-gray-600 w-10">5</span>
-                      <span class="font-medium text-gray-800 flex-1">SMS 알림이 오지 않아요</span>
-                      <span class="text-sm text-gray-500">2025-11-08</span>
-                      <span class="inline-block px-3 py-1 bg-accent-green text-white text-xs rounded-full font-semibold">답변완료</span>
+                  <button class="inquiry-item w-full text-left px-4 md:px-6 py-3 md:py-4 flex items-center justify-between hover:bg-gray-50 transition-colors">
+                    <div class="flex flex-col md:flex-row md:items-center gap-2 md:gap-4 flex-1">
+                      <div class="flex items-center justify-between md:justify-start gap-2 md:gap-4">
+                        <span class="font-semibold text-gray-600 w-8 md:w-10 text-sm md:text-base">5</span>
+                        <span class="inline-block px-2 md:px-3 py-1 bg-accent-green text-white text-xs rounded-full font-semibold md:hidden">답변완료</span>
+                      </div>
+                      <span class="font-medium text-gray-800 flex-1 text-sm md:text-base">SMS 알림이 오지 않아요</span>
+                      <div class="flex items-center gap-2">
+                        <span class="text-xs md:text-sm text-gray-500">2025-11-08</span>
+                        <span class="hidden md:inline-block px-3 py-1 bg-accent-green text-white text-xs rounded-full font-semibold">답변완료</span>
+                      </div>
                     </div>
-                    <svg class="w-5 h-5 transform transition-transform ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-5 h-5 transform transition-transform ml-2 md:ml-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                     </svg>
                   </button>
@@ -181,14 +265,19 @@
 
                 <!-- 문의 항목 4 -->
                 <div class="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-200">
-                  <button class="inquiry-item w-full text-left px-6 py-4 flex items-center justify-between hover:bg-gray-50 transition-colors">
-                    <div class="flex items-center gap-4 flex-1">
-                      <span class="font-semibold text-gray-600 w-10">4</span>
-                      <span class="font-medium text-gray-800 flex-1">결제 후 등급 변경이 안 되는데 확인 부탁드립니다</span>
-                      <span class="text-sm text-gray-500">2025-11-07</span>
-                      <span class="inline-block px-3 py-1 bg-accent-green text-white text-xs rounded-full font-semibold">답변완료</span>
+                  <button class="inquiry-item w-full text-left px-4 md:px-6 py-3 md:py-4 flex items-center justify-between hover:bg-gray-50 transition-colors">
+                    <div class="flex flex-col md:flex-row md:items-center gap-2 md:gap-4 flex-1">
+                      <div class="flex items-center justify-between md:justify-start gap-2 md:gap-4">
+                        <span class="font-semibold text-gray-600 w-8 md:w-10 text-sm md:text-base">4</span>
+                        <span class="inline-block px-2 md:px-3 py-1 bg-accent-green text-white text-xs rounded-full font-semibold md:hidden">답변완료</span>
+                      </div>
+                      <span class="font-medium text-gray-800 flex-1 text-sm md:text-base">결제 후 등급 변경이 안 되는데 확인 부탁드립니다</span>
+                      <div class="flex items-center gap-2">
+                        <span class="text-xs md:text-sm text-gray-500">2025-11-07</span>
+                        <span class="hidden md:inline-block px-3 py-1 bg-accent-green text-white text-xs rounded-full font-semibold">답변완료</span>
+                      </div>
                     </div>
-                    <svg class="w-5 h-5 transform transition-transform ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-5 h-5 transform transition-transform ml-2 md:ml-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                     </svg>
                   </button>
@@ -206,14 +295,19 @@
 
                 <!-- 문의 항목 3 -->
                 <div class="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-200">
-                  <button class="inquiry-item w-full text-left px-6 py-4 flex items-center justify-between hover:bg-gray-50 transition-colors">
-                    <div class="flex items-center gap-4 flex-1">
-                      <span class="font-semibold text-gray-600 w-10">3</span>
-                      <span class="font-medium text-gray-800 flex-1">AI 번호 추천 기능이 궁금합니다</span>
-                      <span class="text-sm text-gray-500">2025-11-05</span>
-                      <span class="inline-block px-3 py-1 bg-accent-green text-white text-xs rounded-full font-semibold">답변완료</span>
+                  <button class="inquiry-item w-full text-left px-4 md:px-6 py-3 md:py-4 flex items-center justify-between hover:bg-gray-50 transition-colors">
+                    <div class="flex flex-col md:flex-row md:items-center gap-2 md:gap-4 flex-1">
+                      <div class="flex items-center justify-between md:justify-start gap-2 md:gap-4">
+                        <span class="font-semibold text-gray-600 w-8 md:w-10 text-sm md:text-base">3</span>
+                        <span class="inline-block px-2 md:px-3 py-1 bg-accent-green text-white text-xs rounded-full font-semibold md:hidden">답변완료</span>
+                      </div>
+                      <span class="font-medium text-gray-800 flex-1 text-sm md:text-base">AI 번호 추천 기능이 궁금합니다</span>
+                      <div class="flex items-center gap-2">
+                        <span class="text-xs md:text-sm text-gray-500">2025-11-05</span>
+                        <span class="hidden md:inline-block px-3 py-1 bg-accent-green text-white text-xs rounded-full font-semibold">답변완료</span>
+                      </div>
                     </div>
-                    <svg class="w-5 h-5 transform transition-transform ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-5 h-5 transform transition-transform ml-2 md:ml-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                     </svg>
                   </button>
@@ -231,14 +325,19 @@
 
                 <!-- 문의 항목 2 -->
                 <div class="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-200">
-                  <button class="inquiry-item w-full text-left px-6 py-4 flex items-center justify-between hover:bg-gray-50 transition-colors">
-                    <div class="flex items-center gap-4 flex-1">
-                      <span class="font-semibold text-gray-600 w-10">2</span>
-                      <span class="font-medium text-gray-800 flex-1">환불 절차가 어떻게 되나요?</span>
-                      <span class="text-sm text-gray-500">2025-11-03</span>
-                      <span class="inline-block px-3 py-1 bg-primary-blue text-white text-xs rounded-full font-semibold">답변대기</span>
+                  <button class="inquiry-item w-full text-left px-4 md:px-6 py-3 md:py-4 flex items-center justify-between hover:bg-gray-50 transition-colors">
+                    <div class="flex flex-col md:flex-row md:items-center gap-2 md:gap-4 flex-1">
+                      <div class="flex items-center justify-between md:justify-start gap-2 md:gap-4">
+                        <span class="font-semibold text-gray-600 w-8 md:w-10 text-sm md:text-base">2</span>
+                        <span class="inline-block px-2 md:px-3 py-1 bg-primary-blue text-white text-xs rounded-full font-semibold md:hidden">답변대기</span>
+                      </div>
+                      <span class="font-medium text-gray-800 flex-1 text-sm md:text-base">환불 절차가 어떻게 되나요?</span>
+                      <div class="flex items-center gap-2">
+                        <span class="text-xs md:text-sm text-gray-500">2025-11-03</span>
+                        <span class="hidden md:inline-block px-3 py-1 bg-primary-blue text-white text-xs rounded-full font-semibold">답변대기</span>
+                      </div>
                     </div>
-                    <svg class="w-5 h-5 transform transition-transform ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-5 h-5 transform transition-transform ml-2 md:ml-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                     </svg>
                   </button>
@@ -256,14 +355,19 @@
 
                 <!-- 문의 항목 1 -->
                 <div class="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-200">
-                  <button class="inquiry-item w-full text-left px-6 py-4 flex items-center justify-between hover:bg-gray-50 transition-colors">
-                    <div class="flex items-center gap-4 flex-1">
-                      <span class="font-semibold text-gray-600 w-10">1</span>
-                      <span class="font-medium text-gray-800 flex-1">로그인이 안 됩니다. 도와주세요!</span>
-                      <span class="text-sm text-gray-500">2025-11-01</span>
-                      <span class="inline-block px-3 py-1 bg-accent-green text-white text-xs rounded-full font-semibold">답변완료</span>
+                  <button class="inquiry-item w-full text-left px-4 md:px-6 py-3 md:py-4 flex items-center justify-between hover:bg-gray-50 transition-colors">
+                    <div class="flex flex-col md:flex-row md:items-center gap-2 md:gap-4 flex-1">
+                      <div class="flex items-center justify-between md:justify-start gap-2 md:gap-4">
+                        <span class="font-semibold text-gray-600 w-8 md:w-10 text-sm md:text-base">1</span>
+                        <span class="inline-block px-2 md:px-3 py-1 bg-accent-green text-white text-xs rounded-full font-semibold md:hidden">답변완료</span>
+                      </div>
+                      <span class="font-medium text-gray-800 flex-1 text-sm md:text-base">로그인이 안 됩니다. 도와주세요!</span>
+                      <div class="flex items-center gap-2">
+                        <span class="text-xs md:text-sm text-gray-500">2025-11-01</span>
+                        <span class="hidden md:inline-block px-3 py-1 bg-accent-green text-white text-xs rounded-full font-semibold">답변완료</span>
+                      </div>
                     </div>
-                    <svg class="w-5 h-5 transform transition-transform ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-5 h-5 transform transition-transform ml-2 md:ml-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                     </svg>
                   </button>
@@ -316,9 +420,9 @@
                 <input type="email" class="input-text" placeholder="답변 받으실 이메일을 입력하세요">
               </div>
 
-              <div class="flex justify-center gap-4">
-                <button type="button" id="cancel-inquiry-btn" class="btn btn-secondary px-8 py-3">취소</button>
-                <button type="submit" class="btn btn-primary px-8 py-3">문의하기</button>
+              <div class="flex flex-col md:flex-row justify-center gap-3 md:gap-4">
+                <button type="button" id="cancel-inquiry-btn" class="btn btn-secondary px-4 md:px-8 py-2 md:py-3 text-sm md:text-base order-2 md:order-1">취소</button>
+                <button type="submit" class="btn btn-primary px-4 md:px-8 py-2 md:py-3 text-sm md:text-base order-1 md:order-2">문의하기</button>
               </div>
             </form>
           </div>
@@ -329,52 +433,52 @@
           <div class="space-y-4">
             <!-- FAQ 아이템 1 -->
             <div class="bg-white rounded-lg shadow-sm overflow-hidden">
-              <button class="faq-question w-full text-left px-6 py-4 font-semibold flex items-center justify-between hover:bg-gray-50">
+              <button class="faq-question w-full text-left px-4 md:px-6 py-3 md:py-4 font-semibold flex items-center justify-between hover:bg-gray-50 text-sm md:text-base">
                 <span>Q. 로또 번호는 어떻게 예측하나요?</span>
-                <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="w-4 h-4 md:w-5 md:h-5 transform transition-transform flex-shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
-              <div class="faq-answer hidden px-6 py-4 bg-gray-50 text-gray-700">
+              <div class="faq-answer hidden px-4 md:px-6 py-3 md:py-4 bg-gray-50 text-gray-700 text-xs md:text-base">
                 <p>AI 기반 머신러닝 알고리즘과 통계 분석을 통해 과거 데이터를 분석하여 가장 확률이 높은 번호 조합을 추천해드립니다.</p>
               </div>
             </div>
 
             <!-- FAQ 아이템 2 -->
             <div class="bg-white rounded-lg shadow-sm overflow-hidden">
-              <button class="faq-question w-full text-left px-6 py-4 font-semibold flex items-center justify-between hover:bg-gray-50">
+              <button class="faq-question w-full text-left px-4 md:px-6 py-3 md:py-4 font-semibold flex items-center justify-between hover:bg-gray-50 text-sm md:text-base">
                 <span>Q. 회원 가입은 어떻게 하나요?</span>
-                <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="w-4 h-4 md:w-5 md:h-5 transform transition-transform flex-shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
-              <div class="faq-answer hidden px-6 py-4 bg-gray-50 text-gray-700">
+              <div class="faq-answer hidden px-4 md:px-6 py-3 md:py-4 bg-gray-50 text-gray-700 text-xs md:text-base">
                 <p>상단의 '로그인' 버튼을 클릭하시고, 회원가입 페이지에서 필요한 정보를 입력하시면 됩니다. 간편가입도 가능합니다.</p>
               </div>
             </div>
 
             <!-- FAQ 아이템 3 -->
             <div class="bg-white rounded-lg shadow-sm overflow-hidden">
-              <button class="faq-question w-full text-left px-6 py-4 font-semibold flex items-center justify-between hover:bg-gray-50">
+              <button class="faq-question w-full text-left px-4 md:px-6 py-3 md:py-4 font-semibold flex items-center justify-between hover:bg-gray-50 text-sm md:text-base">
                 <span>Q. 프리미엄 서비스는 어떤 혜택이 있나요?</span>
-                <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="w-4 h-4 md:w-5 md:h-5 transform transition-transform flex-shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
-              <div class="faq-answer hidden px-6 py-4 bg-gray-50 text-gray-700">
+              <div class="faq-answer hidden px-4 md:px-6 py-3 md:py-4 bg-gray-50 text-gray-700 text-xs md:text-base">
                 <p>프리미엄 회원은 더 많은 번호 조합, 상세한 통계 분석, 우선 상담 등의 혜택을 받으실 수 있습니다. 자세한 내용은 상품안내를 참조해주세요.</p>
               </div>
             </div>
 
             <!-- FAQ 아이템 4 -->
             <div class="bg-white rounded-lg shadow-sm overflow-hidden">
-              <button class="faq-question w-full text-left px-6 py-4 font-semibold flex items-center justify-between hover:bg-gray-50">
+              <button class="faq-question w-full text-left px-4 md:px-6 py-3 md:py-4 font-semibold flex items-center justify-between hover:bg-gray-50 text-sm md:text-base">
                 <span>Q. 환불 정책은 어떻게 되나요?</span>
-                <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="w-4 h-4 md:w-5 md:h-5 transform transition-transform flex-shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
-              <div class="faq-answer hidden px-6 py-4 bg-gray-50 text-gray-700">
+              <div class="faq-answer hidden px-4 md:px-6 py-3 md:py-4 bg-gray-50 text-gray-700 text-xs md:text-base">
                 <p>서비스 이용 전에는 전액 환불이 가능하며, 이용 후에는 환불이 불가능합니다. 자세한 환불 정책은 이용약관을 참조해주세요.</p>
               </div>
             </div>
@@ -398,12 +502,12 @@
         const targetTab = $(this).data('tab');
 
         // 모든 탭 버튼 비활성화
-        $('.tab-button').removeClass('active bg-primary-blue text-white')
-                        .addClass('bg-white text-gray-600');
+        $('.tab-button').removeClass('active bg-primary-blue text-white border-primary-blue')
+                        .addClass('bg-white text-gray-600 border-gray-300');
 
         // 선택된 탭 활성화
-        $(this).removeClass('bg-white text-gray-600')
-               .addClass('active bg-primary-blue text-white');
+        $(this).removeClass('bg-white text-gray-600 border-gray-300')
+               .addClass('active bg-primary-blue text-white border-primary-blue');
 
         // 모든 탭 컨텐츠 숨김
         $('.tab-content').addClass('hidden');

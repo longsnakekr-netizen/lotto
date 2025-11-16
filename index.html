@@ -33,7 +33,7 @@
   <!-- 메인 컨텐츠 -->
   <main>
     <!-- 히어로 슬라이더 -->
-    <section class="hero-slider relative bg-gradient-hero overflow-hidden" style="height: 400px;">
+    <section class="hero-slider relative bg-gradient-hero overflow-hidden" style="height: 300px;">
       <div id="hero-slider" class="relative h-full">
         <!-- 슬라이드 1 -->
         <div class="slide absolute inset-0 w-full h-full">
@@ -47,10 +47,10 @@
           <!-- 텍스트 컨텐츠 -->
           <div class="container mx-auto px-4 h-full flex items-center relative z-10">
             <div class="text-white max-w-xl">
-              <h1 class="text-5xl font-bold mb-4 leading-tight">
-                <b class="text-yellow-300 text-6xl font-extrabold">로또라운지</b>가 <b class="text-yellow-300 text-6xl font-extrabold">당첨</b>을<br>약속합니다.
+              <h1 class="text-3xl md:text-5xl font-bold mb-2 md:mb-4 leading-tight">
+                <b class="text-yellow-300 text-4xl md:text-6xl font-extrabold">로또라운지</b>가 <b class="text-yellow-300 text-4xl md:text-6xl font-extrabold">당첨</b>을<br>약속합니다.
               </h1>
-              <p class="text-lg mb-6 opacity-90">
+              <p class="text-sm md:text-lg mb-4 md:mb-6 opacity-90">
                 역대 누적 필터 + 신압축프로그램<br>
                 수많은 확률 그 중에 진정한 해답을 찾다!
               </p>
@@ -144,28 +144,28 @@
         <div>
           <!-- 다이아 무료상담 문의 (Sticky) -->
           <section class="sticky top-6 z-10 mb-8">
-            <div class="bg-blue-600 rounded-lg p-8">
+            <div class="bg-blue-600 rounded-lg p-4 md:p-8">
               <div class="max-w-5xl mx-auto">
-                <div class="flex flex-col lg:flex-row justify-center items-center gap-10">
+                <div class="flex flex-col lg:flex-row justify-center items-center gap-4 md:gap-10">
                   <!-- 왼쪽: 제목 및 설명 -->
-                  <div class="text-left lg:w-1/3">
-                    <h2 class="text-4xl font-bold text-white mb-3">다이아 무료상담 문의</h2>
-                    <p class="text-lg text-white opacity-80">무엇이든 저지르면 원하던 일이 일어납니다.</p>
+                  <div class="text-center lg:text-left lg:w-1/3">
+                    <h2 class="text-2xl md:text-4xl font-bold text-white mb-2 md:mb-3">다이아 무료상담 문의</h2>
+                    <p class="text-sm md:text-lg text-white opacity-80">무엇이든 저지르면 원하던 일이 일어납니다.</p>
                   </div>
 
                   <!-- 오른쪽: 입력 폼 -->
-                  <div>
-                    <form id="consultation-form" class="space-y-4">
+                  <div class="w-full lg:w-auto">
+                    <form id="consultation-form" class="space-y-3 md:space-y-4">
                       <!-- 전화번호 입력 및 버튼 -->
                       <div class="flex flex-col sm:flex-row items-center gap-3">
-                        <div class="flex items-center gap-2 bg-white rounded-lg px-3 py-2">
-                          <input type="text" value="010" readonly class="w-12 bg-transparent text-gray-800 font-semibold outline-none">
+                        <div class="flex items-center gap-2 bg-white rounded-lg px-3 py-2 w-full sm:w-auto justify-center">
+                          <input type="text" value="010" readonly class="w-10 md:w-12 bg-transparent text-gray-800 font-semibold outline-none text-sm md:text-base">
                           <span class="text-gray-600">-</span>
-                          <input type="tel" id="phone-middle" maxlength="4" class="w-16 bg-transparent text-gray-800 outline-none" placeholder="0000">
+                          <input type="tel" id="phone-middle" maxlength="4" class="w-14 md:w-16 bg-transparent text-gray-800 outline-none text-sm md:text-base" placeholder="0000">
                           <span class="text-gray-600">-</span>
-                          <input type="tel" id="phone-last" maxlength="4" class="w-16 bg-transparent text-gray-800 outline-none" placeholder="0000">
+                          <input type="tel" id="phone-last" maxlength="4" class="w-14 md:w-16 bg-transparent text-gray-800 outline-none text-sm md:text-base" placeholder="0000">
                         </div>
-                        <button type="submit" class="bg-gray-800 text-white font-bold px-8 py-2 rounded-lg hover:bg-gray-700 transition-colors">
+                        <button type="submit" class="bg-gray-800 text-white font-bold px-6 md:px-8 py-2 rounded-lg hover:bg-gray-700 transition-colors w-full sm:w-auto text-sm md:text-base">
                           1등 번호받기
                         </button>
                       </div>
@@ -173,7 +173,7 @@
                       <!-- 개인정보 수집 동의 -->
                       <div class="flex items-center justify-center lg:justify-start gap-2">
                         <input type="checkbox" id="consultation-agree" class="w-4 h-4 rounded border-white bg-white">
-                        <label for="consultation-agree" class="text-sm text-white">
+                        <label for="consultation-agree" class="text-xs md:text-sm text-white">
                           (필수) <a href="#" class="underline" onclick="openPrivacyModal(event)">개인정보 수집 이용 동의</a>
                         </label>
                       </div>
@@ -191,42 +191,42 @@
                 <!-- 왼쪽 열: 당첨번호 및 다음회차 정보 -->
                 <div class="space-y-8">
                   <!-- 동행복권 당첨번호 카드 -->
-                  <div class="bg-blue-600 rounded-lg p-8 text-center shadow-md">
-                    <p class="text-white text-base mb-2">동행복권 당첨번호</p>
-                    <img src="assets/svg/vertical_line.svg" alt="" class="mx-auto mb-4">
+                  <div class="bg-blue-600 rounded-lg p-4 md:p-8 text-center shadow-md">
+                    <p class="text-white text-sm md:text-base mb-2">동행복권 당첨번호</p>
+                    <img src="assets/svg/vertical_line.svg" alt="" class="mx-auto mb-2 md:mb-4">
 
-                    <h3 class="text-white text-4xl font-bold mb-2">1126회 당첨결과</h3>
-                    <p class="text-white text-lg opacity-80 mb-6">(2025-07-12 추첨)</p>
+                    <h3 class="text-white text-2xl md:text-4xl font-bold mb-1 md:mb-2">1126회 당첨결과</h3>
+                    <p class="text-white text-sm md:text-lg opacity-80 mb-4 md:mb-6">(2025-07-12 추첨)</p>
 
                     <!-- 당첨 번호 칩 (JS로 동적 생성) -->
-                    <div class="flex justify-center items-center my-6 space-x-2" id="winning-numbers-1126-new"></div>
+                    <div class="flex justify-center items-center my-4 md:my-6 space-x-1 md:space-x-2 flex-wrap" id="winning-numbers-1126-new"></div>
 
                     <!-- 당첨 정보 요약 -->
-                    <div class="flex justify-center items-center text-white text-lg space-x-4 mt-6">
+                    <div class="flex flex-col md:flex-row justify-center items-center text-white text-sm md:text-lg space-y-2 md:space-y-0 md:space-x-4 mt-4 md:mt-6">
                       <span class="font-bold">총 0게임 당첨</span>
-                      <span class="h-6 border-r border-white border-opacity-50"></span>
+                      <span class="hidden md:block h-6 border-r border-white border-opacity-50"></span>
                       <span class="font-bold">1등 당첨금 281억원</span>
                     </div>
                   </div>
 
                   <!-- 다음회차 정보 -->
                   <div>
-                    <p class="text-center mb-4">
-                      <span class="text-black text-4xl font-bold">다음회차</span>
-                      <span class="text-gray-700 text-sm ml-2">2025-07-19 13:00 현재</span>
+                    <p class="text-center mb-3 md:mb-4">
+                      <span class="text-black text-2xl md:text-4xl font-bold">다음회차</span>
+                      <span class="text-gray-700 text-xs md:text-sm ml-2 block md:inline mt-1 md:mt-0">2025-07-19 13:00 현재</span>
                     </p>
-                    <div class="flex justify-between px-3">
+                    <div class="flex justify-between px-1 md:px-3">
                       <!-- 예상 당첨금 -->
-                      <div class="flex-1 border border-gray-300 rounded-lg overflow-hidden mr-4">
-                        <p class="bg-blue-600 text-white text-xl py-3 font-bold text-center">예상 당첨금</p>
-                        <p class="text-xl py-4 text-center" style="background-color: #EBEBEB;">
+                      <div class="flex-1 border border-gray-300 rounded-lg overflow-hidden mr-2 md:mr-4">
+                        <p class="bg-blue-600 text-white text-sm md:text-xl py-2 md:py-3 font-bold text-center">예상 당첨금</p>
+                        <p class="text-base md:text-xl py-3 md:py-4 text-center" style="background-color: #EBEBEB;">
                           <span class="font-bold" style="color: #FF0101;">1,000</span><span class="font-bold" style="color: #212529;">만원</span>
                         </p>
                       </div>
                       <!-- 누적 판매금 -->
-                      <div class="flex-1 border border-gray-300 rounded-lg overflow-hidden ml-4">
-                        <p class="bg-blue-600 text-white text-xl py-3 font-bold text-center">누적 판매금</p>
-                        <p class="text-xl py-4 text-center" style="background-color: #EBEBEB;">
+                      <div class="flex-1 border border-gray-300 rounded-lg overflow-hidden ml-2 md:ml-4">
+                        <p class="bg-blue-600 text-white text-sm md:text-xl py-2 md:py-3 font-bold text-center">누적 판매금</p>
+                        <p class="text-base md:text-xl py-3 md:py-4 text-center" style="background-color: #EBEBEB;">
                           <span class="font-bold" style="color: #FF0101;">5,000</span><span class="font-bold" style="color: #212529;">만원</span>
                         </p>
                       </div>
@@ -238,94 +238,94 @@
                 <div class="space-y-8">
                   <!-- 1126회 당첨 현황 -->
                   <div>
-                    <div class="flex justify-between items-center mb-4">
-                      <h4 class="text-xl font-bold text-gray-800"><span style="color: #E6616B;">동행복권</span> 당첨현황</h4>
-                      <span class="border border-gray-300 rounded-md px-4 py-2 text-base text-gray-700 font-bold">1126회</span>
+                    <div class="flex justify-between items-center mb-3 md:mb-4">
+                      <h4 class="text-base md:text-xl font-bold text-gray-800"><span style="color: #E6616B;">동행복권</span> 당첨현황</h4>
+                      <span class="border border-gray-300 rounded-md px-3 md:px-4 py-1 md:py-2 text-sm md:text-base text-gray-700 font-bold">1126회</span>
                     </div>
 
                     <!-- 테이블 헤더 -->
                     <div class="flex justify-between items-center border-b border-gray-300 pb-2 mb-3">
-                      <div class="w-16 text-gray-700 text-sm font-medium">순위</div>
-                      <div class="flex-1 text-gray-700 text-sm font-medium">당첨자 수</div>
-                      <div class="flex-1 text-right text-gray-700 text-sm font-medium">총 당첨금액</div>
+                      <div class="w-12 md:w-16 text-gray-700 text-xs md:text-sm font-medium">순위</div>
+                      <div class="flex-1 text-gray-700 text-xs md:text-sm font-medium">당첨자 수</div>
+                      <div class="flex-1 text-right text-gray-700 text-xs md:text-sm font-medium">총 당첨금액</div>
                     </div>
 
                     <!-- 테이블 행 -->
                     <div class="divide-y divide-gray-200">
-                      <div class="flex justify-between items-center py-3">
-                        <div class="w-16">
-                          <span class="w-6 h-6 rounded-full bg-[#E6616B] text-white text-xs font-bold flex items-center justify-center">1</span>
+                      <div class="flex justify-between items-center py-2 md:py-3">
+                        <div class="w-12 md:w-16">
+                          <span class="w-5 h-5 md:w-6 md:h-6 rounded-full bg-[#E6616B] text-white text-[10px] md:text-xs font-bold flex items-center justify-center">1</span>
                         </div>
-                        <div class="flex-1 text-gray-700 text-base">12명</div>
-                        <div class="flex-1 text-right text-gray-800 text-base font-bold">2,195,289,199원</div>
+                        <div class="flex-1 text-gray-700 text-sm md:text-base">12명</div>
+                        <div class="flex-1 text-right text-gray-800 text-xs md:text-base font-bold">2,195,289,199원</div>
                       </div>
-                      <div class="flex justify-between items-center py-3">
-                        <div class="w-16">
-                          <span class="w-6 h-6 rounded-full bg-gray-400 text-white text-xs font-bold flex items-center justify-center">2</span>
+                      <div class="flex justify-between items-center py-2 md:py-3">
+                        <div class="w-12 md:w-16">
+                          <span class="w-5 h-5 md:w-6 md:h-6 rounded-full bg-gray-400 text-white text-[10px] md:text-xs font-bold flex items-center justify-center">2</span>
                         </div>
-                        <div class="flex-1 text-gray-700 text-base">78명</div>
-                        <div class="flex-1 text-right text-gray-800 text-base font-bold">56,289,467원</div>
+                        <div class="flex-1 text-gray-700 text-sm md:text-base">78명</div>
+                        <div class="flex-1 text-right text-gray-800 text-xs md:text-base font-bold">56,289,467원</div>
                       </div>
-                      <div class="flex justify-between items-center py-3">
-                        <div class="w-16">
-                          <span class="w-6 h-6 rounded-full bg-gray-400 text-white text-xs font-bold flex items-center justify-center">3</span>
+                      <div class="flex justify-between items-center py-2 md:py-3">
+                        <div class="w-12 md:w-16">
+                          <span class="w-5 h-5 md:w-6 md:h-6 rounded-full bg-gray-400 text-white text-[10px] md:text-xs font-bold flex items-center justify-center">3</span>
                         </div>
-                        <div class="flex-1 text-gray-700 text-base">3,066명</div>
-                        <div class="flex-1 text-right text-gray-800 text-base font-bold">1,432,022원</div>
+                        <div class="flex-1 text-gray-700 text-sm md:text-base">3,066명</div>
+                        <div class="flex-1 text-right text-gray-800 text-xs md:text-base font-bold">1,432,022원</div>
                       </div>
-                      <div class="flex justify-between items-center py-3">
-                        <div class="w-16">
-                          <span class="w-6 h-6 rounded-full bg-gray-400 text-white text-xs font-bold flex items-center justify-center">4</span>
+                      <div class="flex justify-between items-center py-2 md:py-3">
+                        <div class="w-12 md:w-16">
+                          <span class="w-5 h-5 md:w-6 md:h-6 rounded-full bg-gray-400 text-white text-[10px] md:text-xs font-bold flex items-center justify-center">4</span>
                         </div>
-                        <div class="flex-1 text-gray-700 text-base">147,313명</div>
-                        <div class="flex-1 text-right text-gray-800 text-base font-bold">50,000원</div>
+                        <div class="flex-1 text-gray-700 text-sm md:text-base">147,313명</div>
+                        <div class="flex-1 text-right text-gray-800 text-xs md:text-base font-bold">50,000원</div>
                       </div>
                     </div>
                   </div>
 
                   <!-- 1125회 당첨 현황 -->
                   <div>
-                    <div class="flex justify-between items-center mb-4">
-                      <h4 class="text-xl font-bold text-gray-800"><span style="color: #456FB0;">동행복권</span> 당첨현황</h4>
-                      <span class="border border-gray-300 rounded-md px-4 py-2 text-base text-gray-700 font-bold">1125회</span>
+                    <div class="flex justify-between items-center mb-3 md:mb-4">
+                      <h4 class="text-base md:text-xl font-bold text-gray-800"><span style="color: #456FB0;">동행복권</span> 당첨현황</h4>
+                      <span class="border border-gray-300 rounded-md px-3 md:px-4 py-1 md:py-2 text-sm md:text-base text-gray-700 font-bold">1125회</span>
                     </div>
 
                     <!-- 테이블 헤더 -->
                     <div class="flex justify-between items-center border-b border-gray-300 pb-2 mb-3">
-                      <div class="w-16 text-gray-700 text-sm font-medium">순위</div>
-                      <div class="flex-1 text-gray-700 text-sm font-medium">당첨자 수</div>
-                      <div class="flex-1 text-right text-gray-700 text-sm font-medium">총 당첨금액</div>
+                      <div class="w-12 md:w-16 text-gray-700 text-xs md:text-sm font-medium">순위</div>
+                      <div class="flex-1 text-gray-700 text-xs md:text-sm font-medium">당첨자 수</div>
+                      <div class="flex-1 text-right text-gray-700 text-xs md:text-sm font-medium">총 당첨금액</div>
                     </div>
 
                     <!-- 테이블 행 -->
                     <div class="divide-y divide-gray-200">
-                      <div class="flex justify-between items-center py-3">
-                        <div class="w-16">
-                          <span class="w-6 h-6 rounded-full bg-[#456FB0] text-white text-xs font-bold flex items-center justify-center">1</span>
+                      <div class="flex justify-between items-center py-2 md:py-3">
+                        <div class="w-12 md:w-16">
+                          <span class="w-5 h-5 md:w-6 md:h-6 rounded-full bg-[#456FB0] text-white text-[10px] md:text-xs font-bold flex items-center justify-center">1</span>
                         </div>
-                        <div class="flex-1 text-gray-700 text-base">12명</div>
-                        <div class="flex-1 text-right text-gray-800 text-base font-bold">2,195,289,199원</div>
+                        <div class="flex-1 text-gray-700 text-sm md:text-base">12명</div>
+                        <div class="flex-1 text-right text-gray-800 text-xs md:text-base font-bold">2,195,289,199원</div>
                       </div>
-                      <div class="flex justify-between items-center py-3">
-                        <div class="w-16">
-                          <span class="w-6 h-6 rounded-full bg-gray-400 text-white text-xs font-bold flex items-center justify-center">2</span>
+                      <div class="flex justify-between items-center py-2 md:py-3">
+                        <div class="w-12 md:w-16">
+                          <span class="w-5 h-5 md:w-6 md:h-6 rounded-full bg-gray-400 text-white text-[10px] md:text-xs font-bold flex items-center justify-center">2</span>
                         </div>
-                        <div class="flex-1 text-gray-700 text-base">78명</div>
-                        <div class="flex-1 text-right text-gray-800 text-base font-bold">56,289,467원</div>
+                        <div class="flex-1 text-gray-700 text-sm md:text-base">78명</div>
+                        <div class="flex-1 text-right text-gray-800 text-xs md:text-base font-bold">56,289,467원</div>
                       </div>
-                      <div class="flex justify-between items-center py-3">
-                        <div class="w-16">
-                          <span class="w-6 h-6 rounded-full bg-gray-400 text-white text-xs font-bold flex items-center justify-center">3</span>
+                      <div class="flex justify-between items-center py-2 md:py-3">
+                        <div class="w-12 md:w-16">
+                          <span class="w-5 h-5 md:w-6 md:h-6 rounded-full bg-gray-400 text-white text-[10px] md:text-xs font-bold flex items-center justify-center">3</span>
                         </div>
-                        <div class="flex-1 text-gray-700 text-base">3,066명</div>
-                        <div class="flex-1 text-right text-gray-800 text-base font-bold">1,432,022원</div>
+                        <div class="flex-1 text-gray-700 text-sm md:text-base">3,066명</div>
+                        <div class="flex-1 text-right text-gray-800 text-xs md:text-base font-bold">1,432,022원</div>
                       </div>
-                      <div class="flex justify-between items-center py-3">
-                        <div class="w-16">
-                          <span class="w-6 h-6 rounded-full bg-gray-400 text-white text-xs font-bold flex items-center justify-center">4</span>
+                      <div class="flex justify-between items-center py-2 md:py-3">
+                        <div class="w-12 md:w-16">
+                          <span class="w-5 h-5 md:w-6 md:h-6 rounded-full bg-gray-400 text-white text-[10px] md:text-xs font-bold flex items-center justify-center">4</span>
                         </div>
-                        <div class="flex-1 text-gray-700 text-base">147,313명</div>
-                        <div class="flex-1 text-right text-gray-800 text-base font-bold">50,000원</div>
+                        <div class="flex-1 text-gray-700 text-sm md:text-base">147,313명</div>
+                        <div class="flex-1 text-right text-gray-800 text-xs md:text-base font-bold">50,000원</div>
                       </div>
                     </div>
                   </div>
@@ -336,24 +336,24 @@
 
           <!-- 프리미엄 서비스 -->
           <section class="mb-12">
-            <div class="bg-gray-800 text-white rounded-lg p-12">
-              <div class="grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-12 items-center">
+            <div class="bg-gray-800 text-white rounded-lg p-6 md:p-12">
+              <div class="grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-6 md:gap-12 items-center">
                 <!-- 왼쪽: 소개 영역 -->
-                <div class="text-left">
-                  <h2 class="text-5xl font-bold mb-6">
+                <div class="text-center lg:text-left">
+                  <h2 class="text-3xl md:text-5xl font-bold mb-4 md:mb-6">
                     <span class="text-blue-500">로또라운지</span> <span class="text-white">등급안내</span>
                   </h2>
-                  <p class="text-xl text-gray-100 mb-4">Premium Membership Service</p>
-                  <p class="text-xl text-gray-100">고액 당첨을 위한 지름길!</p>
+                  <p class="text-base md:text-xl text-gray-100 mb-2 md:mb-4">Premium Membership Service</p>
+                  <p class="text-base md:text-xl text-gray-100">고액 당첨을 위한 지름길!</p>
                 </div>
 
                 <!-- 오른쪽: 등급별 정보 -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="grid grid-cols-2 gap-4 md:gap-6">
                   <!-- 골드 플랜 -->
                   <div class="text-center">
-                    <h3 class="text-4xl font-bold mb-4" style="color: #FFBF0D;">골드</h3>
-                    <div class="rounded-lg p-6 h-40 flex items-center justify-center" style="border: 1px solid #EFD1D1;">
-                      <ul class="text-sm text-white space-y-2 text-center">
+                    <h3 class="text-2xl md:text-4xl font-bold mb-3 md:mb-4" style="color: #FFBF0D;">골드</h3>
+                    <div class="rounded-lg p-4 md:p-6 h-32 md:h-40 flex items-center justify-center" style="border: 1px solid #EFD1D1;">
+                      <ul class="text-xs md:text-sm text-white space-y-1 md:space-y-2 text-center">
                         <li>신압축필터</li>
                         <li>+ 1, 2단계 추가필터링</li>
                       </ul>
@@ -362,9 +362,9 @@
 
                   <!-- 다이아 플랜 -->
                   <div class="text-center">
-                    <h3 class="text-4xl font-bold mb-4" style="color: #FFED93;">다이아</h3>
-                    <div class="rounded-lg p-6 h-40 flex items-center justify-center" style="border: 1px solid #EFD1D1;">
-                      <ul class="text-sm text-white space-y-2 text-center">
+                    <h3 class="text-2xl md:text-4xl font-bold mb-3 md:mb-4" style="color: #FFED93;">다이아</h3>
+                    <div class="rounded-lg p-4 md:p-6 h-32 md:h-40 flex items-center justify-center" style="border: 1px solid #EFD1D1;">
+                      <ul class="text-xs md:text-sm text-white space-y-1 md:space-y-2 text-center">
                         <li>신압축필터</li>
                         <li>+ 1, 2단계 추가필터링</li>
                         <li>+ 기본제외수</li>
@@ -379,33 +379,33 @@
 
           <!-- 계좌 안내 및 고객센터 -->
           <section class="mb-12">
-            <div class="bg-white rounded-lg p-8">
-              <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div class="bg-white rounded-lg p-4 md:p-8">
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-12">
                 <!-- 왼쪽: 계좌 안내 -->
                 <div>
-                  <div class="flex items-center mb-4">
-                    <img src="assets/images/account.png" alt="계좌" class="w-6 h-6 mr-3">
-                    <h3 class="text-xl font-bold text-gray-800">계좌안내</h3>
+                  <div class="flex items-center mb-3 md:mb-4">
+                    <img src="assets/images/account.png" alt="계좌" class="w-5 h-5 md:w-6 md:h-6 mr-2 md:mr-3">
+                    <h3 class="text-lg md:text-xl font-bold text-gray-800">계좌안내</h3>
                   </div>
-                  <hr class="border-gray-300 mb-4">
-                  <div class="text-base text-gray-700 flex items-center">
+                  <hr class="border-gray-300 mb-3 md:mb-4">
+                  <div class="text-sm md:text-base text-gray-700 flex flex-wrap items-center">
                     <span>예금주 : </span>
-                    <img src="assets/images/kb_bank.png" alt="KB국민은행" class="h-6 mx-2">
+                    <img src="assets/images/kb_bank.png" alt="KB국민은행" class="h-5 md:h-6 mx-2">
                     <span class="font-bold">123123-123123</span>
                   </div>
                 </div>
 
                 <!-- 오른쪽: 로또누리 고객센터 -->
                 <div>
-                  <div class="flex items-center mb-4">
-                    <img src="assets/images/call.png" alt="전화" class="w-6 h-6 mr-3">
-                    <h3 class="text-xl font-bold text-gray-800">로또라운지 고객센터</h3>
+                  <div class="flex items-center mb-3 md:mb-4">
+                    <img src="assets/images/call.png" alt="전화" class="w-5 h-5 md:w-6 md:h-6 mr-2 md:mr-3">
+                    <h3 class="text-lg md:text-xl font-bold text-gray-800">로또라운지 고객센터</h3>
                   </div>
-                  <hr class="border-gray-300 mb-4">
+                  <hr class="border-gray-300 mb-3 md:mb-4">
                   <div>
-                    <p class="text-4xl font-bold text-gray-800 mb-3">1455-1455</p>
-                    <p class="text-base text-gray-600">평일 : AM 10:00 ~ PM 18:00 (토,일, 공휴일 휴무)</p>
-                    <p class="text-base text-gray-600">점심시간 : PM 12:30 ~ PM 14:00</p>
+                    <p class="text-2xl md:text-4xl font-bold text-gray-800 mb-2 md:mb-3">1455-1455</p>
+                    <p class="text-sm md:text-base text-gray-600">평일 : AM 10:00 ~ PM 18:00 (토,일, 공휴일 휴무)</p>
+                    <p class="text-sm md:text-base text-gray-600">점심시간 : PM 12:30 ~ PM 14:00</p>
                   </div>
                 </div>
               </div>
@@ -502,8 +502,8 @@
       </div>
 
       <!-- 푸터 (고정) -->
-      <div class="p-6 border-t border-gray-200 flex justify-center">
-        <button onclick="closePrivacyModal()" class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors font-semibold">
+      <div class="p-4 md:p-6 border-t border-gray-200 flex justify-center">
+        <button onclick="closePrivacyModal()" class="bg-blue-600 text-white px-6 md:px-8 py-2.5 md:py-3 rounded-lg hover:bg-blue-700 transition-colors font-semibold text-sm md:text-base">
           확인
         </button>
       </div>

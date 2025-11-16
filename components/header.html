@@ -1,53 +1,53 @@
 <!-- 헤더 컴포넌트 -->
-<header class="bg-white py-4">
+<header class="bg-white py-3 md:py-4">
   <div class="container mx-auto px-4 flex items-center justify-between">
     <!-- 로고 -->
     <div class="flex items-center">
       <a href="index.html" class="flex items-center gap-2">
-        <div class="w-10 h-10 bg-gradient-button rounded-full flex items-center justify-center">
-          <span class="text-white font-bold text-xl">L</span>
+        <div class="w-8 h-8 md:w-10 md:h-10 bg-gradient-button rounded-full flex items-center justify-center">
+          <span class="text-white font-bold text-base md:text-xl">L</span>
         </div>
-        <span class="text-xl font-bold text-text-primary">로또라운지</span>
+        <span class="text-base md:text-xl font-bold text-text-primary">로또라운지</span>
       </a>
     </div>
 
     <!-- 우측 메뉴 -->
-    <div class="flex items-center gap-8">
+    <div class="flex items-center gap-4 md:gap-8">
       <!-- 로그인 상태: 마이페이지 + 로그아웃 -->
-      <div id="logged-in-menu" class="flex items-center gap-8" style="display: none;">
+      <div id="logged-in-menu" class="flex items-center gap-4 md:gap-8" style="display: none;">
         <!-- 마이페이지 -->
         <a href="mypage.html" class="header-icon-btn group">
           <div class="header-icon-wrapper">
-            <img src="assets/svg/mypage.svg" alt="마이페이지" class="header-icon">
+            <img src="assets/svg/mypage.svg" alt="마이페이지" class="header-icon w-5 h-5 md:w-6 md:h-6">
           </div>
-          <span class="header-icon-text">마이페이지</span>
+          <span class="header-icon-text text-[10px] md:text-xs">마이페이지</span>
         </a>
 
         <!-- 로그아웃 버튼 -->
         <button id="logout-button" class="header-icon-btn group">
           <div class="header-icon-wrapper">
-            <img src="assets/svg/logout.svg" alt="로그아웃" class="header-icon">
+            <img src="assets/svg/logout.svg" alt="로그아웃" class="header-icon w-5 h-5 md:w-6 md:h-6">
           </div>
-          <span class="header-icon-text">로그아웃</span>
+          <span class="header-icon-text text-[10px] md:text-xs">로그아웃</span>
         </button>
       </div>
 
       <!-- 비로그인 상태: 로그인 + 회원가입 -->
-      <div id="logged-out-menu" class="flex items-center gap-8">
+      <div id="logged-out-menu" class="flex items-center gap-4 md:gap-8">
         <!-- 로그인 -->
         <a href="login.html" id="login-button" class="header-icon-btn group">
           <div class="header-icon-wrapper">
-            <img src="assets/svg/login.svg" alt="로그인" class="header-icon">
+            <img src="assets/svg/login.svg" alt="로그인" class="header-icon w-5 h-5 md:w-6 md:h-6">
           </div>
-          <span class="header-icon-text">로그인</span>
+          <span class="header-icon-text text-[10px] md:text-xs">로그인</span>
         </a>
 
         <!-- 회원가입 -->
         <a href="register.html" id="register-button" class="header-icon-btn group">
           <div class="header-icon-wrapper">
-            <img src="assets/svg/register.svg" alt="회원가입" class="header-icon">
+            <img src="assets/svg/register.svg" alt="회원가입" class="header-icon w-5 h-5 md:w-6 md:h-6">
           </div>
-          <span class="header-icon-text">회원가입</span>
+          <span class="header-icon-text text-[10px] md:text-xs">회원가입</span>
         </a>
       </div>
     </div>

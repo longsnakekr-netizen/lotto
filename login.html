@@ -31,47 +31,47 @@
 <div id="navigation"></div>
 
 <!-- 메인 컨텐츠 -->
-<main class="relative py-24">
+<main class="relative py-12 md:py-24">
     <div class="flex items-center justify-center p-4">
-        <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-lg">
+        <div class="bg-white p-6 md:p-8 w-full max-w-lg">
             <!-- 로고 -->
-            <div class="mb-16 mt-8 text-center">
-                <div class="inline-flex items-center justify-center h-14 px-10 rounded-full bg-gray-700 text-white text-lg font-bold">
+            <div class="mb-10 md:mb-16 mt-4 md:mt-8 text-center">
+                <div class="inline-flex items-center justify-center h-12 md:h-14 px-8 md:px-10 rounded-full bg-gray-700 text-white text-base md:text-lg font-bold">
                     로고
                 </div>
             </div>
 
             <form id="login-form">
                 <!-- 아이디(이메일) 입력 필드 -->
-                <div class="mb-6">
-                    <label for="email" class="block text-gray-700 text-base mb-2">아이디(이메일)</label>
-                    <input type="email" id="email" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 text-gray-700 placeholder-gray-400" placeholder="이메일을 입력해주세요.">
-                    <div id="email-error" class="text-red-500 text-sm mt-1 hidden"></div>
+                <div class="mb-4 md:mb-6">
+                    <label for="email" class="block text-gray-700 text-sm md:text-base mb-2">아이디(이메일)</label>
+                    <input type="email" id="email" class="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 text-gray-700 placeholder-gray-400 text-sm md:text-base" placeholder="이메일을 입력해주세요.">
+                    <div id="email-error" class="text-red-500 text-xs md:text-sm mt-1 hidden"></div>
                 </div>
 
                 <!-- 패스워드 입력 필드 -->
-                <div class="mb-8">
-                    <label for="password" class="block text-gray-700 text-base mb-2">패스워드</label>
-                    <input type="password" id="password" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 text-gray-700 placeholder-gray-400" placeholder="패스워드를 입력해주세요.">
-                    <div id="password-error" class="text-red-500 text-sm mt-1 hidden"></div>
+                <div class="mb-6 md:mb-8">
+                    <label for="password" class="block text-gray-700 text-sm md:text-base mb-2">패스워드</label>
+                    <input type="password" id="password" class="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 text-gray-700 placeholder-gray-400 text-sm md:text-base" placeholder="패스워드를 입력해주세요.">
+                    <div id="password-error" class="text-red-500 text-xs md:text-sm mt-1 hidden"></div>
                 </div>
 
                 <!-- 로그인하기 버튼 -->
-                <div class="mb-5">
-                    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-colors text-lg">
+                <div class="mb-4 md:mb-5">
+                    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 md:py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-colors text-sm md:text-base">
                         로그인하기
                     </button>
                 </div>
 
                 <!-- 아이디 기억하기 / 아이디 찾기 | 패스워드 찾기 -->
-                <div class="flex justify-between items-center mb-8">
+                <div class="flex justify-between items-center mb-6 md:mb-8">
                     <div class="flex items-center">
-                        <input type="checkbox" id="remember-id" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
-                        <label for="remember-id" class="ml-2 text-gray-700 text-sm">아이디 기억하기</label>
+                        <input type="checkbox" id="remember-id" class="h-3 w-3 md:h-4 md:w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                        <label for="remember-id" class="ml-2 text-gray-700 text-xs md:text-sm">아이디 기억하기</label>
                     </div>
-                    <div class="text-sm">
+                    <div class="text-xs md:text-sm">
                         <a href="#" class="text-gray-700 hover:text-blue-600">아이디 찾기</a>
-                        <span class="mx-2 text-gray-400">|</span>
+                        <span class="mx-1 md:mx-2 text-gray-400">|</span>
                         <a href="#" class="text-gray-700 hover:text-blue-600">패스워드 찾기</a>
                     </div>
                 </div>
@@ -79,7 +79,7 @@
         </div>
 
         <!-- 하단 회원가입 링크 -->
-        <div class="absolute bottom-8 text-gray-700 text-base">
+        <div class="absolute bottom-6 md:bottom-8 text-gray-700 text-sm md:text-base">
             아직 회원이 아니세요?
             <a href="register.html" class="text-gray-700 font-bold hover:text-blue-600">회원가입</a>
         </div>

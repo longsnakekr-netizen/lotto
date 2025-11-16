@@ -33,73 +33,73 @@
 <!-- 메인 컨텐츠 -->
 <main class="py-12 min-h-screen">
     <!-- 회원가입 폼 -->
-    <div id="register-form-container" class="max-w-xl mx-auto p-6 bg-white">
-        <h2 class="text-3xl font-bold text-center text-gray-800 mb-10">회원가입</h2>
+    <div id="register-form-container" class="max-w-xl mx-auto p-4 md:p-6 bg-white">
+        <h2 class="text-xl md:text-3xl font-bold text-center text-gray-800 mb-6 md:mb-10">회원가입</h2>
 
-        <div class="flex justify-end mb-6">
-            <span class="text-red-500 text-sm font-bold">*</span>
-            <span class="text-sm font-bold">필수입력사항</span>
+        <div class="flex justify-end mb-4 md:mb-6">
+            <span class="text-red-500 text-xs md:text-sm font-bold">*</span>
+            <span class="text-xs md:text-sm font-bold">필수입력사항</span>
         </div>
 
         <!-- 구분선 -->
-        <div class="mb-8 flex justify-center">
+        <div class="mb-6 md:mb-8 flex justify-center">
             <img src="assets/svg/vertical_line_long.svg" alt="구분선" class="w-full">
         </div>
 
         <form id="register-form">
-            <div class="mb-8">
+            <div class="mb-6 md:mb-8">
 
-                <label for="phone-number" class="block text-gray-700 text-base font-bold mb-2">
+                <label for="phone-number" class="block text-gray-700 text-sm md:text-base font-bold mb-2">
                     휴대폰 번호<span class="text-red-500">*</span>
                 </label>
                 <input type="text" id="phone-number"
-                       class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 text-gray-700 placeholder-gray-400"
+                       class="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 text-gray-700 placeholder-gray-400 text-sm md:text-base"
                        placeholder="'-'를 빼고 입력해 주세요." maxlength="11">
-                <div id="phone-error" class="text-red-500 text-sm mt-1 hidden"></div>
+                <div id="phone-error" class="text-red-500 text-xs md:text-sm mt-1 hidden"></div>
 
-                <div class="mt-3 text-sm text-red-500">
+                <div class="mt-2 md:mt-3 text-xs md:text-sm text-red-500">
                     <p class="mb-1 font-bold">&gt 당첨 확인 등의 문자전송에 사용되므로 정확히 입력하셔야 합니다.</p>
                     <p class="font-bold">&gt 회원님의 휴대폰 번호가 로또라운지의 아이디입니다.</p>
                 </div>
             </div>
 
-            <div class="mb-8">
-                <label for="password" class="block text-gray-700 text-base font-bold mb-2">
+            <div class="mb-6 md:mb-8">
+                <label for="password" class="block text-gray-700 text-sm md:text-base font-bold mb-2">
                     비밀번호<span class="text-red-500">*</span>
                 </label>
                 <input type="password" id="password"
-                       class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 text-gray-700 placeholder-gray-400"
+                       class="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 text-gray-700 placeholder-gray-400 text-sm md:text-base"
                        placeholder="영문 또는 숫자, 4자~12자" maxlength="12">
-                <div id="password-error" class="text-red-500 text-sm mt-1 hidden"></div>
+                <div id="password-error" class="text-red-500 text-xs md:text-sm mt-1 hidden"></div>
             </div>
 
-            <div class="mb-8">
-                <label for="confirm-password" class="block text-gray-700 text-base font-bold mb-2">
+            <div class="mb-6 md:mb-8">
+                <label for="confirm-password" class="block text-gray-700 text-sm md:text-base font-bold mb-2">
                     비밀번호 확인<span class="text-red-500">*</span>
                 </label>
                 <input type="password" id="confirm-password"
-                       class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 text-gray-700 placeholder-gray-400"
+                       class="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 text-gray-700 placeholder-gray-400 text-sm md:text-base"
                        placeholder="비밀번호 확인" maxlength="12">
-                <div id="confirm-password-error" class="text-red-500 text-sm mt-1 hidden"></div>
+                <div id="confirm-password-error" class="text-red-500 text-xs md:text-sm mt-1 hidden"></div>
             </div>
 
-            <div class="mb-10">
-                <label for="nickname" class="block text-gray-700 text-base font-bold mb-2">
+            <div class="mb-8 md:mb-10">
+                <label for="nickname" class="block text-gray-700 text-sm md:text-base font-bold mb-2">
                     닉네임<span class="text-red-500">*</span>
                 </label>
                 <input type="text" id="nickname"
-                       class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 text-gray-700 placeholder-gray-400"
+                       class="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 text-gray-700 placeholder-gray-400 text-sm md:text-base"
                        placeholder="3자 ~ 8자" maxlength="8">
-                <div id="nickname-error" class="text-red-500 text-sm mt-1 hidden"></div>
+                <div id="nickname-error" class="text-red-500 text-xs md:text-sm mt-1 hidden"></div>
             </div>
 
-            <div class="flex justify-center space-x-4">
+            <div class="flex justify-center space-x-3 md:space-x-4">
                 <button type="submit" id="submit-btn"
-                        class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-10 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-colors">
+                        class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 md:py-3 px-6 md:px-10 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-colors text-sm md:text-base">
                     확인
                 </button>
                 <button type="button" id="cancel-btn"
-                        class="bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold py-3 px-10 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-opacity-50 transition-colors">
+                        class="bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold py-2 md:py-3 px-6 md:px-10 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-opacity-50 transition-colors text-sm md:text-base">
                     취소
                 </button>
             </div>
@@ -123,7 +123,7 @@
 
             <!-- 버튼 섹션 -->
             <div class="flex justify-center space-x-4 mb-8">
-                <button id="complete-home-btn" class="bg-white hover:bg-gray-50 text-blue-600 font-bold py-3 px-10 rounded-md border border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-colors">
+                <button id="complete-home-btn" class="bg-white hover:bg-gray-50 text-blue-600 font-bold py-2.5 md:py-3 px-8 md:px-10 rounded-md border border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-colors text-sm md:text-base">
                     홈으로 가기
                 </button>
             </div>
