@@ -186,12 +186,12 @@
 
           <!-- 최근 당첨 결과 -->
           <section class="mb-12">
-            <div class="max-w-7xl mx-auto p-8 bg-white">
+            <div class="max-w-7xl mx-auto p-0 md:p-8 bg-white">
               <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
                 <!-- 왼쪽 열: 당첨번호 및 다음회차 정보 -->
                 <div class="space-y-8">
                   <!-- 동행복권 당첨번호 카드 -->
-                  <div class="bg-blue-600 rounded-lg p-4 md:p-8 text-center shadow-md">
+                  <div class="lottery-result-card bg-blue-600 rounded-lg p-4 md:p-8 text-center shadow-md">
                     <p class="text-white text-sm md:text-base mb-2">동행복권 당첨번호</p>
                     <img src="assets/svg/vertical_line.svg" alt="" class="mx-auto mb-2 md:mb-4">
 
@@ -348,27 +348,45 @@
                 </div>
 
                 <!-- 오른쪽: 등급별 정보 -->
-                <div class="grid grid-cols-2 gap-4 md:gap-6">
+                <div class="grid grid-cols-3 gap-2 md:gap-6">
+                  <!-- 실버 플랜 -->
+                  <div class="text-center membership-plan">
+                    <h3 class="text-xl md:text-4xl font-bold mb-2 md:mb-4" style="color: #C0C0C0;">실버</h3>
+                    <div class="plan-box rounded-lg p-3 md:p-6 h-auto md:h-40 flex items-center justify-center" style="border: 1px solid #EFD1D1;">
+                      <ul class="text-[10px] md:text-sm text-white space-y-0.5 md:space-y-1 text-center font-bold">
+                        <li class="text-xs md:text-lg">가입기간</li>
+                        <li class="text-xs md:text-lg text-gray-300">1개월</li>
+                        <li class="text-[8px] md:text-sm">+</li>
+                        <li class="text-xs md:text-lg">발송조합</li>
+                        <li class="text-xs md:text-lg text-gray-300">5조합 ~ 40조합</li>
+                      </ul>
+                    </div>
+                  </div>
+
                   <!-- 골드 플랜 -->
-                  <div class="text-center">
-                    <h3 class="text-2xl md:text-4xl font-bold mb-3 md:mb-4" style="color: #FFBF0D;">골드</h3>
-                    <div class="rounded-lg p-4 md:p-6 h-32 md:h-40 flex items-center justify-center" style="border: 1px solid #EFD1D1;">
-                      <ul class="text-xs md:text-sm text-white space-y-1 md:space-y-2 text-center">
-                        <li>신압축필터</li>
-                        <li>+ 1, 2단계 추가필터링</li>
+                  <div class="text-center membership-plan">
+                    <h3 class="text-xl md:text-4xl font-bold mb-2 md:mb-4" style="color: #FFBF0D;">골드</h3>
+                    <div class="plan-box rounded-lg p-3 md:p-6 h-auto md:h-40 flex items-center justify-center" style="border: 1px solid #EFD1D1;">
+                      <ul class="text-[10px] md:text-sm text-white space-y-0.5 md:space-y-1 text-center font-bold">
+                        <li class="text-xs md:text-lg">가입기간</li>
+                        <li class="text-xs md:text-lg" style="color: #FFBF0D;">1년 6개월</li>
+                        <li class="text-[8px] md:text-sm">+</li>
+                        <li class="text-xs md:text-lg">발송조합</li>
+                        <li class="text-xs md:text-lg" style="color: #FFBF0D;">5조합 ~ 40조합</li>
                       </ul>
                     </div>
                   </div>
 
                   <!-- 다이아 플랜 -->
-                  <div class="text-center">
-                    <h3 class="text-2xl md:text-4xl font-bold mb-3 md:mb-4" style="color: #FFED93;">다이아</h3>
-                    <div class="rounded-lg p-4 md:p-6 h-32 md:h-40 flex items-center justify-center" style="border: 1px solid #EFD1D1;">
-                      <ul class="text-xs md:text-sm text-white space-y-1 md:space-y-2 text-center">
-                        <li>신압축필터</li>
-                        <li>+ 1, 2단계 추가필터링</li>
-                        <li>+ 기본제외수</li>
-                        <li>+ 누적필터링</li>
+                  <div class="text-center membership-plan">
+                    <h3 class="text-xl md:text-4xl font-bold mb-2 md:mb-4" style="color: #93FFC0;">다이아</h3>
+                    <div class="plan-box rounded-lg p-3 md:p-6 h-auto md:h-40 flex items-center justify-center" style="border: 1px solid #EFD1D1;">
+                      <ul class="text-[10px] md:text-sm text-white space-y-0.5 md:space-y-1 text-center font-bold">
+                        <li class="text-xs md:text-lg">가입기간</li>
+                        <li class="text-xs md:text-lg" style="color: #93FFC0;">4년</li>
+                        <li class="text-[8px] md:text-sm">+</li>
+                        <li class="text-xs md:text-lg">발송조합</li>
+                        <li class="text-xs md:text-lg" style="color: #93FFC0;">5조합 ~ 40조합</li>
                       </ul>
                     </div>
                   </div>

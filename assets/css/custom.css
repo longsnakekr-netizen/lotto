@@ -437,6 +437,18 @@ body.loaded {
     padding: 32px 0;
   }
 
+  /* 모바일 로또 볼 50% 축소 */
+  .lottery-result-card .lottery-ball {
+    width: 30px !important;
+    height: 30px !important;
+    font-size: 15px !important;
+  }
+
+  .lottery-result-card .lottery-ball::before {
+    width: 20% !important;
+    height: 20% !important;
+  }
+
   /* 모바일 탭 네비게이션 */
   .mobile-tabs {
     display: grid;
