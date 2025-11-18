@@ -33,98 +33,111 @@
   <!-- 메인 컨텐츠 -->
   <main>
     <!-- 히어로 슬라이더 -->
-    <section class="hero-slider relative bg-gradient-hero overflow-hidden" style="height: 300px;">
+    <section class="hero-slider relative overflow-hidden" style="height: 490px;">
       <div id="hero-slider" class="relative h-full">
         <!-- 슬라이드 1 -->
-        <div class="slide absolute inset-0 w-full h-full">
-          <!-- 배경 이미지 (전체 화면) -->
-          <div class="absolute inset-0 w-full h-full bg-cover bg-center"
-               style="background-image: url('https://picsum.photos/1200/400?random=1');">
-            <!-- 그라데이션 오버레이: 왼쪽 단색에서 오른쪽 투명으로 부드럽게 전환 -->
-            <div class="absolute inset-0 bg-gradient-to-r from-primary-blue via-primary-blue/70 to-transparent"></div>
-          </div>
+        <div class="slide absolute inset-0 w-full h-full hidden:md:block">
+          <!-- 그라데이션 배경 -->
+          <div class="absolute inset-0 w-full h-full" style="background: linear-gradient(90deg, #B0EBFB 0%, #47ADD3 50%, #1CA6D4 100%);"></div>
 
-          <!-- 텍스트 컨텐츠 -->
-          <div class="container mx-auto px-4 h-full flex items-center relative z-10">
-            <div class="text-white max-w-xl">
-              <h1 class="text-3xl md:text-5xl font-bold mb-2 md:mb-4 leading-tight">
-                <b class="text-yellow-300 text-4xl md:text-6xl font-extrabold">로또라운지</b>가 <b class="text-yellow-300 text-4xl md:text-6xl font-extrabold">당첨</b>을<br>약속합니다.
-              </h1>
-              <p class="text-sm md:text-lg mb-4 md:mb-6 opacity-90">
-                역대 누적 필터 + 신압축프로그램<br>
-                수많은 확률 그 중에 진정한 해답을 찾다!
-              </p>
+          <!-- 텍스트 컨텐츠 (왼쪽) -->
+          <div class="w-full h-full flex items-center relative z-10">
+            <div class="container mx-auto max-w-7xl px-4 md:px-4 h-full flex items-center">
+              <div class="text-black max-w-xl">
+                <h1 class="text-3xl md:text-5xl font-bold mb-2 md:mb-4 leading-tight">
+                  <b class="text-yellow-300 text-4xl md:text-6xl font-extrabold">로또라운지</b>가 <b class="text-yellow-300 text-4xl md:text-6xl font-extrabold">당첨</b>을<br>약속합니다.
+                </h1>
+                <p class="text-sm md:text-lg mb-4 md:mb-6 opacity-90">
+                  역대 누적 필터 + 신압축프로그램<br>
+                  수많은 확률 그 중에 진정한 해답을 찾다!
+                </p>
+              </div>
+
+              <!-- 오른쪽 이미지 -->
+              <div class="hidden md:flex flex-1 h-full items-center">
+                <img src="assets/images/img1.png" alt="slide1" class="w-full h-full object-cover">
+              </div>
             </div>
           </div>
         </div>
 
         <!-- 슬라이드 2 -->
         <div class="slide absolute inset-0 w-full h-full hidden">
-          <!-- 배경 이미지 (전체 화면) -->
-          <div class="absolute inset-0 w-full h-full bg-cover bg-center"
-               style="background-image: url('https://picsum.photos/1200/400?random=2');">
-            <!-- 그라데이션 오버레이 -->
-            <div class="absolute inset-0 bg-gradient-to-r from-primary-blue via-primary-blue/70 to-transparent"></div>
-          </div>
+          <!-- 그라데이션 배경 -->
+          <div class="absolute inset-0 w-full h-full" style="background: linear-gradient(90deg, #FFF1C6 0%, #FA9C26 50%, #F9C508 100%);"></div>
 
-          <!-- 텍스트 컨텐츠 -->
-          <div class="container mx-auto px-4 h-full flex items-center relative z-10">
-            <div class="text-white max-w-xl">
-              <h1 class="text-5xl font-bold mb-4 leading-tight">
-                AI 기반<br>번호 예측 시스템
-              </h1>
-              <p class="text-lg mb-6 opacity-90">
-                최신 머신러닝 기술로<br>
-                당첨 확률을 높여드립니다.
-              </p>
+          <!-- 텍스트 컨텐츠 (왼쪽) -->
+          <div class="w-full h-full flex items-center relative z-10">
+            <div class="container mx-auto max-w-7xl px-4 md:px-4 h-full flex items-center">
+              <div class="text-black max-w-xl">
+                <h1 class="text-5xl font-bold mb-4 leading-tight">
+                  로또, 이제 감이 아닌<br>
+                  AI 데이터로!
+                </h1>
+                <p class="text-lg mb-6 opacity-90">
+                  AI와 함께라면, 로또는 단순한 운이 아닌<br>
+                  데이터의 또 다른 이야기입니다.
+                </p>
+              </div>
+
+              <!-- 오른쪽 이미지 -->
+              <div class="hidden md:flex flex-1 h-full items-center">
+                <img src="assets/images/img2.png" alt="slide2" class="w-full h-full object-cover">
+              </div>
             </div>
           </div>
         </div>
 
         <!-- 슬라이드 3 -->
         <div class="slide absolute inset-0 w-full h-full hidden">
-          <!-- 배경 이미지 (전체 화면) -->
-          <div class="absolute inset-0 w-full h-full bg-cover bg-center"
-               style="background-image: url('https://picsum.photos/1200/400?random=3');">
-            <!-- 그라데이션 오버레이 -->
-            <div class="absolute inset-0 bg-gradient-to-r from-primary-blue via-primary-blue/70 to-transparent"></div>
-          </div>
+          <!-- 그라데이션 배경 -->
+          <div class="absolute inset-0 w-full h-full" style="background: linear-gradient(90deg, #000000 0%, #000000 50%, #000000 100%);"></div>
 
-          <!-- 텍스트 컨텐츠 -->
-          <div class="container mx-auto px-4 h-full flex items-center relative z-10">
-            <div class="text-white max-w-xl">
-              <h1 class="text-5xl font-bold mb-4 leading-tight">
-                통계 분석으로<br>
-                검증된 번호 제공
-              </h1>
-              <p class="text-lg mb-6 opacity-90">
-                과거 데이터 분석을 통한<br>
-                과학적인 번호 추천
-              </p>
+          <!-- 텍스트 컨텐츠 (왼쪽) -->
+          <div class="w-full h-full flex items-center relative z-10">
+            <div class="container mx-auto max-w-7xl px-4 md:px-4 h-full flex items-center">
+              <div class="text-white max-w-xl">
+                <h1 class="text-5xl font-bold mb-4 leading-tight">
+                  AI와 함께하는<br>
+                  로또 조합 서비스
+                </h1>
+                <p class="text-lg mb-6 opacity-90">
+                  인공지능이 과거의 모든 결과를 비교, 분석하여<br>
+                  더 정교하고 똑똑한 선택을 제공합니다.
+                </p>
+              </div>
+
+              <!-- 오른쪽 이미지 -->
+              <div class="hidden md:flex flex-1 h-full items-center">
+                <img src="assets/images/img3.png" alt="slide3" class="w-full h-full object-cover">
+              </div>
             </div>
           </div>
         </div>
 
         <!-- 슬라이드 4 -->
         <div class="slide absolute inset-0 w-full h-full hidden">
-          <!-- 배경 이미지 (전체 화면) -->
-          <div class="absolute inset-0 w-full h-full bg-cover bg-center"
-               style="background-image: url('https://picsum.photos/1200/400?random=4');">
-            <!-- 그라데이션 오버레이 -->
-            <div class="absolute inset-0 bg-gradient-to-r from-primary-blue via-primary-blue/70 to-transparent"></div>
-          </div>
+          <!-- 그라데이션 배경 -->
+          <div class="absolute inset-0 w-full h-full" style="background: linear-gradient(90deg, #FFE4E3 0%, #DF9896 50%, #C87F7E 100%);"></div>
 
-          <!-- 텍스트 컨텐츠 -->
-          <div class="container mx-auto px-4 h-full flex items-center relative z-10">
-            <div class="text-white max-w-xl">
-              <h1 class="text-5xl font-bold mb-4 leading-tight">
-                실시간 당첨 결과<br>
-                확인 서비스
-              </h1>
-              <p class="text-lg mb-6 opacity-90">
-                추첨 후 즉시 확인하는<br>
-                빠른 당첨 조회
-              </p>
+          <!-- 텍스트 컨텐츠 (왼쪽) -->
+          <div class="w-full h-full flex items-center relative z-10">
+            <div class="container mx-auto max-w-7xl px-4 md:px-4 h-full flex items-center">
+              <div class="text-black max-w-xl">
+                <h1 class="text-5xl font-bold mb-4 leading-tight">
+                  단순한 추측이 아닌<br>
+                  과학적 로또 조합
+                </h1>
+                <p class="text-lg mb-6 opacity-90">
+                  확률과 통계, 그리고 AI 알고리즘이<br>
+                  함께하는 새로운 로또 조합 서비스!
+                </p>
+              </div>
+
+              <!-- 오른쪽 이미지 -->
+              <div class="hidden md:flex flex-1 h-full items-center">
+                <img src="assets/images/img4.png" alt="slide4" class="w-full h-full object-cover">
+              </div>
             </div>
           </div>
         </div>
@@ -145,7 +158,7 @@
           <!-- 다이아 무료상담 문의 (Sticky) -->
           <section class="sticky top-6 z-10 mb-8">
             <div class="bg-blue-600 rounded-lg p-4 md:p-8">
-              <div class="max-w-5xl mx-auto">
+              <div>
                 <div class="flex flex-col lg:flex-row justify-center items-center gap-4 md:gap-10">
                   <!-- 왼쪽: 제목 및 설명 -->
                   <div class="text-center lg:text-left lg:w-1/3">
@@ -186,7 +199,7 @@
 
           <!-- 최근 당첨 결과 -->
           <section class="mb-12">
-            <div class="max-w-7xl mx-auto p-0 md:p-8 bg-white">
+            <div class="p-0 md:p-8 bg-white">
               <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
                 <!-- 왼쪽 열: 당첨번호 및 다음회차 정보 -->
                 <div class="space-y-8">
