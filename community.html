@@ -67,6 +67,13 @@
       <div id="tab-contents">
         <!-- 당첨 게시판 탭 -->
         <div id="tab-board" class="tab-content">
+          <!-- 게시판 목록 보기 (기본 화면) -->
+          <div id="board-list-view">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+              <h3 class="text-xl md:text-2xl font-bold">당첨 게시판</h3>
+              <button id="show-board-form-btn" class="btn btn-primary px-4 md:px-6 py-2 text-sm md:text-base w-full sm:w-auto">글쓰기</button>
+            </div>
+
           <!-- 게시판 테이블 -->
           <div class="table-container mb-6 overflow-x-auto">
             <table class="table min-w-full">
@@ -87,10 +94,10 @@
                       <span class="font-semibold text-primary-blue">#5</span>
                       <span class="text-xs text-gray-500">2025.11.25</span>
                     </div>
-                    <a href="#" class="text-gray-800 hover:text-primary-blue font-medium block mb-2">당첨 배송 가능한가요?<br><span class="text-xs text-gray-500">두 줄 케이스</span></a>
+                    <a href="post-detail.html?id=5" class="text-gray-800 hover:text-primary-blue font-medium block mb-2">1등 5억 당첨! 로또라운지 덕분에 인생역전했습니다!</a>
                     <div class="flex justify-between text-xs text-gray-600">
-                      <span>작성자: Song**</span>
-                      <span>조회수: 25</span>
+                      <span>작성자: Kim**</span>
+                      <span>조회수: 2543</span>
                     </div>
                   </td>
                 </tr>
@@ -98,12 +105,12 @@
                   <td class="block py-1">
                     <div class="flex justify-between items-start mb-2">
                       <span class="font-semibold text-primary-blue">#4</span>
-                      <span class="text-xs text-gray-500">2025.11.25</span>
+                      <span class="text-xs text-gray-500">2025.11.22</span>
                     </div>
-                    <a href="#" class="text-gray-800 hover:text-primary-blue font-medium block mb-2">당첨 배송 가능한가요?</a>
+                    <a href="post-detail.html?id=4" class="text-gray-800 hover:text-primary-blue font-medium block mb-2">3등 당첨 후기 - AI 번호가 정말 맞았어요</a>
                     <div class="flex justify-between text-xs text-gray-600">
-                      <span>작성자: Song**</span>
-                      <span>조회수: 125</span>
+                      <span>작성자: Park**</span>
+                      <span>조회수: 1256</span>
                     </div>
                   </td>
                 </tr>
@@ -111,12 +118,12 @@
                   <td class="block py-1">
                     <div class="flex justify-between items-start mb-2">
                       <span class="font-semibold text-primary-blue">#3</span>
-                      <span class="text-xs text-gray-500">2025.11.25</span>
+                      <span class="text-xs text-gray-500">2025.11.20</span>
                     </div>
-                    <a href="#" class="text-gray-800 hover:text-primary-blue font-medium block mb-2">당첨 배송 가능한가요?</a>
+                    <a href="post-detail.html?id=3" class="text-gray-800 hover:text-primary-blue font-medium block mb-2">골드 플랜 2주차, 드디어 4등 당첨!</a>
                     <div class="flex justify-between text-xs text-gray-600">
-                      <span>작성자: Song**</span>
-                      <span>조회수: 5</span>
+                      <span>작성자: Lee**</span>
+                      <span>조회수: 892</span>
                     </div>
                   </td>
                 </tr>
@@ -124,12 +131,12 @@
                   <td class="block py-1">
                     <div class="flex justify-between items-start mb-2">
                       <span class="font-semibold text-primary-blue">#2</span>
-                      <span class="text-xs text-gray-500">2025.11.25</span>
+                      <span class="text-xs text-gray-500">2025.11.18</span>
                     </div>
-                    <a href="#" class="text-gray-800 hover:text-primary-blue font-medium block mb-2">당첨 배송 가능한가요?</a>
+                    <a href="post-detail.html?id=2" class="text-gray-800 hover:text-primary-blue font-medium block mb-2">실버 플랜으로 5등 당첨했어요!</a>
                     <div class="flex justify-between text-xs text-gray-600">
-                      <span>작성자: Song**</span>
-                      <span>조회수: 25</span>
+                      <span>작성자: Choi**</span>
+                      <span>조회수: 458</span>
                     </div>
                   </td>
                 </tr>
@@ -137,12 +144,12 @@
                   <td class="block py-1">
                     <div class="flex justify-between items-start mb-2">
                       <span class="font-semibold text-primary-blue">#1</span>
-                      <span class="text-xs text-gray-500">2025.11.25</span>
+                      <span class="text-xs text-gray-500">2025.11.15</span>
                     </div>
-                    <a href="#" class="text-gray-800 hover:text-primary-blue font-medium block mb-2">당첨 배송 가능한가요?</a>
+                    <a href="post-detail.html?id=1" class="text-gray-800 hover:text-primary-blue font-medium block mb-2">로또라운지 AI 분석 정말 대박입니다</a>
                     <div class="flex justify-between text-xs text-gray-600">
-                      <span>작성자: Song**</span>
-                      <span>조회수: 25</span>
+                      <span>작성자: Jung**</span>
+                      <span>조회수: 623</span>
                     </div>
                   </td>
                 </tr>
@@ -150,55 +157,50 @@
                 <tr class="cursor-pointer hover:bg-gray-50 hidden md:table-row">
                   <td class="text-center font-semibold text-sm">5</td>
                   <td class="text-left text-sm">
-                    <a href="#" class="text-gray-800 hover:text-primary-blue">당첨 배송 가능한가요?<br><span class="text-xs text-gray-500">두 줄 케이스</span></a>
+                    <a href="post-detail.html?id=5" class="text-gray-800 hover:text-primary-blue">1등 5억 당첨! 로또라운지 덕분에 인생역전했습니다!</a>
                   </td>
-                  <td class="text-center text-xs">Song**</td>
+                  <td class="text-center text-xs">Kim**</td>
                   <td class="text-center text-xs">2025.11.25</td>
-                  <td class="text-center font-number text-sm">25</td>
+                  <td class="text-center font-number text-sm">2543</td>
                 </tr>
                 <tr class="cursor-pointer hover:bg-gray-50 hidden md:table-row">
                   <td class="text-center font-semibold text-sm">4</td>
                   <td class="text-left text-sm">
-                    <a href="#" class="text-gray-800 hover:text-primary-blue">당첨 배송 가능한가요?</a>
+                    <a href="post-detail.html?id=4" class="text-gray-800 hover:text-primary-blue">3등 당첨 후기 - AI 번호가 정말 맞았어요</a>
                   </td>
-                  <td class="text-center text-xs">Song**</td>
-                  <td class="text-center text-xs">2025.11.25</td>
-                  <td class="text-center font-number text-sm">125</td>
+                  <td class="text-center text-xs">Park**</td>
+                  <td class="text-center text-xs">2025.11.22</td>
+                  <td class="text-center font-number text-sm">1256</td>
                 </tr>
                 <tr class="cursor-pointer hover:bg-gray-50 hidden md:table-row">
                   <td class="text-center font-semibold text-sm">3</td>
                   <td class="text-left text-sm">
-                    <a href="#" class="text-gray-800 hover:text-primary-blue">당첨 배송 가능한가요?</a>
+                    <a href="post-detail.html?id=3" class="text-gray-800 hover:text-primary-blue">골드 플랜 2주차, 드디어 4등 당첨!</a>
                   </td>
-                  <td class="text-center text-xs">Song**</td>
-                  <td class="text-center text-xs">2025.11.25</td>
-                  <td class="text-center font-number text-sm">5</td>
+                  <td class="text-center text-xs">Lee**</td>
+                  <td class="text-center text-xs">2025.11.20</td>
+                  <td class="text-center font-number text-sm">892</td>
                 </tr>
                 <tr class="cursor-pointer hover:bg-gray-50 hidden md:table-row">
                   <td class="text-center font-semibold text-sm">2</td>
                   <td class="text-left text-sm">
-                    <a href="#" class="text-gray-800 hover:text-primary-blue">당첨 배송 가능한가요?</a>
+                    <a href="post-detail.html?id=2" class="text-gray-800 hover:text-primary-blue">실버 플랜으로 5등 당첨했어요!</a>
                   </td>
-                  <td class="text-center text-xs">Song**</td>
-                  <td class="text-center text-xs">2025.11.25</td>
-                  <td class="text-center font-number text-sm">25</td>
+                  <td class="text-center text-xs">Choi**</td>
+                  <td class="text-center text-xs">2025.11.18</td>
+                  <td class="text-center font-number text-sm">458</td>
                 </tr>
                 <tr class="cursor-pointer hover:bg-gray-50 hidden md:table-row">
                   <td class="text-center font-semibold text-sm">1</td>
                   <td class="text-left text-sm">
-                    <a href="#" class="text-gray-800 hover:text-primary-blue">당첨 배송 가능한가요?</a>
+                    <a href="post-detail.html?id=1" class="text-gray-800 hover:text-primary-blue">로또라운지 AI 분석 정말 대박입니다</a>
                   </td>
-                  <td class="text-center text-xs">Song**</td>
-                  <td class="text-center text-xs">2025.11.25</td>
-                  <td class="text-center font-number text-sm">25</td>
+                  <td class="text-center text-xs">Jung**</td>
+                  <td class="text-center text-xs">2025.11.15</td>
+                  <td class="text-center font-number text-sm">623</td>
                 </tr>
               </tbody>
             </table>
-          </div>
-
-          <!-- 글쓰기 버튼 -->
-          <div class="text-center">
-            <button class="btn btn-primary px-4 md:px-8 py-2 md:py-3 text-xs md:text-base">닫기</button>
           </div>
 
           <!-- 페이지네이션 (예시) -->
@@ -218,6 +220,38 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
               </svg>
             </button>
+          </div>
+          </div>
+
+          <!-- 글쓰기 폼 (숨김) -->
+          <div id="board-form-view" class="hidden">
+            <div class="flex justify-between items-center mb-6">
+              <h3 class="text-2xl font-bold">글쓰기</h3>
+              <button id="back-to-board-list-btn" class="btn btn-secondary px-6 py-2">목록으로</button>
+            </div>
+
+            <form id="board-post-form" class="space-y-6">
+              <div>
+                <label class="input-label">제목</label>
+                <input type="text" class="input-text" placeholder="제목을 입력하세요" required>
+              </div>
+
+              <div>
+                <label class="input-label">내용</label>
+                <textarea class="input-text" rows="15" placeholder="내용을 입력해주세요" required></textarea>
+              </div>
+
+              <div>
+                <label class="input-label">이미지 첨부 (선택)</label>
+                <input type="file" class="input-text" accept="image/*" multiple>
+                <p class="text-xs md:text-sm text-gray-500 mt-2">* 최대 5개까지 첨부 가능합니다.</p>
+              </div>
+
+              <div class="flex flex-col md:flex-row justify-center gap-3 md:gap-4">
+                <button type="button" id="cancel-board-btn" class="btn btn-secondary px-4 md:px-8 py-2 md:py-3 text-sm md:text-base order-2 md:order-1">취소</button>
+                <button type="submit" class="btn btn-primary px-4 md:px-8 py-2 md:py-3 text-sm md:text-base order-1 md:order-2">등록하기</button>
+              </div>
+            </form>
           </div>
         </div>
 
@@ -520,6 +554,34 @@
           $('#inquiry-list-view').removeClass('hidden');
           $('#inquiry-form-view').addClass('hidden');
         }
+        // 당첨 게시판 탭으로 전환 시 목록 뷰로 초기화
+        if (targetTab === 'tab-board') {
+          $('#board-list-view').removeClass('hidden');
+          $('#board-form-view').addClass('hidden');
+        }
+      });
+
+      // 당첨 게시판 글쓰기 버튼
+      $('#show-board-form-btn').on('click', function() {
+        $('#board-list-view').addClass('hidden');
+        $('#board-form-view').removeClass('hidden');
+      });
+
+      // 게시판 목록으로 버튼
+      $('#back-to-board-list-btn, #cancel-board-btn').on('click', function() {
+        $('#board-form-view').addClass('hidden');
+        $('#board-list-view').removeClass('hidden');
+        // 폼 초기화
+        $('#board-post-form')[0].reset();
+      });
+
+      // 게시판 글 등록
+      $('#board-post-form').on('submit', function(e) {
+        e.preventDefault();
+        alert('게시글이 등록되었습니다.');
+        $('#board-form-view').addClass('hidden');
+        $('#board-list-view').removeClass('hidden');
+        this.reset();
       });
 
       // 새 문의 작성 버튼
@@ -567,11 +629,6 @@
 
         // 아이콘 회전
         icon.toggleClass('rotate-180');
-      });
-
-      // 글쓰기 버튼 클릭 (게시판)
-      $('.btn-primary').first().on('click', function() {
-        alert('글쓰기 페이지로 이동합니다.');
       });
     });
   </script>
