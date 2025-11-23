@@ -77,7 +77,7 @@
             </div>
         </div>
 
-        <div class="max-w-7xl mx-auto p-6"> <!-- 전체 페이지 배경색, 최대 너비, 중앙 정렬, 패딩 -->
+        <div class="max-w-7xl mx-auto"> <!-- 전체 페이지 배경색, 최대 너비, 중앙 정렬, 패딩 -->
             <!-- 탭 컨텐츠 -->
             <div id="tab-contents">
                 <!-- 숫자분석 탭 -->
@@ -95,7 +95,7 @@
                     <div class="p-6 mb-6 flex items-center justify-center">
                         <div class="relative w-full md:w-[500px]"> <!-- 너비는 필요에 따라 조절, relative로 화살표 아이콘 위치 기준점 설정 -->
                             <select
-                                    class="block w-full px-4 py-2 text-base text-gray-800 bg-white border border-blue-600 rounded-lg
+                                    class="block w-full px-4 py-2 text-xs md:text-base text-gray-800 bg-white border border-blue-600 rounded-lg
            focus:outline-none focus:ring-2 focus:ring-blue-300 appearance-none pr-10 cursor-pointer"
                             >
                                 <option value="all">전체</option>
@@ -120,40 +120,40 @@
                         <table class="min-w-full bg-white border-collapse mobile-analysis-table"> <!-- 테이블 너비 최소화 및 배경색, 보더 병합 -->
                             <thead>
                             <tr>
-                                <th class="py-2 md:py-3 px-2 md:px-4 text-center bg-blue-600 text-white font-semibold text-xs md:text-sm border-r border-blue-500">
+                                <th class="py-2 md:py-3 px-2 md:px-4 text-center bg-blue-600 text-white font-semibold text-xs md:text-base border-r border-blue-500">
                                     회차
                                 </th>
-                                <th class="py-2 md:py-3 px-2 md:px-4 text-center bg-blue-600 text-white font-semibold text-xs md:text-sm border-r border-blue-500">
+                                <th class="py-2 md:py-3 px-2 md:px-4 text-center bg-blue-600 text-white font-semibold text-xs md:text-base border-r border-blue-500">
                                     추첨일
                                 </th>
-                                <th class="py-2 md:py-3 px-2 md:px-4 text-center bg-blue-600 text-white font-semibold text-xs md:text-sm border-r border-blue-500">
+                                <th class="py-2 md:py-3 px-2 md:px-4 text-center bg-blue-600 text-white font-semibold text-xs md:text-base border-r border-blue-500">
                                     당첨번호
                                 </th>
-                                <th class="py-2 md:py-3 px-2 md:px-4 text-center bg-blue-600 text-white font-semibold text-xs md:text-sm border-r border-blue-500">
+                                <th class="py-2 md:py-3 px-2 md:px-4 text-center bg-blue-600 text-white font-semibold text-xs md:text-base border-r border-blue-500">
                                     보볼
                                 </th> <!-- 보너스 -> 보볼 수정 -->
-                                <th class="py-2 md:py-3 px-2 md:px-4 text-center bg-blue-600 text-white font-semibold text-xs md:text-sm border-r border-blue-500 hidden sm:table-cell">
+                                <th class="py-2 md:py-3 px-2 md:px-4 text-center bg-blue-600 text-white font-semibold text-xs md:text-base border-r border-blue-500 hidden sm:table-cell">
                                     번호대분포
                                 </th>
-                                <th class="py-2 md:py-3 px-2 md:px-4 text-center bg-blue-600 text-white font-semibold text-xs md:text-sm border-r border-blue-500 hidden sm:table-cell">
+                                <th class="py-2 md:py-3 px-2 md:px-4 text-center bg-blue-600 text-white font-semibold text-xs md:text-base border-r border-blue-500 hidden sm:table-cell">
                                     저고
                                 </th>
-                                <th class="py-2 md:py-3 px-2 md:px-4 text-center bg-blue-600 text-white font-semibold text-xs md:text-sm border-r border-blue-500">
+                                <th class="py-2 md:py-3 px-2 md:px-4 text-center bg-blue-600 text-white font-semibold text-xs md:text-base border-r border-blue-500">
                                     합계
                                 </th>
-                                <th class="py-2 md:py-3 px-2 md:px-4 text-center bg-blue-600 text-white font-semibold text-xs md:text-sm border-r border-blue-500 hidden sm:table-cell">
+                                <th class="py-2 md:py-3 px-2 md:px-4 text-center bg-blue-600 text-white font-semibold text-xs md:text-base border-r border-blue-500 hidden sm:table-cell">
                                     홀짝
                                 </th>
-                                <th class="py-2 md:py-3 px-2 md:px-4 text-center bg-blue-600 text-white font-semibold text-xs md:text-sm hidden lg:table-cell">끝수</th>
+                                <th class="py-2 md:py-3 px-2 md:px-4 text-center bg-blue-600 text-white font-semibold text-xs md:text-base hidden lg:table-cell">끝수</th>
                             </tr>
                             </thead>
                             <tbody>
                             <!-- 1127회 데이터 -->
                             <tr class="border-b border-gray-200 hover:bg-gray-50">
-                                <td class="py-2 md:py-3 px-2 md:px-4 text-center font-semibold text-gray-800 text-xs md:text-sm border-r border-gray-200">
+                                <td class="py-2 md:py-3 px-2 md:px-4 text-center font-semibold text-gray-800 text-xs md:text-base border-r border-gray-200">
                                     1127회
                                 </td>
-                                <td class="py-2 md:py-3 px-2 md:px-4 text-center text-gray-600 text-xs md:text-sm border-r border-gray-200 whitespace-nowrap">
+                                <td class="py-2 md:py-3 px-2 md:px-4 text-center text-gray-600 text-xs md:text-base border-r border-gray-200 whitespace-nowrap">
                                     25-09-21
                                 </td>
                                 <td class="py-2 md:py-3 px-2 md:px-4 text-center border-r border-gray-200 lottery-ball-cell">
@@ -166,26 +166,26 @@
                                         <span class="w-5 h-5 md:w-6 md:h-6 rounded-full bg-yellow-600 flex items-center justify-center text-white text-[10px] md:text-xs font-bold">44</span>
                                     </div>
                                 </td>
-                                <td class="py-2 md:py-3 px-2 md:px-4 text-center text-gray-800 text-xs md:text-sm border-r border-gray-200">7</td>
-                                <td class="py-2 md:py-3 px-2 md:px-4 text-center text-gray-600 text-xs md:text-sm border-r border-gray-200 hidden sm:table-cell">
+                                <td class="py-2 md:py-3 px-2 md:px-4 text-center text-gray-800 text-xs md:text-base border-r border-gray-200">7</td>
+                                <td class="py-2 md:py-3 px-2 md:px-4 text-center text-gray-600 text-xs md:text-base border-r border-gray-200 hidden sm:table-cell">
                                     3-1-0-1-1
                                 </td>
-                                <td class="py-2 md:py-3 px-2 md:px-4 text-center text-gray-600 text-xs md:text-sm border-r border-gray-200 hidden sm:table-cell">4 : 2
+                                <td class="py-2 md:py-3 px-2 md:px-4 text-center text-gray-600 text-xs md:text-base border-r border-gray-200 hidden sm:table-cell">4 : 2
                                 </td>
-                                <td class="py-2 md:py-3 px-2 md:px-4 text-center font-semibold text-gray-800 text-xs md:text-sm border-r border-gray-200">
+                                <td class="py-2 md:py-3 px-2 md:px-4 text-center font-semibold text-gray-800 text-xs md:text-base border-r border-gray-200">
                                     106
                                 </td>
-                                <td class="py-2 md:py-3 px-2 md:px-4 text-center text-gray-600 text-xs md:text-sm border-r border-gray-200 hidden sm:table-cell">4 : 2
+                                <td class="py-2 md:py-3 px-2 md:px-4 text-center text-gray-600 text-xs md:text-base border-r border-gray-200 hidden sm:table-cell">4 : 2
                                 </td>
-                                <td class="py-2 md:py-3 px-2 md:px-4 text-center text-gray-600 text-xs md:text-sm hidden lg:table-cell">0-1-4-5-7-9</td>
+                                <td class="py-2 md:py-3 px-2 md:px-4 text-center text-gray-600 text-xs md:text-base hidden lg:table-cell">0-1-4-5-7-9</td>
                             </tr>
                             <!-- 나머지 행들은 이미지에 있는 1127회 행과 동일한 패턴으로 채우세요 -->
                             <!-- 예시: 1126회 데이터 -->
                             <tr class="border-b border-gray-200 hover:bg-gray-50">
-                                <td class="py-2 md:py-3 px-2 md:px-4 text-center font-semibold text-gray-800 text-xs md:text-sm border-r border-gray-200">
+                                <td class="py-2 md:py-3 px-2 md:px-4 text-center font-semibold text-gray-800 text-xs md:text-base border-r border-gray-200">
                                     1126회
                                 </td>
-                                <td class="py-2 md:py-3 px-2 md:px-4 text-center text-gray-600 text-xs md:text-sm border-r border-gray-200 whitespace-nowrap">
+                                <td class="py-2 md:py-3 px-2 md:px-4 text-center text-gray-600 text-xs md:text-base border-r border-gray-200 whitespace-nowrap">
                                     25-09-14
                                 </td>
                                 <td class="py-2 md:py-3 px-2 md:px-4 text-center border-r border-gray-200 lottery-ball-cell">
@@ -198,18 +198,18 @@
                                         <span class="w-5 h-5 md:w-6 md:h-6 rounded-full bg-gray-400 flex items-center justify-center text-white text-[10px] md:text-xs font-bold">42</span>
                                     </div>
                                 </td>
-                                <td class="py-2 md:py-3 px-2 md:px-4 text-center text-gray-800 text-xs md:text-sm border-r border-gray-200">12</td>
-                                <td class="py-2 md:py-3 px-2 md:px-4 text-center text-gray-600 text-xs md:text-sm border-r border-gray-200 hidden sm:table-cell">
+                                <td class="py-2 md:py-3 px-2 md:px-4 text-center text-gray-800 text-xs md:text-base border-r border-gray-200">12</td>
+                                <td class="py-2 md:py-3 px-2 md:px-4 text-center text-gray-600 text-xs md:text-base border-r border-gray-200 hidden sm:table-cell">
                                     2-2-1-1-0
                                 </td>
-                                <td class="py-2 md:py-3 px-2 md:px-4 text-center text-gray-600 text-xs md:text-sm border-r border-gray-200 hidden sm:table-cell">3 : 3
+                                <td class="py-2 md:py-3 px-2 md:px-4 text-center text-gray-600 text-xs md:text-base border-r border-gray-200 hidden sm:table-cell">3 : 3
                                 </td>
-                                <td class="py-2 md:py-3 px-2 md:px-4 text-center font-semibold text-gray-800 text-xs md:text-sm border-r border-gray-200">
+                                <td class="py-2 md:py-3 px-2 md:px-4 text-center font-semibold text-gray-800 text-xs md:text-base border-r border-gray-200">
                                     98
                                 </td>
-                                <td class="py-2 md:py-3 px-2 md:px-4 text-center text-gray-600 text-xs md:text-sm border-r border-gray-200 hidden sm:table-cell">3 : 3
+                                <td class="py-2 md:py-3 px-2 md:px-4 text-center text-gray-600 text-xs md:text-base border-r border-gray-200 hidden sm:table-cell">3 : 3
                                 </td>
-                                <td class="py-2 md:py-3 px-2 md:px-4 text-center text-gray-600 text-xs md:text-sm hidden lg:table-cell">1-3-5-6-8-9</td>
+                                <td class="py-2 md:py-3 px-2 md:px-4 text-center text-gray-600 text-xs md:text-base hidden lg:table-cell">1-3-5-6-8-9</td>
                             </tr>
                             <!-- ... 나머지 <tr> 태그들도 동일한 패턴으로 채웁니다. -->
                             </tbody>
@@ -219,7 +219,7 @@
 
                 <!-- 꿈과 행운의 숫자 탭 -->
                 <div id="tab-dream-numbers" class="tab-content hidden">
-                    <div class="bg-white rounded-lg p-4 md:p-8">
+                    <div class="bg-white rounded-lg md:p-8">
                         <h3 class="text-2xl font-bold mb-6 text-center hidden">꿈과 행운의 숫자</h3>
                         <p class="text-center text-gray-600 mb-8 hidden">각 숫자에 담긴 의미와 행운의 키워드를 확인하세요.</p>
 
@@ -241,7 +241,7 @@
                                     1
                                 </div>
                                 <div class="flex-grow">
-                                    <p class="text-gray-800 text-base leading-relaxed">
+                                    <p class="text-gray-800 text-xs md:text-base leading-relaxed">
                                         임금(왕), 대통령, 태극기, 흰머리, 할아버지, 할머니, 갓난아이,<br>
                                         지팡이, 칫솔, 양치질, 끈(줄), 전봇대, 깡패, 건달, 일본, 부처님
                                     </p>
@@ -254,7 +254,7 @@
                                     2
                                 </div>
                                 <div class="flex-grow">
-                                    <p class="text-gray-800 text-base leading-relaxed">
+                                    <p class="text-gray-800 text-xs md:text-base leading-relaxed">
                                         비행기, 헬기, 날다, 달리기, 마라톤, 별, 행성, 인사, <br>
                                         거수경례, 빗자루, 어머니, 얼음, 안개, 외국인, 새장
                                     </p>
@@ -267,7 +267,7 @@
                                     3
                                 </div>
                                 <div class="flex-grow">
-                                    <p class="text-gray-800 text-base leading-relaxed">
+                                    <p class="text-gray-800 text-xs md:text-base leading-relaxed">
                                         우산, 축구공, 풍선, 바둑, 장기, 춤, 박쥐, 인형, 호랑이, 표범, 왕관,<br>
                                         인삼, 삼성(기업), 장난감, 영어, 사투리, 글씨, 글자, 삼각자, 삼촌
                                     </p>
@@ -280,7 +280,7 @@
                                     4
                                 </div>
                                 <div class="flex-grow">
-                                    <p class="text-gray-800 text-base leading-relaxed">
+                                    <p class="text-gray-800 text-xs md:text-base leading-relaxed">
                                         벌레, 개미, 모기, 파리, 나비, 번데기, 오징어, 낙지, 상어,<br>
                                         미역, 새우, 가재, 항구, 해수욕장, 모래, 수족관, 폭포,<br>
                                         계곡, 약수터, 지게, 국민은행, 신호등, 다이아몬드, 거울
@@ -294,7 +294,7 @@
                                     5
                                 </div>
                                 <div class="flex-grow">
-                                    <p class="text-gray-800 text-base leading-relaxed">
+                                    <p class="text-gray-800 text-xs md:text-base leading-relaxed">
                                         어묵, 오뎅, 오리, 쥐, 오리, 오곡(콩, 조, 수수등), 5천원권, 동굴<br>
                                         수리, 장모, 조카, 외환은행, 물기둥, 분수, 모기장, 어린이날
                                     </p>
@@ -307,7 +307,7 @@
                                     6
                                 </div>
                                 <div class="flex-grow">
-                                    <p class="text-gray-800 text-base leading-relaxed">
+                                    <p class="text-gray-800 text-xs md:text-base leading-relaxed">
                                         호수, 연못, 난초, 진흙밭, 진주, 대파, 부추, 시금치,<br>
                                         배추, 호스, 타이어, 바퀴, 선배, 박물관, 도박
                                     </p>
@@ -320,7 +320,7 @@
                                     7
                                 </div>
                                 <div class="flex-grow">
-                                    <p class="text-gray-800 text-base leading-relaxed">
+                                    <p class="text-gray-800 text-xs md:text-base leading-relaxed">
                                         산길, 말, 황금, 수건, 신용카드, 무지개, 고가다리, 육교,<br>
                                         두부, 소금, 기저귀, 무우, 교실, 네잎클로바, 화투
                                     </p>
@@ -333,7 +333,7 @@
                                     8
                                 </div>
                                 <div class="flex-grow">
-                                    <p class="text-gray-800 text-base leading-relaxed">
+                                    <p class="text-gray-800 text-xs md:text-base leading-relaxed">
                                         운전, 엘리베이터, 모자, 팔, 안경, 거미, 개구리, 두꺼비,<br>
                                         거북이, 돼지, 소, 염소, 저수지, 라면, 쌀, 저녁식사
                                     </p>
@@ -346,7 +346,7 @@
                                     9
                                 </div>
                                 <div class="flex-grow">
-                                    <p class="text-gray-800 text-base leading-relaxed">
+                                    <p class="text-gray-800 text-xs md:text-base leading-relaxed">
                                         신발, 짚신, 공, 테니스, 도서관, 맨홀뚜껑, 연탄, 목사,<br>
                                         신부님, 원숭이, 머리손질, 대머리, 가발
                                     </p>
@@ -359,7 +359,7 @@
                                     10
                                 </div>
                                 <div class="flex-grow">
-                                    <p class="text-gray-800 text-base leading-relaxed">
+                                    <p class="text-gray-800 text-xs md:text-base leading-relaxed">
                                         시계, 텐트, 천막, 창고, 초가집, 한옥집, 고향집, 지하실,<br>
                                         물이세다, 물이차오르다, 빨간고무다라이, 닭, 치킨, 도시락
                                     </p>
@@ -372,7 +372,7 @@
                                     11
                                 </div>
                                 <div class="flex-grow">
-                                    <p class="text-gray-800 text-base leading-relaxed">
+                                    <p class="text-gray-800 text-xs md:text-base leading-relaxed">
                                         철길, 내리는비, 후배, 쌍둥이아기, 젓가락, 양초, 유치원생,<br>
                                         축구선수, 골키퍼, 도둑, 슬리퍼(샌들), 누워있다
                                     </p>
@@ -385,7 +385,7 @@
                                     12
                                 </div>
                                 <div class="flex-grow">
-                                    <p class="text-gray-800 text-base leading-relaxed">
+                                    <p class="text-gray-800 text-xs md:text-base leading-relaxed">
                                         고양이, 숯, 산속(야산), 비탈길, 댐, 가위, 아이를 안고,<br>
                                         빈병, 다리미, 후레쉬, 렌턴, 돼지고기
                                     </p>
@@ -398,7 +398,7 @@
                                     13
                                 </div>
                                 <div class="flex-grow">
-                                    <p class="text-gray-800 text-base leading-relaxed">
+                                    <p class="text-gray-800 text-xs md:text-base leading-relaxed">
                                         표지판, 이정표, 팬티, 속옷, 브레지어, 성기, 정액, 황소, 영구차,<br>
                                         장례식, 상가집, 묘, 공동묘지, 앞치마, 달걀, 된장, 청국장, 농협
                                     </p>
@@ -411,7 +411,7 @@
                                     14
                                 </div>
                                 <div class="flex-grow">
-                                    <p class="text-gray-800 text-base leading-relaxed">
+                                    <p class="text-gray-800 text-xs md:text-base leading-relaxed">
                                         자동차, 봉고차, 카센터, 구름, 감, 홍시, 곶감, 만두,<br>
                                         맨발, 양말, 화장실, 변기, 매춘부, 아기를 업고, 먼지
                                     </p>
@@ -424,7 +424,7 @@
                                     15
                                 </div>
                                 <div class="flex-grow">
-                                    <p class="text-gray-800 text-base leading-relaxed">
+                                    <p class="text-gray-800 text-xs md:text-base leading-relaxed">
                                         피, 싸움, 도끼, 농기구, 경운기, 정비, 준장, 소변누다,<br>
                                         동상, 벽돌, 체조, 헬스, 운동경기, 스포츠, 탁구, 화내다
                                     </p>
@@ -437,7 +437,7 @@
                                     16
                                 </div>
                                 <div class="flex-grow">
-                                    <p class="text-gray-800 text-base leading-relaxed">
+                                    <p class="text-gray-800 text-xs md:text-base leading-relaxed">
                                         책, 성경책, 노트, 시험, 서류, 책꽂이, 휴지, 상자, 박스, 포대,<br>
                                         자루, 씨앗, 김, 승차권, 여권, 옥매트, 방석, 의자, 벤치, 부엌
                                     </p>
@@ -450,7 +450,7 @@
                                     17
                                 </div>
                                 <div class="flex-grow">
-                                    <p class="text-gray-800 text-base leading-relaxed">
+                                    <p class="text-gray-800 text-xs md:text-base leading-relaxed">
                                         사탕, 빨래, 이불, 절하다, 탑, 스님, 절(사찰), 멸치, 생선, 물고기,<br>
                                         낚시, 양식장, 문신, 넥타이, 이불, 담요, 생리대, 치약
                                     </p>
@@ -463,7 +463,7 @@
                                     18
                                 </div>
                                 <div class="flex-grow">
-                                    <p class="text-gray-800 text-base leading-relaxed">
+                                    <p class="text-gray-800 text-xs md:text-base leading-relaxed">
                                         사진, 아버지, 선생님, 교수, 장인, 회사사장, 오토바이,<br>
                                         썰매, 스키, 스케이트, 인라인, 공사장, 콩나물, 마시는차,<br>
                                         국회의원, 많은사람, 군용짚차, 옷가게
@@ -477,7 +477,7 @@
                                     19
                                 </div>
                                 <div class="flex-grow">
-                                    <p class="text-gray-800 text-base leading-relaxed">
+                                    <p class="text-gray-800 text-xs md:text-base leading-relaxed">
                                         소방차, 소방대원, 불, 라이타, 가게, 슈퍼, 매장, 커피숍, 고추장,<br>
                                         석류, 사과, 버섯, 일기, 연필, 볼펜, 필기구, 저금통, 거짓말
                                     </p>
@@ -490,7 +490,7 @@
                                     20
                                 </div>
                                 <div class="flex-grow">
-                                    <p class="text-gray-800 text-base leading-relaxed">
+                                    <p class="text-gray-800 text-xs md:text-base leading-relaxed">
                                         남편, 책가방, 놀이터, 귤, 오렌지, 감자, 고구마, 늙은호박,<br>
                                         피자, 성냥, 찜질방, 사우나, 담배, 원피스, 오리알
                                     </p>
@@ -503,7 +503,7 @@
                                     21
                                 </div>
                                 <div class="flex-grow">
-                                    <p class="text-gray-800 text-base leading-relaxed">
+                                    <p class="text-gray-800 text-xs md:text-base leading-relaxed">
                                         지도, 약도, 설거지, 청소, 청소부, 환경미화원, 커피, <br>
                                         식권, 고래, 박수, 손, 손가락, 손톱, 토끼, 울타리
                                     </p>
@@ -516,7 +516,7 @@
                                     22
                                 </div>
                                 <div class="flex-grow">
-                                    <p class="text-gray-800 text-base leading-relaxed">
+                                    <p class="text-gray-800 text-xs md:text-base leading-relaxed">
                                         뱀, 경찰서, 경찰차, 경비실, 고소, 수갑, 감옥, 간첩, 북한국, 비닐봉지,<br>
                                         도배, 시멘트, 잠자리, 법원, 토마토, 외계인, 우주선, 미로, 공항
                                     </p>
@@ -529,7 +529,7 @@
                                     23
                                 </div>
                                 <div class="flex-grow">
-                                    <p class="text-gray-800 text-base leading-relaxed">
+                                    <p class="text-gray-800 text-xs md:text-base leading-relaxed">
                                         핸드폰, 카메라, 오락실, 컴퓨터, 인터넷, 라디오, 레코드판, 내리는눈, 천둥,<br>
                                         번개, 세숫대야, 전기밥솥, 피아노, 전화통화, 증권, 돌, 자갈, 케이블카
                                     </p>
@@ -542,7 +542,7 @@
                                     24
                                 </div>
                                 <div class="flex-grow">
-                                    <p class="text-gray-800 text-base leading-relaxed">
+                                    <p class="text-gray-800 text-xs md:text-base leading-relaxed">
                                         술, 와인, 음료수, 이사, 트럭, 버스정류장, 노래방, 현수막,<br>
                                         골목길, 직장동료, 바이올린, 용, 보름달, 미꾸라지
                                     </p>
@@ -555,7 +555,7 @@
                                     25
                                 </div>
                                 <div class="flex-grow">
-                                    <p class="text-gray-800 text-base leading-relaxed">
+                                    <p class="text-gray-800 text-xs md:text-base leading-relaxed">
                                         결혼, 애인, 연인, 섹스, 친구, 꽃, 코스모스, 해바라기, <br>
                                         벌, 소장, 흙탕물, 백열전구, 과녘, 표적, 에프킬라
                                     </p>
@@ -568,7 +568,7 @@
                                     26
                                 </div>
                                 <div class="flex-grow">
-                                    <p class="text-gray-800 text-base leading-relaxed">
+                                    <p class="text-gray-800 text-xs md:text-base leading-relaxed">
                                         배(바다), 변(똥), 풀, 풀밭, 목장, 숲속, 바늘, <br>
                                         언덕, 화분, 잠옷, 건물옥상, 키스, 잔치, 마이크
                                     </p>
@@ -581,7 +581,7 @@
                                     27
                                 </div>
                                 <div class="flex-grow">
-                                    <p class="text-gray-800 text-base leading-relaxed">
+                                    <p class="text-gray-800 text-xs md:text-base leading-relaxed">
                                         긴머리 ,여관, 모텔, 아파트, 돈을줍다, 수표, 돈봉투, <br>
                                         동전, 현금지급기, 양복, 회사유니폼, 형광등, 양주, 마늘
                                     </p>
@@ -594,7 +594,7 @@
                                     28
                                 </div>
                                 <div class="flex-grow">
-                                    <p class="text-gray-800 text-base leading-relaxed">
+                                    <p class="text-gray-800 text-xs md:text-base leading-relaxed">
                                         반지, 목걸이, 악세서리, 다이아몬드, 보석, 패물,<br>
                                         상장, 냉면, 거북선, 건전지, 밧데리, 지렁이
                                     </p>
@@ -607,7 +607,7 @@
                                     29
                                 </div>
                                 <div class="flex-grow">
-                                    <p class="text-gray-800 text-base leading-relaxed">
+                                    <p class="text-gray-800 text-xs md:text-base leading-relaxed">
                                         쇠, 철, 철사, 못, 연장, 자석, 가마솥, 골프,<br>
                                         골프채, 국자, 수세미, 로보트, 활, 폭발, 방앗간
                                     </p>
@@ -620,7 +620,7 @@
                                     30
                                 </div>
                                 <div class="flex-grow">
-                                    <p class="text-gray-800 text-base leading-relaxed">
+                                    <p class="text-gray-800 text-xs md:text-base leading-relaxed">
                                         가방, 지갑, 여행, 솥, 냄비, 그릇, 접시, 열쇠,<br>
                                         텔레비전, 전자렌지, 에어컨, 선풍기, 풍차, 대학강의실
                                     </p>
@@ -633,7 +633,7 @@
                                     31
                                 </div>
                                 <div class="flex-grow">
-                                    <p class="text-gray-800 text-base leading-relaxed">
+                                    <p class="text-gray-800 text-xs md:text-base leading-relaxed">
                                         커튼, 신분증, 주민등록증, 면도기, 연설, 강연, <br>
                                         세미나, 발표, 사슴뿔, 기린, 볏짚단, 두엄, 소죽
                                     </p>
@@ -646,7 +646,7 @@
                                     32
                                 </div>
                                 <div class="flex-grow">
-                                    <p class="text-gray-800 text-base leading-relaxed">
+                                    <p class="text-gray-800 text-xs md:text-base leading-relaxed">
                                         공원, 논, 밭, 벼, 모종, 묘목, 새싹, 식물원, 장난감,<br>
                                         단추, 푸른호박, 푸른고추, 가지, 오이, 더덕, 손톱깎이
                                     </p>
@@ -659,7 +659,7 @@
                                     33
                                 </div>
                                 <div class="flex-grow">
-                                    <p class="text-gray-800 text-base leading-relaxed">
+                                    <p class="text-gray-800 text-xs md:text-base leading-relaxed">
                                         산삼, 개, 멧돼지, 꿩, 대성통곡, 교복, 경비원, 바위, 지진, 유흥가,<br>
                                         난로, 용광로, 석유, 기름, 새우젓, 지진, 태풍, 체인, 전기줄, 리모콘
                                     </p>
@@ -672,7 +672,7 @@
                                     34
                                 </div>
                                 <div class="flex-grow">
-                                    <p class="text-gray-800 text-base leading-relaxed">
+                                    <p class="text-gray-800 text-xs md:text-base leading-relaxed">
                                         연예인, 가수, 공연, 쇼, 극장, 영화관, 드라마, <br>
                                         뉴스,방송국, 기자, 정치인, 전직장관, 높은파도
                                     </p>
@@ -685,7 +685,7 @@
                                     35
                                 </div>
                                 <div class="flex-grow">
-                                    <p class="text-gray-800 text-base leading-relaxed">
+                                    <p class="text-gray-800 text-xs md:text-base leading-relaxed">
                                         칼, 총, 몽둥이, 폭탄, 전쟁, 군인, 군복, 갑옷, 예비군훈련,<br>
                                         경찰, 검문, 단속, 중장, 군함, 비디오테이프, 생선회
                                     </p>
@@ -698,7 +698,7 @@
                                     36
                                 </div>
                                 <div class="flex-grow">
-                                    <p class="text-gray-800 text-base leading-relaxed">
+                                    <p class="text-gray-800 text-xs md:text-base leading-relaxed">
                                         버스, 돈, 돈다발, 지폐, 통장, 복권, 상품권, <br>
                                         하수구, 왕비, 울음, 백화점, 가오리, 비료, 탈의실
                                     </p>
@@ -711,7 +711,7 @@
                                     37
                                 </div>
                                 <div class="flex-grow">
-                                    <p class="text-gray-800 text-base leading-relaxed">
+                                    <p class="text-gray-800 text-xs md:text-base leading-relaxed">
                                         반짝이는빛, 불빛, 조명, 가로등, 후레쉬, 주사,<br>
                                         이발, 이발사, 미용사, 미용실, 포도, 구두솔
                                     </p>
@@ -724,7 +724,7 @@
                                     38
                                 </div>
                                 <div class="flex-grow">
-                                    <p class="text-gray-800 text-base leading-relaxed">
+                                    <p class="text-gray-800 text-xs md:text-base leading-relaxed">
                                         목욕탕, 냉장고, 침대, 쇼파, 대문, 장농, 자장면, 검사,<br>
                                         변호사, 궁전, 주차장, 포장마차, 앨범, 고양이, 맑은물
                                     </p>
@@ -737,7 +737,7 @@
                                     39
                                 </div>
                                 <div class="flex-grow">
-                                    <p class="text-gray-800 text-base leading-relaxed">
+                                    <p class="text-gray-800 text-xs md:text-base leading-relaxed">
                                         찌게, 대추, 식당, 국수, 죽, 향수, 화장, 밥, 초밥, 비빔밥, 김치,<br>
                                         생선구이, 식혜, 빵, 케잌, 떡, 아이스크림, 전시회, 모임, 회의, 파출부
                                     </p>
@@ -750,7 +750,7 @@
                                     40
                                 </div>
                                 <div class="flex-grow">
-                                    <p class="text-gray-800 text-base leading-relaxed">
+                                    <p class="text-gray-800 text-xs md:text-base leading-relaxed">
                                         병원, 치과, 의사, 장애인, 도망, 식용유, 대학교, 털, 나체,<br>
                                         쓰레기통, 가마니, 교통사고, 길을헤메다, 수박, 때타올
                                     </p>
@@ -763,7 +763,7 @@
                                     41
                                 </div>
                                 <div class="flex-grow">
-                                    <p class="text-gray-800 text-base leading-relaxed">
+                                    <p class="text-gray-800 text-xs md:text-base leading-relaxed">
                                         교회, 간호사, 주유소, 무속인, 무당, 점쟁이,<br>
                                         점집, 부적, 제사, 제사상, 운동장, 머리염색, 팽이
                                     </p>
@@ -776,7 +776,7 @@
                                     42
                                 </div>
                                 <div class="flex-grow">
-                                    <p class="text-gray-800 text-base leading-relaxed">
+                                    <p class="text-gray-800 text-xs md:text-base leading-relaxed">
                                         새, 편지, 전철, 기차, 기차역, 인력거, 찬송가, 종이학, 우체국,<br>
                                         동사무소, 관공서, 곰팡이, 무전기, 시험에합격한꿈
                                     </p>
@@ -789,7 +789,7 @@
                                     43
                                 </div>
                                 <div class="flex-grow">
-                                    <p class="text-gray-800 text-base leading-relaxed">
+                                    <p class="text-gray-800 text-xs md:text-base leading-relaxed">
                                         빨래줄, 과자, 껌, 리본, 레이스, 방충망, 놀이공원, <br>
                                         사다리, 밧줄, 짬뽕, 큰구렁이, 잡채, 팝콘, 항아리
                                     </p>
@@ -802,7 +802,7 @@
                                     44
                                 </div>
                                 <div class="flex-grow">
-                                    <p class="text-gray-800 text-base leading-relaxed">
+                                    <p class="text-gray-800 text-xs md:text-base leading-relaxed">
                                         계단, 에스컬레이터, 무너지다, 점심식사, 까마귀, 저승사자,<br>
                                         바다게, 해삼, 소라, 조개, 그룹섹스, 호스로물뿌리다
                                     </p>
@@ -815,7 +815,7 @@
                                     45
                                 </div>
                                 <div class="flex-grow">
-                                    <p class="text-gray-800 text-base leading-relaxed">
+                                    <p class="text-gray-800 text-xs md:text-base leading-relaxed">
                                         이혼, 귀신, 유령, 영혼, 괴물, 시체, 마스크, 복면,<br>
                                         헬멧, 해녀, 벌꿀, 로또, 복권방, 꼬리, 매
                                     </p>
@@ -832,19 +832,19 @@
                     <div class="bg-gray-100 rounded-lg p-4 md:p-8 mb-4 md:mb-8">
                         <p class="text-center text-gray-700 mb-3 md:mb-4 text-xs md:text-base">검색하실 회를 입력해주세요.</p>
                         <div class="flex flex-wrap items-center justify-center gap-2">
-                            <input type="number" id="win-count-start" class="w-24 md:w-48 px-2 md:px-4 py-2 text-sm md:text-base border-2 border-primary-blue rounded focus:outline-none focus:ring-2 focus:ring-blue-300" placeholder="">
-                            <span class="text-gray-700 font-medium text-sm md:text-base">회</span>
-                            <span class="text-gray-700 mx-1 md:mx-2 text-sm md:text-base">~</span>
-                            <input type="number" id="win-count-end" class="w-24 md:w-48 px-2 md:px-4 py-2 text-sm md:text-base border-2 border-primary-blue rounded focus:outline-none focus:ring-2 focus:ring-blue-300" placeholder="">
-                            <span class="text-gray-700 font-medium text-sm md:text-base">회</span>
-                            <button id="win-count-search" class="ml-2 md:ml-4 px-4 md:px-8 py-2 bg-primary-blue text-white font-semibold rounded hover:bg-primary-blue-dark transition-colors text-sm md:text-base">
+                            <input type="number" id="win-count-start" class="w-24 md:w-48 px-2 md:px-4 py-2 text-xs md:text-base border-2 border-primary-blue rounded focus:outline-none focus:ring-2 focus:ring-blue-300" placeholder="">
+                            <span class="text-gray-700 font-medium text-xs md:text-base">회</span>
+                            <span class="text-gray-700 mx-1 md:mx-2 text-xs md:text-base">~</span>
+                            <input type="number" id="win-count-end" class="w-24 md:w-48 px-2 md:px-4 py-2 text-xs md:text-base border-2 border-primary-blue rounded focus:outline-none focus:ring-2 focus:ring-blue-300" placeholder="">
+                            <span class="text-gray-700 font-medium text-xs md:text-base">회</span>
+                            <button id="win-count-search" class="ml-2 md:ml-4 px-4 md:px-8 py-2 bg-primary-blue text-white font-semibold rounded hover:bg-primary-blue-dark transition-colors text-xs md:text-base">
                                 검색
                             </button>
                         </div>
                     </div>
 
                     <!-- 당첨 횟수 분류 테이블 -->
-                    <div class="mb-8 md:mb-12">
+                    <div class="mb-8 md:mb-12 p-4">
                         <h3 class="text-lg md:text-2xl font-bold text-center mb-4 md:mb-6">당첨 횟수 분류</h3>
                         <div class="overflow-x-auto rounded-lg shadow-sm -mx-4 md:mx-0">
                             <table class="min-w-[500px] md:w-full border-collapse bg-white">
@@ -857,32 +857,32 @@
                                 </thead>
                                 <tbody id="win-count-table-body">
                                     <tr class="border-b border-gray-200">
-                                        <td class="py-4 px-4 text-center font-medium border-r border-gray-200">172</td>
-                                        <td class="py-4 px-4 border-r border-gray-200">
+                                        <td class="py-4 px-4 text-center font-medium border-r border-gray-200 text-xs md:text-base">172</td>
+                                        <td class="py-4 px-4 border-r border-gray-200 text-xs md:text-base">
                                             <span class="font-medium">34</span>
                                         </td>
-                                        <td class="py-4 px-4 text-center">1</td>
+                                        <td class="py-4 px-4 text-center text-xs md:text-base">1</td>
                                     </tr>
                                     <tr class="border-b border-gray-200">
-                                        <td class="py-4 px-4 text-center font-medium border-r border-gray-200">165</td>
-                                        <td class="py-4 px-4 border-r border-gray-200">
+                                        <td class="py-4 px-4 text-center font-medium border-r border-gray-200 text-xs md:text-base">165</td>
+                                        <td class="py-4 px-4 border-r border-gray-200 text-xs md:text-base">
                                             <span class="font-medium">12</span>&nbsp;&nbsp;<span>18</span>
                                         </td>
-                                        <td class="py-4 px-4 text-center">2</td>
+                                        <td class="py-4 px-4 text-center text-xs md:text-base">2</td>
                                     </tr>
                                     <tr class="border-b border-gray-200">
-                                        <td class="py-4 px-4 text-center font-medium border-r border-gray-200">163</td>
-                                        <td class="py-4 px-4 border-r border-gray-200">
+                                        <td class="py-4 px-4 text-center font-medium border-r border-gray-200 text-xs md:text-base">163</td>
+                                        <td class="py-4 px-4 border-r border-gray-200 text-xs md:text-base">
                                             <span>45</span>
                                         </td>
-                                        <td class="py-4 px-4 text-center">2</td>
+                                        <td class="py-4 px-4 text-center text-xs md:text-base">2</td>
                                     </tr>
                                     <tr class="border-b border-gray-200">
-                                        <td class="py-4 px-4 text-center font-medium border-r border-gray-200">161</td>
-                                        <td class="py-4 px-4 border-r border-gray-200">
+                                        <td class="py-4 px-4 text-center font-medium border-r border-gray-200 text-xs md:text-base">161</td>
+                                        <td class="py-4 px-4 border-r border-gray-200 text-xs md:text-base">
                                             <span class="text-red-500 font-bold">40</span>
                                         </td>
-                                        <td class="py-4 px-4 text-center">1</td>
+                                        <td class="py-4 px-4 text-center text-xs md:text-base">1</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -891,7 +891,7 @@
 
                     <!-- 당첨 횟수 분포도 -->
                     <div>
-                        <h3 class="text-2xl font-bold text-center mb-6">당첨 횟수 분포도</h3>
+                        <h3 class="text-lg md:text-2xl font-bold text-center mb-4 md:mb-6">당첨 횟수 분포도</h3>
 
                         <!-- 범례 -->
                         <div id="win-count-legend" class="flex justify-end mb-4 gap-6">
@@ -910,52 +910,52 @@
                             <table class="w-full border-collapse text-sm bg-white">
                                 <thead>
                                     <tr class="bg-primary-blue text-white">
-                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500 w-16">회</th>
-                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">1</th>
-                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">2</th>
-                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">3</th>
-                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">4</th>
-                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">5</th>
-                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">6</th>
-                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">7</th>
-                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">8</th>
-                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">9</th>
-                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">10</th>
-                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">11</th>
-                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">12</th>
-                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">13</th>
-                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">14</th>
-                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">15</th>
-                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">16</th>
-                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">17</th>
-                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">18</th>
-                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">19</th>
-                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">20</th>
-                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">21</th>
-                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">22</th>
-                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">23</th>
-                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">24</th>
-                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">25</th>
-                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">26</th>
-                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">27</th>
-                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">28</th>
-                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">29</th>
-                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">30</th>
-                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">31</th>
-                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">32</th>
-                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">33</th>
-                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">34</th>
-                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">35</th>
-                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">36</th>
-                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">37</th>
-                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">38</th>
-                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">39</th>
-                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">40</th>
-                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">41</th>
-                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">42</th>
-                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">43</th>
-                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500">44</th>
-                                        <th class="py-2 px-1 text-center font-semibold">45</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500 w-16 text-xs md:text-base">회</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500 text-xs md:text-base">1</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500 text-xs md:text-base">2</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500 text-xs md:text-base">3</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500 text-xs md:text-base">4</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500 text-xs md:text-base">5</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500 text-xs md:text-base">6</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500 text-xs md:text-base">7</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500 text-xs md:text-base">8</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500 text-xs md:text-base">9</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500 text-xs md:text-base">10</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500 text-xs md:text-base">11</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500 text-xs md:text-base">12</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500 text-xs md:text-base">13</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500 text-xs md:text-base">14</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500 text-xs md:text-base">15</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500 text-xs md:text-base">16</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500 text-xs md:text-base">17</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500 text-xs md:text-base">18</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500 text-xs md:text-base">19</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500 text-xs md:text-base">20</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500 text-xs md:text-base">21</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500 text-xs md:text-base">22</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500 text-xs md:text-base">23</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500 text-xs md:text-base">24</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500 text-xs md:text-base">25</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500 text-xs md:text-base">26</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500 text-xs md:text-base">27</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500 text-xs md:text-base">28</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500 text-xs md:text-base">29</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500 text-xs md:text-base">30</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500 text-xs md:text-base">31</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500 text-xs md:text-base">32</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500 text-xs md:text-base">33</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500 text-xs md:text-base">34</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500 text-xs md:text-base">35</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500 text-xs md:text-base">36</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500 text-xs md:text-base">37</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500 text-xs md:text-base">38</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500 text-xs md:text-base">39</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500 text-xs md:text-base">40</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500 text-xs md:text-base">41</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500 text-xs md:text-base">42</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500 text-xs md:text-base">43</th>
+                                        <th class="py-2 px-1 text-center font-semibold border-r border-blue-500 text-xs md:text-base">44</th>
+                                        <th class="py-2 px-1 text-center font-semibold text-xs md:text-base">45</th>
                                     </tr>
                                 </thead>
                                 <tbody id="win-count-distribution-body">
@@ -1302,7 +1302,7 @@
                 </div>
 
                 <!-- 당첨 공색 분석 탭 -->
-                <div id="tab-colors" class="tab-content hidden">
+                <div id="tab-colors" class="tab-content hidden p-4">
                     <div class="bg-gray-100 rounded-lg shadow-sm p-4 md:p-6 mb-4 md:mb-6 flex items-center justify-center">
                         <div class="text-gray-700 leading-relaxed text-center">
                             <p class="text-xs md:text-sm">
@@ -1336,7 +1336,7 @@
                     <div class="p-4 md:p-6 mb-4 md:mb-6 flex items-center justify-center">
                         <div class="relative w-full md:w-[500px]">
                             <select id="color-analysis-select"
-                                    class="block w-full px-3 md:px-4 py-2 text-sm md:text-base text-gray-800 bg-white border border-blue-600 rounded-lg
+                                    class="block w-full px-3 md:px-4 py-2 text-xs md:text-base text-gray-800 bg-white border border-blue-600 rounded-lg
                                     focus:outline-none focus:ring-2 focus:ring-blue-300 appearance-none pr-10 cursor-pointer">
                                 <option value="round">회귀별 보기</option>
                             </select>
@@ -1353,37 +1353,37 @@
                         <table class="min-w-[800px] md:min-w-full bg-white border-collapse">
                             <thead>
                             <tr>
-                                <th class="py-3 px-4 text-center bg-blue-600 text-white font-semibold text-sm border-r border-blue-500">
+                                <th class="py-3 px-4 text-center bg-blue-600 text-white font-semibold text-xs md:text-base border-r border-blue-500">
                                     회차
                                 </th>
-                                <th class="py-3 px-4 text-center bg-blue-600 text-white font-semibold text-sm border-r border-blue-500">
+                                <th class="py-3 px-4 text-center bg-blue-600 text-white font-semibold text-xs md:text-base border-r border-blue-500">
                                     1
                                 </th>
-                                <th class="py-3 px-4 text-center bg-blue-600 text-white font-semibold text-sm border-r border-blue-500">
+                                <th class="py-3 px-4 text-center bg-blue-600 text-white font-semibold text-xs md:text-base border-r border-blue-500">
                                     2
                                 </th>
-                                <th class="py-3 px-4 text-center bg-blue-600 text-white font-semibold text-sm border-r border-blue-500">
+                                <th class="py-3 px-4 text-center bg-blue-600 text-white font-semibold text-xs md:text-base border-r border-blue-500">
                                     3
                                 </th>
-                                <th class="py-3 px-4 text-center bg-blue-600 text-white font-semibold text-sm border-r border-blue-500">
+                                <th class="py-3 px-4 text-center bg-blue-600 text-white font-semibold text-xs md:text-base border-r border-blue-500">
                                     4
                                 </th>
-                                <th class="py-3 px-4 text-center bg-blue-600 text-white font-semibold text-sm border-r border-blue-500">
+                                <th class="py-3 px-4 text-center bg-blue-600 text-white font-semibold text-xs md:text-base border-r border-blue-500">
                                     5
                                 </th>
-                                <th class="py-3 px-4 text-center bg-blue-600 text-white font-semibold text-sm border-r border-blue-500">
+                                <th class="py-3 px-4 text-center bg-blue-600 text-white font-semibold text-xs md:text-base border-r border-blue-500">
                                     6
                                 </th>
-                                <th class="py-3 px-4 text-center bg-blue-600 text-white font-semibold text-sm border-r border-blue-500">
+                                <th class="py-3 px-4 text-center bg-blue-600 text-white font-semibold text-xs md:text-base border-r border-blue-500">
                                     보너스볼
                                 </th>
-                                <th class="py-3 px-4 text-center bg-blue-600 text-white font-semibold text-sm border-r border-blue-500">
+                                <th class="py-3 px-4 text-center bg-blue-600 text-white font-semibold text-xs md:text-base border-r border-blue-500">
                                     나온공색
                                 </th>
-                                <th class="py-3 px-4 text-center bg-blue-600 text-white font-semibold text-sm border-r border-blue-500">
+                                <th class="py-3 px-4 text-center bg-blue-600 text-white font-semibold text-xs md:text-base border-r border-blue-500">
                                     홀짝
                                 </th>
-                                <th class="py-3 px-4 text-center bg-blue-600 text-white font-semibold text-sm">
+                                <th class="py-3 px-4 text-center bg-blue-600 text-white font-semibold text-xs md:text-base">
                                     나온끝수
                                 </th>
                             </tr>
@@ -1391,7 +1391,7 @@
                             <tbody id="color-analysis-tbody">
                             <!-- 1127회 데이터 -->
                             <tr class="border-b border-gray-200 hover:bg-gray-50">
-                                <td class="py-3 px-4 text-center font-semibold text-gray-800 text-sm border-r border-gray-200">
+                                <td class="py-3 px-4 text-center font-semibold text-gray-800 text-xs md:text-base border-r border-gray-200">
                                     1127회
                                 </td>
                                 <td class="py-3 px-4 text-center border-r border-gray-200">
@@ -1415,19 +1415,19 @@
                                 <td class="py-3 px-4 text-center border-r border-gray-200">
                                     <span class="w-8 h-8 rounded-full bg-cyan-400 flex items-center justify-center text-white text-xs font-bold mx-auto">11</span>
                                 </td>
-                                <td class="py-3 px-4 text-center text-gray-600 text-sm border-r border-gray-200">
+                                <td class="py-3 px-4 text-center text-gray-600 text-xs md:text-base border-r border-gray-200">
                                     3-1-0-1-1
                                 </td>
-                                <td class="py-3 px-4 text-center text-gray-600 text-sm border-r border-gray-200">
+                                <td class="py-3 px-4 text-center text-gray-600 text-xs md:text-base border-r border-gray-200">
                                     4 : 2
                                 </td>
-                                <td class="py-3 px-4 text-center text-gray-600 text-sm">
+                                <td class="py-3 px-4 text-center text-gray-600 text-xs md:text-base">
                                     0-1-4-5-7-9
                                 </td>
                             </tr>
                             <!-- 빈 행들 추가 -->
                             <tr class="border-b border-gray-200 hover:bg-gray-50">
-                                <td class="py-3 px-4 text-center font-semibold text-gray-800 text-sm border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center font-semibold text-gray-800 text-xs md:text-base border-r border-gray-200">&nbsp;</td>
                                 <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
                                 <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
                                 <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
@@ -1435,12 +1435,12 @@
                                 <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
                                 <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
                                 <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
-                                <td class="py-3 px-4 text-center text-gray-600 text-sm border-r border-gray-200">&nbsp;</td>
-                                <td class="py-3 px-4 text-center text-gray-600 text-sm border-r border-gray-200">&nbsp;</td>
-                                <td class="py-3 px-4 text-center text-gray-600 text-sm">&nbsp;</td>
+                                <td class="py-3 px-4 text-center text-gray-600 text-xs md:text-base border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center text-gray-600 text-xs md:text-base border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center text-gray-600 text-xs md:text-base">&nbsp;</td>
                             </tr>
                             <tr class="border-b border-gray-200 hover:bg-gray-50">
-                                <td class="py-3 px-4 text-center font-semibold text-gray-800 text-sm border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center font-semibold text-gray-800 text-xs md:text-base border-r border-gray-200">&nbsp;</td>
                                 <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
                                 <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
                                 <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
@@ -1448,12 +1448,12 @@
                                 <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
                                 <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
                                 <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
-                                <td class="py-3 px-4 text-center text-gray-600 text-sm border-r border-gray-200">&nbsp;</td>
-                                <td class="py-3 px-4 text-center text-gray-600 text-sm border-r border-gray-200">&nbsp;</td>
-                                <td class="py-3 px-4 text-center text-gray-600 text-sm">&nbsp;</td>
+                                <td class="py-3 px-4 text-center text-gray-600 text-xs md:text-base border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center text-gray-600 text-xs md:text-base border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center text-gray-600 text-xs md:text-base">&nbsp;</td>
                             </tr>
                             <tr class="border-b border-gray-200 hover:bg-gray-50">
-                                <td class="py-3 px-4 text-center font-semibold text-gray-800 text-sm border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center font-semibold text-gray-800 text-xs md:text-base border-r border-gray-200">&nbsp;</td>
                                 <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
                                 <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
                                 <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
@@ -1461,12 +1461,12 @@
                                 <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
                                 <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
                                 <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
-                                <td class="py-3 px-4 text-center text-gray-600 text-sm border-r border-gray-200">&nbsp;</td>
-                                <td class="py-3 px-4 text-center text-gray-600 text-sm border-r border-gray-200">&nbsp;</td>
-                                <td class="py-3 px-4 text-center text-gray-600 text-sm">&nbsp;</td>
+                                <td class="py-3 px-4 text-center text-gray-600 text-xs md:text-base border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center text-gray-600 text-xs md:text-base border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center text-gray-600 text-xs md:text-base">&nbsp;</td>
                             </tr>
                             <tr class="border-b border-gray-200 hover:bg-gray-50">
-                                <td class="py-3 px-4 text-center font-semibold text-gray-800 text-sm border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center font-semibold text-gray-800 text-xs md:text-base border-r border-gray-200">&nbsp;</td>
                                 <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
                                 <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
                                 <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
@@ -1474,12 +1474,12 @@
                                 <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
                                 <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
                                 <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
-                                <td class="py-3 px-4 text-center text-gray-600 text-sm border-r border-gray-200">&nbsp;</td>
-                                <td class="py-3 px-4 text-center text-gray-600 text-sm border-r border-gray-200">&nbsp;</td>
-                                <td class="py-3 px-4 text-center text-gray-600 text-sm">&nbsp;</td>
+                                <td class="py-3 px-4 text-center text-gray-600 text-xs md:text-base border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center text-gray-600 text-xs md:text-base border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center text-gray-600 text-xs md:text-base">&nbsp;</td>
                             </tr>
                             <tr class="border-b border-gray-200 hover:bg-gray-50">
-                                <td class="py-3 px-4 text-center font-semibold text-gray-800 text-sm border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center font-semibold text-gray-800 text-xs md:text-base border-r border-gray-200">&nbsp;</td>
                                 <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
                                 <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
                                 <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
@@ -1487,12 +1487,12 @@
                                 <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
                                 <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
                                 <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
-                                <td class="py-3 px-4 text-center text-gray-600 text-sm border-r border-gray-200">&nbsp;</td>
-                                <td class="py-3 px-4 text-center text-gray-600 text-sm border-r border-gray-200">&nbsp;</td>
-                                <td class="py-3 px-4 text-center text-gray-600 text-sm">&nbsp;</td>
+                                <td class="py-3 px-4 text-center text-gray-600 text-xs md:text-base border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center text-gray-600 text-xs md:text-base border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center text-gray-600 text-xs md:text-base">&nbsp;</td>
                             </tr>
                             <tr class="border-b border-gray-200 hover:bg-gray-50">
-                                <td class="py-3 px-4 text-center font-semibold text-gray-800 text-sm border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center font-semibold text-gray-800 text-xs md:text-base border-r border-gray-200">&nbsp;</td>
                                 <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
                                 <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
                                 <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
@@ -1500,12 +1500,12 @@
                                 <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
                                 <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
                                 <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
-                                <td class="py-3 px-4 text-center text-gray-600 text-sm border-r border-gray-200">&nbsp;</td>
-                                <td class="py-3 px-4 text-center text-gray-600 text-sm border-r border-gray-200">&nbsp;</td>
-                                <td class="py-3 px-4 text-center text-gray-600 text-sm">&nbsp;</td>
+                                <td class="py-3 px-4 text-center text-gray-600 text-xs md:text-base border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center text-gray-600 text-xs md:text-base border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center text-gray-600 text-xs md:text-base">&nbsp;</td>
                             </tr>
                             <tr class="border-b border-gray-200 hover:bg-gray-50">
-                                <td class="py-3 px-4 text-center font-semibold text-gray-800 text-sm border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center font-semibold text-gray-800 text-xs md:text-base border-r border-gray-200">&nbsp;</td>
                                 <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
                                 <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
                                 <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
@@ -1513,12 +1513,12 @@
                                 <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
                                 <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
                                 <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
-                                <td class="py-3 px-4 text-center text-gray-600 text-sm border-r border-gray-200">&nbsp;</td>
-                                <td class="py-3 px-4 text-center text-gray-600 text-sm border-r border-gray-200">&nbsp;</td>
-                                <td class="py-3 px-4 text-center text-gray-600 text-sm">&nbsp;</td>
+                                <td class="py-3 px-4 text-center text-gray-600 text-xs md:text-base border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center text-gray-600 text-xs md:text-base border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center text-gray-600 text-xs md:text-base">&nbsp;</td>
                             </tr>
                             <tr class="border-b border-gray-200 hover:bg-gray-50">
-                                <td class="py-3 px-4 text-center font-semibold text-gray-800 text-sm border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center font-semibold text-gray-800 text-xs md:text-base border-r border-gray-200">&nbsp;</td>
                                 <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
                                 <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
                                 <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
@@ -1526,9 +1526,9 @@
                                 <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
                                 <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
                                 <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
-                                <td class="py-3 px-4 text-center text-gray-600 text-sm border-r border-gray-200">&nbsp;</td>
-                                <td class="py-3 px-4 text-center text-gray-600 text-sm border-r border-gray-200">&nbsp;</td>
-                                <td class="py-3 px-4 text-center text-gray-600 text-sm">&nbsp;</td>
+                                <td class="py-3 px-4 text-center text-gray-600 text-xs md:text-base border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center text-gray-600 text-xs md:text-base border-r border-gray-200">&nbsp;</td>
+                                <td class="py-3 px-4 text-center text-gray-600 text-xs md:text-base">&nbsp;</td>
                             </tr>
                             </tbody>
                         </table>
@@ -1630,7 +1630,7 @@
             const endNumbers = calculateEndNumbers(data.numbers);
 
             let row = `<tr class="border-b border-gray-200 hover:bg-gray-50">
-                <td class="py-3 px-4 text-center font-semibold text-gray-800 text-sm border-r border-gray-200">${round}회</td>`;
+                <td class="py-3 px-4 text-center font-semibold text-gray-800 text-xs md:text-base border-r border-gray-200">${round}회</td>`;
 
             // 6개 번호
             data.numbers.forEach(num => {
@@ -1645,9 +1645,9 @@
             </td>`;
 
             // 나온공색, 홀짝, 나온끝수
-            row += `<td class="py-3 px-4 text-center text-gray-600 text-sm border-r border-gray-200">${colorDist}</td>
-                <td class="py-3 px-4 text-center text-gray-600 text-sm border-r border-gray-200">${oddEven}</td>
-                <td class="py-3 px-4 text-center text-gray-600 text-sm">${endNumbers}</td>
+            row += `<td class="py-3 px-4 text-center text-gray-600 text-xs md:text-base border-r border-gray-200">${colorDist}</td>
+                <td class="py-3 px-4 text-center text-gray-600 text-xs md:text-base border-r border-gray-200">${oddEven}</td>
+                <td class="py-3 px-4 text-center text-gray-600 text-xs md:text-base">${endNumbers}</td>
             </tr>`;
 
             return row;
@@ -1656,7 +1656,7 @@
         // 빈 행 생성 함수
         function createEmptyRow() {
             return `<tr class="border-b border-gray-200 hover:bg-gray-50">
-                <td class="py-3 px-4 text-center font-semibold text-gray-800 text-sm border-r border-gray-200">&nbsp;</td>
+                <td class="py-3 px-4 text-center font-semibold text-gray-800 text-xs md:text-base border-r border-gray-200">&nbsp;</td>
                 <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
                 <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
                 <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
@@ -1664,9 +1664,9 @@
                 <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
                 <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
                 <td class="py-3 px-4 text-center border-r border-gray-200">&nbsp;</td>
-                <td class="py-3 px-4 text-center text-gray-600 text-sm border-r border-gray-200">&nbsp;</td>
-                <td class="py-3 px-4 text-center text-gray-600 text-sm border-r border-gray-200">&nbsp;</td>
-                <td class="py-3 px-4 text-center text-gray-600 text-sm">&nbsp;</td>
+                <td class="py-3 px-4 text-center text-gray-600 text-xs md:text-base border-r border-gray-200">&nbsp;</td>
+                <td class="py-3 px-4 text-center text-gray-600 text-xs md:text-base border-r border-gray-200">&nbsp;</td>
+                <td class="py-3 px-4 text-center text-gray-600 text-xs md:text-base">&nbsp;</td>
             </tr>`;
         }
 

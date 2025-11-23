@@ -108,13 +108,13 @@ class FrequencyRenderer {
         groupedData.forEach(group => {
             html += `
                 <tr class="border-b border-gray-200">
-                    <td class="py-4 px-4 text-center font-medium border-r border-gray-200">
+                    <td class="py-4 px-4 text-center font-medium border-r border-gray-200 text-xs md:text-base">
                         ${group.count}
                     </td>
-                    <td class="py-4 px-4 border-r border-gray-200">
+                    <td class="py-4 px-4 border-r border-gray-200 text-xs md:text-base">
                         ${this.formatNumbers(group.numbers)}
                     </td>
-                    <td class="py-4 px-4 text-center">${group.quantity}</td>
+                    <td class="py-4 px-4 text-center text-xs md:text-base">${group.quantity}</td>
                 </tr>
             `;
         });
