@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="로또라운지 - 확률분석">
+    <title>로또라운지 - 확률분석</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="assets/js/tailwind-3.4.17.js"></script>
+
+    <!-- Tailwind Config (공통) -->
+    <script src="assets/js/tailwind-config.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/custom.css">
+
+    <!-- jQuery -->
+    <script src="assets/js/jquery-3.7.1.min.js"></script>
+
+    <!-- GSAP + ScrollTrigger -->
+    <script src="assets/js/gsap.min.js"></script>
+    <script src="assets/js/ScrollTrigger.min.js"></script>
+</head>
+<body class="font-kr bg-white">
+
+<!-- 헤더 -->
+<div id="header"></div>
+
+<!-- 네비게이션 -->
+<div id="navigation"></div>
+
+<!-- 메인 컨텐츠 -->
+<main class="py-12">
+    <div class="container mx-auto px-4 max-w-6xl">
+        <!-- 페이지 타이틀 -->
+        <h1 class="text-2xl md:text-4xl font-bold mb-6 md:mb-8 text-center">확률분석</h1>
+
+        <!-- 확률분석 섹션 -->
+        <div class="bg-primary-blue text-white p-4 md:p-6 rounded-t-lg">
+<!--            <h2 class="text-lg md:text-2xl font-bold mb-2">II. 확률분석</h2>-->
+            <p class="text-xs md:text-sm mb-1">
+                <span class="text-yellow-300 font-semibold">총합(합계)</span> : 당첨번호 6개를 더한 값입니다. (예: 8+13+18+32+39+45=155)
+            </p>
+            <p class="text-xs md:text-sm">
+                총합을 20단위씩 나누어 해당구간에 나왔던 횟수와 확률을 보여줍니다.
+            </p>
+        </div>
+
+        <!-- 검색 조건 섹션 -->
+        <div class="bg-gray-100 p-4 md:p-6 border-x border-gray-300">
+            <div class="flex flex-col md:flex-row items-center justify-center gap-4">
+                <!-- 검색조건 레이블 -->
+                <div class="text-gray-800 font-semibold text-sm md:text-base">
+                    검색조건
+                </div>
+
+                <!-- 첫번째 입력 그룹 -->
+                <div class="flex items-center gap-2">
+                    <input type="number"
+                           id="start-round"
+                           value="1"
+                           min="1"
+                           class="w-24 md:w-32 px-3 py-2 border border-gray-300 rounded text-sm md:text-base text-center">
+                    <span class="text-gray-700">~</span>
+                    <input type="number"
+                           id="end-round"
+                           value="864"
+                           min="1"
+                           class="w-24 md:w-32 px-3 py-2 border border-gray-300 rounded text-sm md:text-base text-center">
+                    <span class="text-gray-700 font-semibold">회</span>
+                </div>
+
+                <!-- 표현방법 드롭다운 -->
+                <div class="flex items-center gap-2">
+                    <label for="display-method" class="text-gray-800 font-semibold text-sm md:text-base">포함번호</label>
+                    <div class="relative">
+                        <select id="display-method"
+                                class="pl-4 pr-10 py-2 border border-gray-300 rounded text-sm md:text-base appearance-none bg-white cursor-pointer">
+                            <option value="NO" selected>NO</option>
+                            <option value="YES">YES</option>
+                        </select>
+                        <div class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+                            <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 검색 버튼 -->
+                <button id="search-btn"
+                        class="bg-primary-blue text-white px-6 py-2 rounded font-semibold hover:bg-primary-blue-dark transition-colors text-sm md:text-base">
+                    검색
+                </button>
+            </div>
+        </div>
+
+        <!-- 통계 테이블 -->
+        <div class="overflow-x-auto border border-gray-300">
+            <table class="w-full text-xs md:text-sm">
+                <thead>
+                    <tr class="bg-gray-50">
+                        <th class="border border-gray-300 px-2 md:px-4 py-2 font-semibold text-center">총합</th>
+                        <th class="border border-gray-300 px-2 md:px-4 py-2 font-semibold text-center">1 ~ 864 회 출현횟수</th>
+                        <th class="border border-gray-300 px-2 md:px-4 py-2 font-semibold text-center">출현횟수</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="hover:bg-gray-50">
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center">21 ~ 40</td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2">
+                            <div class="flex items-center">
+                                <div class="bg-gray-300 h-4 md:h-6 rounded" style="width: 0%"></div>
+                            </div>
+                        </td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center">
+                            <span class="text-primary-blue font-semibold">0.00%</span>
+                            <span class="ml-2">0회</span>
+                        </td>
+                    </tr>
+                    <tr class="hover:bg-gray-50">
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center">41 ~ 60</td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2">
+                            <div class="flex items-center">
+                                <div class="bg-indigo-400 h-4 md:h-6 rounded" style="width: 0.46%"></div>
+                            </div>
+                        </td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center">
+                            <span class="text-primary-blue font-semibold">0.46%</span>
+                            <span class="ml-2">4회</span>
+                        </td>
+                    </tr>
+                    <tr class="hover:bg-gray-50">
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center">61 ~ 80</td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2">
+                            <div class="flex items-center">
+                                <div class="bg-indigo-500 h-4 md:h-6 rounded" style="width: 3.01%"></div>
+                            </div>
+                        </td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center">
+                            <span class="text-primary-blue font-semibold">3.01%</span>
+                            <span class="ml-2">26회</span>
+                        </td>
+                    </tr>
+                    <tr class="hover:bg-gray-50">
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center">81 ~ 100</td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2">
+                            <div class="flex items-center">
+                                <div class="bg-indigo-500 h-4 md:h-6 rounded" style="width: 9.03%"></div>
+                            </div>
+                        </td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center">
+                            <span class="text-primary-blue font-semibold">9.03%</span>
+                            <span class="ml-2">78회</span>
+                        </td>
+                    </tr>
+                    <tr class="hover:bg-gray-50">
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center">101 ~ 120</td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2">
+                            <div class="flex items-center">
+                                <div class="bg-indigo-500 h-4 md:h-6 rounded" style="width: 16.20%"></div>
+                            </div>
+                        </td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center">
+                            <span class="text-primary-blue font-semibold">16.20%</span>
+                            <span class="ml-2">140회</span>
+                        </td>
+                    </tr>
+                    <tr class="hover:bg-gray-50">
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center">121 ~ 140</td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2">
+                            <div class="flex items-center">
+                                <div class="bg-indigo-600 h-4 md:h-6 rounded" style="width: 24.77%"></div>
+                            </div>
+                        </td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center">
+                            <span class="text-primary-blue font-semibold">24.77%</span>
+                            <span class="ml-2">214회</span>
+                        </td>
+                    </tr>
+                    <tr class="hover:bg-gray-50">
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center">141 ~ 160</td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2">
+                            <div class="flex items-center">
+                                <div class="bg-indigo-600 h-4 md:h-6 rounded" style="width: 20.83%"></div>
+                            </div>
+                        </td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center">
+                            <span class="text-primary-blue font-semibold">20.83%</span>
+                            <span class="ml-2">180회</span>
+                        </td>
+                    </tr>
+                    <tr class="hover:bg-gray-50">
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center">161 ~ 180</td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2">
+                            <div class="flex items-center">
+                                <div class="bg-indigo-500 h-4 md:h-6 rounded" style="width: 17.36%"></div>
+                            </div>
+                        </td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center">
+                            <span class="text-primary-blue font-semibold">17.36%</span>
+                            <span class="ml-2">150회</span>
+                        </td>
+                    </tr>
+                    <tr class="hover:bg-gray-50">
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center">181 ~ 200</td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2">
+                            <div class="flex items-center">
+                                <div class="bg-indigo-500 h-4 md:h-6 rounded" style="width: 6.37%"></div>
+                            </div>
+                        </td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center">
+                            <span class="text-primary-blue font-semibold">6.37%</span>
+                            <span class="ml-2">55회</span>
+                        </td>
+                    </tr>
+                    <tr class="hover:bg-gray-50">
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center">201 ~ 220</td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2">
+                            <div class="flex items-center">
+                                <div class="bg-indigo-400 h-4 md:h-6 rounded" style="width: 1.85%"></div>
+                            </div>
+                        </td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center">
+                            <span class="text-primary-blue font-semibold">1.85%</span>
+                            <span class="ml-2">16회</span>
+                        </td>
+                    </tr>
+                    <tr class="hover:bg-gray-50">
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center">221 ~ 240</td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2">
+                            <div class="flex items-center">
+                                <div class="bg-indigo-300 h-4 md:h-6 rounded" style="width: 0.12%"></div>
+                            </div>
+                        </td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center">
+                            <span class="text-primary-blue font-semibold">0.12%</span>
+                            <span class="ml-2">1회</span>
+                        </td>
+                    </tr>
+                    <tr class="hover:bg-gray-50">
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center">241 ~ 260</td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2">
+                            <div class="flex items-center">
+                                <div class="bg-gray-300 h-4 md:h-6 rounded" style="width: 0%"></div>
+                            </div>
+                        </td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center">
+                            <span class="text-primary-blue font-semibold">0.00%</span>
+                            <span class="ml-2">0회</span>
+                        </td>
+                    </tr>
+                    <tr class="bg-gray-100 font-semibold">
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center text-primary-blue">합계</td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center text-primary-blue">864회</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 회차별 상세 테이블 -->
+        <div class="mt-8 overflow-x-auto border border-gray-300 rounded-lg">
+            <table class="w-full text-xs md:text-sm">
+                <thead>
+                    <tr class="bg-primary-blue text-white">
+                        <th class="border border-gray-300 px-2 md:px-4 py-2 font-semibold">회차</th>
+                        <th class="border border-gray-300 px-2 md:px-4 py-2 font-semibold">21~40</th>
+                        <th class="border border-gray-300 px-2 md:px-4 py-2 font-semibold">41~60</th>
+                        <th class="border border-gray-300 px-2 md:px-4 py-2 font-semibold">61~80</th>
+                        <th class="border border-gray-300 px-2 md:px-4 py-2 font-semibold">81~100</th>
+                        <th class="border border-gray-300 px-2 md:px-4 py-2 font-semibold">101~120</th>
+                        <th class="border border-gray-300 px-2 md:px-4 py-2 font-semibold">121~140</th>
+                        <th class="border border-gray-300 px-2 md:px-4 py-2 font-semibold">141~160</th>
+                        <th class="border border-gray-300 px-2 md:px-4 py-2 font-semibold">161~180</th>
+                        <th class="border border-gray-300 px-2 md:px-4 py-2 font-semibold">181~200</th>
+                        <th class="border border-gray-300 px-2 md:px-4 py-2 font-semibold">201~220</th>
+                        <th class="border border-gray-300 px-2 md:px-4 py-2 font-semibold">221~240</th>
+                        <th class="border border-gray-300 px-2 md:px-4 py-2 font-semibold">241~</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="hover:bg-gray-50">
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center font-semibold">864</td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center bg-yellow-300 font-semibold">94</td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                    </tr>
+                    <tr class="hover:bg-gray-50">
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center font-semibold">863</td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center bg-yellow-300 font-semibold">182</td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                    </tr>
+                    <tr class="hover:bg-gray-50">
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center font-semibold">862</td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center bg-yellow-300 font-semibold">207</td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                    </tr>
+                    <tr class="hover:bg-gray-50">
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center font-semibold">861</td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center bg-yellow-300 font-semibold">115</td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                    </tr>
+                    <tr class="hover:bg-gray-50">
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center font-semibold">860</td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center bg-yellow-300 font-semibold">114</td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                    </tr>
+                    <tr class="hover:bg-gray-50">
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center font-semibold">859</td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center bg-yellow-300 font-semibold">183</td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                    </tr>
+                    <tr class="hover:bg-gray-50">
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center font-semibold">858</td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center bg-yellow-300 font-semibold">174</td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                    </tr>
+                    <tr class="hover:bg-gray-50">
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center font-semibold">857</td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center bg-yellow-300 font-semibold">132</td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                    </tr>
+                    <tr class="hover:bg-gray-50">
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center font-semibold">856</td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center bg-yellow-300 font-semibold">202</td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                    </tr>
+                    <tr class="hover:bg-gray-50">
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center font-semibold">855</td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center bg-yellow-300 font-semibold">146</td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                    </tr>
+                    <tr class="hover:bg-gray-50">
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center font-semibold">854</td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center bg-yellow-300 font-semibold">187</td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center"></td>
+                    </tr>
+                    <tr class="bg-gray-100">
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center font-semibold text-primary-blue">합계</td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center font-semibold">0</td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center font-semibold">4</td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center font-semibold">26</td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center font-semibold">78</td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center font-semibold">140</td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center font-semibold">214</td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center font-semibold">180</td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center font-semibold">150</td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center font-semibold">55</td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center font-semibold">16</td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center font-semibold">1</td>
+                        <td class="border border-gray-300 px-2 md:px-4 py-2 text-center font-semibold">0</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>
+
+<!-- 푸터 -->
+<div id="footer"></div>
+
+<!-- Scripts -->
+<script src="assets/js/components.js"></script>
+<script src="assets/js/animations.js"></script>
+
+<script>
+    $(document).ready(function() {
+        // 검색 버튼 클릭 이벤트
+        $('#search-btn').on('click', function() {
+            const startRound = $('#start-round').val();
+            const endRound = $('#end-round').val();
+            const displayMethod = $('#display-method').val();
+
+            // 실제로는 서버에 요청을 보내 데이터를 가져와야 합니다
+            console.log('검색 조건:', {
+                startRound,
+                endRound,
+                displayMethod
+            });
+
+            alert(`${startRound}회 ~ ${endRound}회 데이터를 조회합니다.`);
+        });
+
+        // 스크롤 애니메이션 초기화
+        if (typeof ScrollAnimations !== 'undefined') {
+            ScrollAnimations.init();
+        }
+    });
+</script>
+</body>
+</html>
