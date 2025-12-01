@@ -4,12 +4,12 @@
     <!-- 섹션 1: 상단 링크 그룹 -->
     <div class="footer-section-1 text-center mb-6">
       <div class="flex items-center justify-center gap-6">
-        <a href="terms.html" target="_blank" rel="noopener noreferrer" class="text-gray-700 text-sm font-medium hover:text-primary-blue transition-colors">
+        <button id="terms-modal-btn" class="text-gray-700 text-sm font-medium hover:text-primary-blue transition-colors cursor-pointer">
           서비스 이용약관
-        </a>
-        <a href="privacy.html" target="_blank" rel="noopener noreferrer" class="text-gray-700 text-sm font-medium hover:text-primary-blue transition-colors">
+        </button>
+        <button id="privacy-modal-btn" class="text-gray-700 text-sm font-medium hover:text-primary-blue transition-colors cursor-pointer">
           개인정보 처리방침
-        </a>
+        </button>
       </div>
     </div>
 
@@ -33,3 +33,184 @@
     </div>
   </div>
 </footer>
+
+<!-- 약관 모달 -->
+<div id="terms-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+  <div class="bg-white rounded-lg w-11/12 max-w-2xl h-[80vh] flex flex-col">
+    <div class="p-6 border-b border-gray-200 flex-shrink-0">
+      <h2 class="text-xl md:text-2xl font-bold text-gray-800">서비스 이용약관</h2>
+    </div>
+    <div class="p-6 flex-1 overflow-hidden relative">
+      <div class="h-full overflow-y-auto pr-8" id="terms-scroll-container">
+        <pre class="whitespace-pre-wrap text-sm text-gray-700 font-kr" id="terms-content"></pre>
+      </div>
+      <!-- 커스텀 스크롤바 -->
+      <div class="absolute top-0 right-2 w-2 h-full bg-gray-200 rounded-full">
+        <div id="terms-scrollbar-thumb" class="absolute w-full bg-gray-500 rounded-full cursor-pointer hover:bg-gray-600 transition-colors" style="height: 50px; top: 0;"></div>
+      </div>
+    </div>
+    <div class="p-6 border-t border-gray-200 flex justify-center flex-shrink-0">
+      <button id="terms-modal-close" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-8 rounded-md transition-colors">
+        확인
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- 개인정보 처리방침 모달 -->
+<div id="privacy-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+  <div class="bg-white rounded-lg w-11/12 max-w-2xl h-[80vh] flex flex-col">
+    <div class="p-6 border-b border-gray-200 flex-shrink-0">
+      <h2 class="text-xl md:text-2xl font-bold text-gray-800">개인정보 처리방침</h2>
+    </div>
+    <div class="p-6 flex-1 overflow-hidden relative">
+      <div class="h-full overflow-y-auto pr-8" id="privacy-scroll-container">
+        <pre class="whitespace-pre-wrap text-sm text-gray-700 font-kr" id="privacy-content"></pre>
+      </div>
+      <!-- 커스텀 스크롤바 -->
+      <div class="absolute top-0 right-2 w-2 h-full bg-gray-200 rounded-full">
+        <div id="privacy-scrollbar-thumb" class="absolute w-full bg-gray-500 rounded-full cursor-pointer hover:bg-gray-600 transition-colors" style="height: 50px; top: 0;"></div>
+      </div>
+    </div>
+    <div class="p-6 border-t border-gray-200 flex justify-center flex-shrink-0">
+      <button id="privacy-modal-close" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-8 rounded-md transition-colors">
+        확인
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  // 모달 요소들
+  const termsModal = document.getElementById('terms-modal');
+  const privacyModal = document.getElementById('privacy-modal');
+  const termsBtn = document.getElementById('terms-modal-btn');
+  const privacyBtn = document.getElementById('privacy-modal-btn');
+  const termsCloseBtn = document.getElementById('terms-modal-close');
+  const privacyCloseBtn = document.getElementById('privacy-modal-close');
+  const termsContent = document.getElementById('terms-content');
+  const privacyContent = document.getElementById('privacy-content');
+
+  // 텍스트 파일 로드 함수
+  async function loadTextFile(url) {
+    try {
+      const response = await fetch(url);
+      const text = await response.text();
+      return text;
+    } catch (error) {
+      console.error('파일 로드 오류:', error);
+      return '내용을 불러올 수 없습니다.';
+    }
+  }
+
+  // 커스텀 스크롤바 업데이트 함수
+  function updateCustomScrollbar(containerId, thumbId) {
+    const container = document.getElementById(containerId);
+    const thumb = document.getElementById(thumbId);
+    if (!container || !thumb) return;
+
+    const containerHeight = container.clientHeight;
+    const scrollHeight = container.scrollHeight;
+    const scrollTop = container.scrollTop;
+
+    // 썸 높이 계산
+    const thumbHeight = Math.max(50, (containerHeight / scrollHeight) * containerHeight);
+    thumb.style.height = thumbHeight + 'px';
+
+    // 썸 위치 계산
+    const maxScrollTop = scrollHeight - containerHeight;
+    const maxThumbTop = containerHeight - thumbHeight;
+    const thumbTop = (scrollTop / maxScrollTop) * maxThumbTop;
+    thumb.style.top = thumbTop + 'px';
+  }
+
+  // 서비스 이용약관 모달 열기
+  if (termsBtn) {
+    termsBtn.addEventListener('click', async function() {
+      const content = await loadTextFile('assets/terms.txt');
+      termsContent.textContent = content;
+      termsModal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+
+      // 스크롤 초기화 및 커스텀 스크롤바 설정
+      const scrollContainer = document.getElementById('terms-scroll-container');
+      if (scrollContainer) {
+        scrollContainer.scrollTop = 0;
+        setTimeout(() => {
+          updateCustomScrollbar('terms-scroll-container', 'terms-scrollbar-thumb');
+        }, 10);
+      }
+    });
+  }
+
+  // 개인정보 처리방침 모달 열기
+  if (privacyBtn) {
+    privacyBtn.addEventListener('click', async function() {
+      const content = await loadTextFile('assets/privacy.txt');
+      privacyContent.textContent = content;
+      privacyModal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+
+      // 스크롤 초기화 및 커스텀 스크롤바 설정
+      const scrollContainer = document.getElementById('privacy-scroll-container');
+      if (scrollContainer) {
+        scrollContainer.scrollTop = 0;
+        setTimeout(() => {
+          updateCustomScrollbar('privacy-scroll-container', 'privacy-scrollbar-thumb');
+        }, 10);
+      }
+    });
+  }
+
+  // 스크롤 이벤트 리스너
+  const termsScrollContainer = document.getElementById('terms-scroll-container');
+  if (termsScrollContainer) {
+    termsScrollContainer.addEventListener('scroll', function() {
+      updateCustomScrollbar('terms-scroll-container', 'terms-scrollbar-thumb');
+    });
+  }
+
+  const privacyScrollContainer = document.getElementById('privacy-scroll-container');
+  if (privacyScrollContainer) {
+    privacyScrollContainer.addEventListener('scroll', function() {
+      updateCustomScrollbar('privacy-scroll-container', 'privacy-scrollbar-thumb');
+    });
+  }
+
+  // 서비스 이용약관 모달 닫기
+  if (termsCloseBtn) {
+    termsCloseBtn.addEventListener('click', function() {
+      termsModal.classList.add('hidden');
+      document.body.style.overflow = '';
+    });
+  }
+
+  // 개인정보 처리방침 모달 닫기
+  if (privacyCloseBtn) {
+    privacyCloseBtn.addEventListener('click', function() {
+      privacyModal.classList.add('hidden');
+      document.body.style.overflow = '';
+    });
+  }
+
+  // 모달 배경 클릭 시 닫기
+  if (termsModal) {
+    termsModal.addEventListener('click', function(e) {
+      if (e.target === termsModal) {
+        termsModal.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+    });
+  }
+
+  if (privacyModal) {
+    privacyModal.addEventListener('click', function(e) {
+      if (e.target === privacyModal) {
+        privacyModal.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+    });
+  }
+})();
+</script>
