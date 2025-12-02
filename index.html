@@ -404,6 +404,30 @@
     </div>
   </main>
 
+  <!-- 로또번호 추천 팝업 -->
+  <div id="lotto-recommend-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center p-4" style="z-index: 9998;">
+    <div class="bg-white rounded-3xl max-w-md w-full p-8 relative">
+      <!-- 닫기 버튼 -->
+      <button onclick="closeLottoRecommendModal()" class="absolute top-6 right-6 text-gray-400 hover:text-gray-600 text-4xl leading-none">&times;</button>
+
+      <!-- 팝업 내용 -->
+      <div class="text-center">
+        <h2 class="text-4xl font-black mb-2">
+          찾아줄게,<br>
+          너만의 로또번호
+        </h2>
+        <p class="text-gray-600 text-lg mt-4 mb-8">
+          이번 겨울엔 로또라운지로 당첨확률 UP!
+        </p>
+
+        <!-- 더 알아보기 버튼 -->
+        <button onclick="goToLottoRecommend()" class="w-full bg-blue-600 text-white py-4 px-8 rounded-full text-xl font-bold hover:bg-blue-700 transition-colors">
+          더 알아보기
+        </button>
+      </div>
+    </div>
+  </div>
+
   <!-- 개인정보 수집 이용 동의 팝업 -->
   <div id="privacy-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center p-4" style="z-index: 9999;">
     <div class="bg-white rounded-lg max-w-2xl w-full flex flex-col max-h-[90vh]">
@@ -541,6 +565,34 @@
   </style>
 
   <script>
+    // 로또번호 추천 팝업
+    function openLottoRecommendModal() {
+      document.getElementById('lotto-recommend-modal').classList.remove('hidden');
+      document.body.style.overflow = 'hidden'; // 배경 스크롤 방지
+    }
+
+    function closeLottoRecommendModal() {
+      document.getElementById('lotto-recommend-modal').classList.add('hidden');
+      document.body.style.overflow = ''; // 스크롤 복원
+    }
+
+    function goToLottoRecommend() {
+      // 로또 추천 페이지로 이동
+      window.location.href = 'products.html';
+    }
+
+    // 로또 추천 모달 배경 클릭 시 닫기
+    document.getElementById('lotto-recommend-modal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeLottoRecommendModal();
+      }
+    });
+
+    // 페이지 로드 후 3초 후에 자동으로 팝업 띄우기 (선택사항)
+    setTimeout(function() {
+      openLottoRecommendModal();
+    }, 1000);
+
     // 개인정보 수집 동의 팝업
     function openPrivacyModal(event) {
       if (event) event.preventDefault();

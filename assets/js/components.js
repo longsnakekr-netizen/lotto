@@ -148,6 +148,90 @@
       .replace('DD', day);
   };
 
+  /**
+   * 모바일에서 테이블 스크롤바 항상 표시 설정 - 강력한 버전
+   */
+  window.initTableScrollbars = function() {
+    // 모바일 디바이스 체크
+    if (window.innerWidth <= 768) {
+      // 모든 테이블을 찾아서 처리
+      $('table').each(function() {
+        const $table = $(this);
+        const $parent = $table.parent();
+
+        // 스크롤 가능한 클래스 추가
+        if (!$parent.hasClass('overflow-x-auto') &&
+            !$parent.hasClass('table-container') &&
+            !$parent.hasClass('overflow-auto')) {
+          $parent.addClass('overflow-x-auto');
+        }
+
+        // 스크롤바 강제 표시를 위한 스타일 적용
+        $parent.css({
+          'overflow-x': 'scroll', // auto 대신 scroll 사용 - 항상 스크롤바 표시
+          'overflow-y': 'hidden',
+          '-webkit-overflow-scrolling': 'touch',
+          'scrollbar-width': 'thin', // Firefox
+          'scrollbar-color': 'rgba(75, 85, 99, 1) rgba(229, 231, 235, 1)', // Firefox
+          'padding-bottom': '16px', // 스크롤바 공간 확보
+          'min-height': 'calc(100% + 16px)' // 최소 높이 설정
+        });
+
+        // Webkit 브라우저용 추가 스타일 (동적으로 스타일 태그 추가)
+        const parentId = $parent.attr('id') || 'table-scroll-' + Math.random().toString(36).substr(2, 9);
+        if (!$parent.attr('id')) {
+          $parent.attr('id', parentId);
+        }
+
+        // 이미 스타일이 추가되었는지 확인
+        if (!$('#scrollbar-style-' + parentId).length) {
+          const style = `
+            <style id="scrollbar-style-${parentId}">
+              #${parentId}::-webkit-scrollbar {
+                height: 16px !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+                display: block !important;
+              }
+              #${parentId}::-webkit-scrollbar-track {
+                background: rgba(229, 231, 235, 1) !important;
+                border-radius: 8px !important;
+                visibility: visible !important;
+              }
+              #${parentId}::-webkit-scrollbar-thumb {
+                background: rgba(75, 85, 99, 1) !important;
+                border-radius: 8px !important;
+                border: 3px solid rgba(229, 231, 235, 1) !important;
+                min-width: 50px !important;
+              }
+              #${parentId}::-webkit-scrollbar-thumb:hover {
+                background: rgba(55, 65, 81, 1) !important;
+              }
+            </style>
+          `;
+          $('head').append(style);
+        }
+
+        // 스크롤 위치를 약간 움직여서 스크롤바를 활성화
+        const scrollLeft = $parent.scrollLeft();
+        $parent.scrollLeft(1);
+        setTimeout(() => {
+          $parent.scrollLeft(scrollLeft);
+        }, 10);
+      });
+
+      // 주기적으로 스크롤바 상태 확인 (iOS Safari 대응)
+      setInterval(function() {
+        $('.overflow-x-auto, .table-container, .overflow-auto').each(function() {
+          const $elem = $(this);
+          if ($elem.css('overflow-x') !== 'scroll') {
+            $elem.css('overflow-x', 'scroll');
+          }
+        });
+      }, 1000); // 1초마다 확인
+    }
+  };
+
   // 페이지 로드 시 컴포넌트 자동 로드
   $(document).ready(function() {
     // 컴포넌트 컨테이너가 있으면 자동으로 로드
@@ -166,6 +250,8 @@
           // 모든 컴포넌트가 로드되면 페이지 표시
           setTimeout(function() {
             $('body').addClass('loaded');
+            // 테이블 스크롤바 초기화
+            initTableScrollbars();
           }, 50);
         }
       }
@@ -185,7 +271,18 @@
     } else {
       // 컴포넌트가 없으면 바로 표시
       $('body').addClass('loaded');
+      // 테이블 스크롤바 초기화
+      setTimeout(initTableScrollbars, 50);
     }
+
+    // 윈도우 리사이즈 시에도 테이블 스크롤바 재초기화
+    let resizeTimeout;
+    $(window).resize(function() {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(function() {
+        initTableScrollbars();
+      }, 250);
+    });
   });
 
 })(jQuery);
