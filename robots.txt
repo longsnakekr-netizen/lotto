@@ -1,0 +1,47 @@
+w# 로또라운지 (Lotto Lounge) - robots.txt
+# 검색 엔진 크롤러를 위한 로봇 배제 표준 파일
+
+User-agent: *
+# 모든 검색엔진 허용
+
+# 크롤링 허용 경로
+Allow: /
+Allow: /index.html
+Allow: /products.html
+Allow: /analysis.html
+Allow: /probability-analysis.html
+Allow: /community.html
+Allow: /plan-silver.html
+Allow: /plan-gold.html
+Allow: /plan-diamond.html
+Allow: /assets/
+
+# 크롤링 차단 경로 (개인정보 및 회원 전용 페이지)
+Disallow: /mypage.html
+Disallow: /login.html
+Disallow: /register.html
+Disallow: /post-detail.html
+
+# 정적 자원 허용
+Allow: /assets/css/
+Allow: /assets/js/
+Allow: /assets/images/
+Allow: /assets/svg/
+
+# Sitemap 위치 (실제 도메인으로 변경 필요)
+# Sitemap: https://yourdomain.com/sitemap.xml
+
+# 구글봇
+User-agent: Googlebot
+Allow: /
+
+# 네이버봇
+User-agent: Yeti
+Allow: /
+
+# 다음봇
+User-agent: Daumoa
+Allow: /
+
+# 크롤 속도 조절 (초당 요청 수)
+Crawl-delay: 1
