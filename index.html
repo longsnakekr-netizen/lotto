@@ -456,6 +456,14 @@
         <img src="assets/images/banner2.jpg" alt="Grand Open" class="w-full h-auto">
       </div>
 
+      <!-- 오늘 하루 보지 않기 체크박스 -->
+      <div class="px-6 py-3 bg-gray-50 border-t border-gray-200">
+        <label class="flex items-center cursor-pointer">
+          <input type="checkbox" id="grand-open-hide-today" class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500 cursor-pointer">
+          <span class="ml-2 text-sm text-gray-700">오늘 하루 보지 않기</span>
+        </label>
+      </div>
+
       <!-- 버튼 영역 -->
       <div class="grid grid-cols-2">
         <!-- 닫기 버튼 -->
@@ -657,13 +665,57 @@
     }
 
     function closeGrandOpenModal() {
+      const checkbox = document.getElementById('grand-open-hide-today');
+
+      // "오늘 하루 보지 않기"가 체크되어 있으면 로컬 스토리지에 저장
+      if (checkbox.checked) {
+        const today = new Date();
+        const tomorrow = new Date(today);
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        tomorrow.setHours(0, 0, 0, 0); // 다음날 자정으로 설정
+
+        localStorage.setItem('grandOpenModalHideUntil', tomorrow.getTime().toString());
+      }
+
       document.getElementById('grand-open-modal').classList.add('hidden');
       document.body.style.overflow = ''; // 스크롤 복원
     }
 
     function goToProducts() {
+      const checkbox = document.getElementById('grand-open-hide-today');
+
+      // "오늘 하루 보지 않기"가 체크되어 있으면 저장
+      if (checkbox.checked) {
+        const today = new Date();
+        const tomorrow = new Date(today);
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        tomorrow.setHours(0, 0, 0, 0);
+
+        localStorage.setItem('grandOpenModalHideUntil', tomorrow.getTime().toString());
+      }
+
       // products 페이지로 이동
       window.location.href = 'products.html';
+    }
+
+    // Grand Open 모달이 보여야 하는지 체크
+    function shouldShowGrandOpenModal() {
+      const hideUntil = localStorage.getItem('grandOpenModalHideUntil');
+
+      if (!hideUntil) {
+        return true; // 저장된 값이 없으면 표시
+      }
+
+      const hideUntilTime = parseInt(hideUntil);
+      const now = new Date().getTime();
+
+      if (now >= hideUntilTime) {
+        // 시간이 지났으면 로컬 스토리지에서 제거하고 표시
+        localStorage.removeItem('grandOpenModalHideUntil');
+        return true;
+      }
+
+      return false; // 아직 시간이 안 지났으면 숨김
     }
 
     // Grand Open 모달 배경 클릭 시 닫기
@@ -705,8 +757,10 @@
         // A타입: 로또번호 추천 팝업
         openLottoRecommendModal();
       } else {
-        // B타입: Grand Open 팝업
-        openGrandOpenModal();
+        // B타입: Grand Open 팝업 (오늘 하루 보지 않기 체크)
+        if (shouldShowGrandOpenModal()) {
+          openGrandOpenModal();
+        }
       }
     }, 1000);
 
