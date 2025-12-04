@@ -18,6 +18,10 @@
     autoPlayInterval: null,
     autoPlayDelay: 3000,
     isAnimating: false,
+    touchStartX: 0,
+    touchEndX: 0,
+    touchStartY: 0,
+    touchEndY: 0,
 
     /**
      * 슬라이더 초기화
@@ -40,6 +44,9 @@
 
       // 화살표 버튼 이벤트
       this.setupNavigation();
+
+      // 스와이프 이벤트 설정
+      this.setupSwipe();
 
       // 첫 번째 슬라이드를 애니메이션과 함께 표시
       this.slides.hide().css('opacity', 0);
@@ -94,22 +101,109 @@
      * 네비게이션(화살표) 설정
      */
     setupNavigation: function() {
-      const prevBtn = this.container.find('.slider-prev');
-      const nextBtn = this.container.find('.slider-next');
+      const prevBtn = this.container.parent().find('.slider-prev');
+      const nextBtn = this.container.parent().find('.slider-next');
 
-      prevBtn.on('click', () => {
+      prevBtn.on('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
         if (this.isAnimating) return;
         this.prevSlide();
         this.stopAutoPlay();
         this.startAutoPlay();
       });
 
-      nextBtn.on('click', () => {
+      nextBtn.on('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
         if (this.isAnimating) return;
         this.nextSlide();
         this.stopAutoPlay();
         this.startAutoPlay();
       });
+    },
+
+    /**
+     * 스와이프 이벤트 설정
+     */
+    setupSwipe: function() {
+      const containerEl = this.container[0];
+
+      // 터치 시작
+      containerEl.addEventListener('touchstart', (e) => {
+        this.touchStartX = e.changedTouches[0].screenX;
+        this.touchStartY = e.changedTouches[0].screenY;
+      }, false);
+
+      // 터치 끝
+      containerEl.addEventListener('touchend', (e) => {
+        if (this.isAnimating) return;
+
+        this.touchEndX = e.changedTouches[0].screenX;
+        this.touchEndY = e.changedTouches[0].screenY;
+        this.handleSwipe();
+      }, false);
+
+      // 마우스 드래그 (데스크톱)
+      let isDragging = false;
+      let startX = 0;
+      let startY = 0;
+
+      containerEl.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        startX = e.screenX;
+        startY = e.screenY;
+        containerEl.style.cursor = 'grabbing';
+      }, false);
+
+      containerEl.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        e.preventDefault();
+      }, false);
+
+      containerEl.addEventListener('mouseup', (e) => {
+        if (!isDragging || this.isAnimating) return;
+
+        isDragging = false;
+        containerEl.style.cursor = 'grab';
+
+        this.touchStartX = startX;
+        this.touchStartY = startY;
+        this.touchEndX = e.screenX;
+        this.touchEndY = e.screenY;
+        this.handleSwipe();
+      }, false);
+
+      containerEl.addEventListener('mouseleave', () => {
+        if (isDragging) {
+          isDragging = false;
+          containerEl.style.cursor = 'grab';
+        }
+      }, false);
+
+      // 커서 스타일 설정
+      containerEl.style.cursor = 'grab';
+    },
+
+    /**
+     * 스와이프 처리
+     */
+    handleSwipe: function() {
+      const diffX = this.touchStartX - this.touchEndX;
+      const diffY = Math.abs(this.touchStartY - this.touchEndY);
+
+      // 수평 스와이프가 수직 스와이프보다 클 때만 처리
+      if (Math.abs(diffX) > 50 && Math.abs(diffX) > diffY) {
+        if (diffX > 0) {
+          // 왼쪽으로 스와이프 - 다음 슬라이드
+          this.nextSlide();
+        } else {
+          // 오른쪽으로 스와이프 - 이전 슬라이드
+          this.prevSlide();
+        }
+        this.stopAutoPlay();
+        this.startAutoPlay();
+      }
     },
 
     /**

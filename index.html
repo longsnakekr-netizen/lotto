@@ -67,8 +67,20 @@
     <!-- 히어로 슬라이더 -->
     <section class="hero-slider relative overflow-hidden h-[350px] md:h-[490px]">
       <div id="hero-slider" class="relative h-full">
+        <!-- 이전/다음 버튼 (PC용) -->
+        <button class="slider-nav-btn slider-prev hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white bg-opacity-80 hover:bg-opacity-100 rounded-full items-center justify-center shadow-lg transition-all duration-300 hover:scale-110">
+          <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+          </svg>
+        </button>
+        <button class="slider-nav-btn slider-next hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white bg-opacity-80 hover:bg-opacity-100 rounded-full items-center justify-center shadow-lg transition-all duration-300 hover:scale-110">
+          <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </button>
+
         <!-- 슬라이드 1 -->
-        <div class="slide absolute inset-0 w-full h-full hidden:md:block">
+        <a href="products.html" class="slide absolute inset-0 w-full h-full hidden:md:block block">
           <!-- 그라데이션 배경 -->
           <div class="absolute inset-0 w-full h-full" style="background: linear-gradient(90deg, #B0EBFB 0%, #47ADD3 50%, #1CA6D4 100%);"></div>
 
@@ -92,10 +104,10 @@
           <div class="absolute right-0 top-0 h-full hidden md:flex items-center" style="width: 55%;">
             <img src="assets/images/img1.png" alt="slide1" class="w-full h-full object-cover">
           </div>
-        </div>
+        </a>
 
         <!-- 슬라이드 2 -->
-        <div class="slide absolute inset-0 w-full h-full hidden">
+        <a href="products.html" class="slide absolute inset-0 w-full h-full hidden block">
           <!-- 그라데이션 배경 -->
           <div class="absolute inset-0 w-full h-full" style="background: linear-gradient(90deg, #FFF1C6 0%, #FA9C26 50%, #F9C508 100%);"></div>
 
@@ -119,10 +131,10 @@
           <div class="absolute right-0 top-0 h-full hidden md:flex items-center" style="width: 55%;">
             <img src="assets/images/img2.png" alt="slide2" class="w-full h-full object-cover">
           </div>
-        </div>
+        </a>
 
         <!-- 슬라이드 3 -->
-        <div class="slide absolute inset-0 w-full h-full hidden">
+        <a href="products.html" class="slide absolute inset-0 w-full h-full hidden block">
           <!-- 그라데이션 배경 -->
           <div class="absolute inset-0 w-full h-full" style="background: linear-gradient(90deg, #000000 0%, #000000 50%, #000000 100%);"></div>
 
@@ -146,10 +158,10 @@
           <div class="absolute right-0 top-0 h-full hidden md:flex items-center" style="width: 55%;">
             <img src="assets/images/img3.png" alt="slide3" class="w-full h-full object-cover">
           </div>
-        </div>
+        </a>
 
         <!-- 슬라이드 4 -->
-        <div class="slide absolute inset-0 w-full h-full hidden">
+        <a href="products.html" class="slide absolute inset-0 w-full h-full hidden block">
           <!-- 그라데이션 배경 -->
           <div class="absolute inset-0 w-full h-full" style="background: linear-gradient(90deg, #FFE4E3 0%, #DF9896 50%, #C87F7E 100%);"></div>
 
@@ -173,7 +185,7 @@
           <div class="absolute right-0 top-0 h-full hidden md:flex items-center" style="width: 55%;">
             <img src="assets/images/img4.png" alt="slide4" class="w-full h-full object-cover">
           </div>
-        </div>
+        </a>
 
         <!-- 인디케이터 -->
         <div class="slider-indicators absolute bottom-6 left-1/2 transform -translate-x-1/2 flex gap-2"></div>
@@ -620,6 +632,20 @@
 
     .slider-dot:hover {
       background: rgba(255, 255, 255, 0.8);
+    }
+
+    /* 슬라이더 네비게이션 버튼 스타일 */
+    .slider-nav-btn {
+      backdrop-filter: blur(8px);
+    }
+
+    .slider-nav-btn:active {
+      transform: translateY(-50%) scale(0.95);
+    }
+
+    /* 슬라이드에 마우스 오버 시 버튼 강조 */
+    .hero-slider:hover .slider-nav-btn {
+      background: rgba(255, 255, 255, 0.95);
     }
   </style>
 
