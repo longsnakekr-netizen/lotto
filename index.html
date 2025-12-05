@@ -194,9 +194,87 @@
 
     <!-- 메인 컨텐츠 영역 -->
     <div class="container mx-auto px-4 py-12 relative">
-      <div class="grid grid-cols-1">
+      <div id="main-content-grid" class="grid grid-cols-1">
+        <!-- 왼쪽 플로팅 메뉴 (데스크톱) -->
+        <div id="floating-left" class="hidden">
+          <!-- 왼쪽 플로팅 메뉴 -->
+          <div class="floating-left">
+            <div class="mt-[450px] bg-white rounded-lg shadow-lg p-6 border-2 border-primary-blue">
+              <!-- 제목 -->
+              <h3 class="text-center font-bold text-base leading-tight mb-4">
+                빠르고 정확하게<br>
+                당첨 예상번호<br>
+                받아보기!
+              </h3>
+
+              <!-- 입력 폼 -->
+              <form id="phone-submit-form" class="space-y-3">
+                <div>
+                  <label class="input-label text-xs font-extrabold">휴대폰 번호</label>
+                  <input type="tel" class="input-text text-sm" placeholder="010-0000-0000" id="phone-number" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" maxlength="13">
+                </div>
+
+                <!-- 개인정보처리 동의 -->
+                <div class="flex items-center gap-2">
+                  <input type="checkbox" id="privacy-agree" class="w-4 h-4 text-primary-blue border-gray-300 rounded focus:ring-primary-blue">
+                  <label for="privacy-agree" class="text-xs text-gray-600 leading-tight" style="font-size: 50%;">
+                    (필수) <a href="#" class="underline" onclick="openPrivacyModal(event)">개인정보 수집 이용 동의</a>
+                  </label>
+                </div>
+
+                <!-- 제출 버튼 -->
+                <button type="submit" class="btn btn-primary w-full text-sm">
+                  간편가입
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+
         <!-- 중앙 컨텐츠 -->
         <div>
+          <!-- 다이아 무료상담 문의 (Sticky) -->
+          <section class="sticky top-6 z-10 mb-8">
+            <div class="bg-blue-600 rounded-lg p-8">
+              <div class="max-w-5xl mx-auto">
+                <div class="flex flex-col lg:flex-row justify-center items-center gap-10">
+                  <!-- 왼쪽: 제목 및 설명 -->
+                  <div class="text-left lg:w-1/3">
+                    <h2 class="text-4xl font-bold text-white mb-3">다이아 무료상담 문의</h2>
+                    <p class="text-lg text-white opacity-80">무엇이든 저지르면 원하던 일이 일어납니다.</p>
+                  </div>
+
+                  <!-- 오른쪽: 입력 폼 -->
+                  <div>
+                    <form id="consultation-form" class="space-y-4">
+                      <!-- 전화번호 입력 및 버튼 -->
+                      <div class="flex flex-col sm:flex-row items-center gap-3">
+                        <div class="flex items-center gap-2 bg-white rounded-lg px-3 py-2">
+                          <input type="text" value="010" readonly class="w-12 bg-transparent text-gray-800 font-semibold outline-none">
+                          <span class="text-gray-600">-</span>
+                          <input type="tel" id="phone-middle" maxlength="4" class="w-16 bg-transparent text-gray-800 outline-none" placeholder="0000">
+                          <span class="text-gray-600">-</span>
+                          <input type="tel" id="phone-last" maxlength="4" class="w-16 bg-transparent text-gray-800 outline-none" placeholder="0000">
+                        </div>
+                        <button type="submit" class="bg-gray-800 text-white font-bold px-8 py-2 rounded-lg hover:bg-gray-700 transition-colors">
+                          1등 번호받기
+                        </button>
+                      </div>
+
+                      <!-- 개인정보 수집 동의 -->
+                      <div class="flex items-center justify-center lg:justify-start gap-2">
+                        <input type="checkbox" id="consultation-agree" class="w-4 h-4 rounded border-white bg-white">
+                        <label for="consultation-agree" class="text-sm text-white">
+                          (필수) <a href="#" class="underline" onclick="openPrivacyModal(event)">개인정보 수집 이용 동의</a>
+                        </label>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
           <!-- 최근 당첨 결과 -->
           <section class="mb-12">
             <div class="p-0 md:p-8 bg-white">
@@ -617,6 +695,26 @@
 
       // 당첨 번호 표시
       $('#winning-numbers-1126-new').html(createLotteryBalls([3, 16, 18, 24, 40, 44], 21));
+
+      // 랜덤하게 왼쪽 플로팅 메뉴와 상담 섹션 표시/숨김 (세트로 동작)
+      (function() {
+        // 50% 확률로 둘 다 표시 또는 둘 다 숨김
+        var shouldShow = Math.random() < 0.5;
+
+        if (shouldShow) {
+          // 둘 다 보이기
+          $('#floating-left').removeClass('hidden').addClass('lg:block');
+          $('.sticky.top-6').show();
+          // 그리드를 2컬럼으로 변경
+          $('#main-content-grid').removeClass('grid-cols-1').addClass('lg:grid-cols-[250px_1fr]');
+        } else {
+          // 둘 다 숨기기
+          $('#floating-left').addClass('hidden').removeClass('lg:block');
+          $('.sticky.top-6').hide();
+          // 그리드를 1컬럼으로 유지
+          $('#main-content-grid').removeClass('lg:grid-cols-[250px_1fr]').addClass('grid-cols-1');
+        }
+      })();
     });
   </script>
 
@@ -781,6 +879,78 @@
       if (e.target === this) {
         closePrivacyModal();
       }
+    });
+
+    // 전화번호 자동 포맷팅 (왼쪽 플로팅 메뉴)
+    $('#phone-number').on('input', function(e) {
+      var value = $(this).val().replace(/[^0-9]/g, ''); // 숫자만 추출
+      var formattedValue = '';
+
+      if (value.length <= 3) {
+        formattedValue = value;
+      } else if (value.length <= 7) {
+        formattedValue = value.slice(0, 3) + '-' + value.slice(3);
+      } else if (value.length <= 11) {
+        formattedValue = value.slice(0, 3) + '-' + value.slice(3, 7) + '-' + value.slice(7);
+      } else {
+        // 11자리 초과 방지
+        formattedValue = value.slice(0, 3) + '-' + value.slice(3, 7) + '-' + value.slice(7, 11);
+      }
+
+      $(this).val(formattedValue);
+    });
+
+    // 전화번호 폼 제출 처리 (왼쪽 플로팅 메뉴)
+    $('#phone-submit-form').on('submit', function(e) {
+      e.preventDefault();
+
+      var phoneInput = $('#phone-number').val();
+      var privacyAgree = $('#privacy-agree').is(':checked');
+
+      if (!privacyAgree) {
+        alert('개인정보 수집 이용에 동의해주세요.');
+        return;
+      }
+
+      if (!phoneInput) {
+        alert('휴대폰 번호를 입력해주세요.');
+        return;
+      }
+
+      // 여기서 실제 서버로 데이터를 전송
+      alert('간편가입이 완료되었습니다!\n입력하신 번호: ' + phoneInput);
+
+      // 폼 초기화
+      this.reset();
+    });
+
+    // 상담 폼 제출 처리 (Sticky 섹션)
+    $('#consultation-form').on('submit', function(e) {
+      e.preventDefault();
+
+      var phoneMiddle = $('#phone-middle').val();
+      var phoneLast = $('#phone-last').val();
+      var consultationAgree = $('#consultation-agree').is(':checked');
+
+      if (!consultationAgree) {
+        alert('개인정보 수집 이용에 동의해주세요.');
+        return;
+      }
+
+      if (!phoneMiddle || !phoneLast) {
+        alert('휴대폰 번호를 입력해주세요.');
+        return;
+      }
+
+      var fullPhone = '010-' + phoneMiddle + '-' + phoneLast;
+
+      // 여기서 실제 서버로 데이터를 전송
+      alert('상담 신청이 완료되었습니다!\n입력하신 번호: ' + fullPhone);
+
+      // 폼 초기화
+      $('#phone-middle').val('');
+      $('#phone-last').val('');
+      $('#consultation-agree').prop('checked', false);
     });
   </script>
 </body>
